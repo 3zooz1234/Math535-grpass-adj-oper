@@ -3,6 +3,11 @@
 \usepackage{amsthm}
 \usepackage{amssymb}
 
+\newtheorem{thm}{Theorem}
+\newtheorem{lem}{Lemma}
+\newtheorem{defn}{Definition}
+\newtheorem{exm}{Example}
+
 \begin{document}
 \begin{titlepage}
   \centering
@@ -39,20 +44,26 @@
 
 \section{The Adjoint}
 
-\textbf{\textit{Definition 1}}. Let $K$ and $G$ be Hilbert spaces and let $T: H \longrightarrow G$ be a linear operator. An operator $T^{*}: G \rightarrow x$ sucn that
+\begin{defn}
+  Let $K$ and $G$ be Hilbert spaces and let $T: H \longrightarrow G$ be a linear operator. An operator $T^{*}: G \rightarrow x$ sucn that
 
 $$
 \langle T x, y\rangle_{G}=\left\langle x, T_{y}^{*}\right\rangle_{H} \quad \text { for ad } x \in \mathcal{H}, y \in G
 $$
 
 is called \textbf{the adjoint }of $T$.
+\end{defn}
 
+\begin{thm}
+  For any linear operator $T: H \rightarrow G$. the adjoint $T^{*}$ exists and is unique.
+\end{thm}
 
-\textbf{\textit{Theorem 1}}.For any linear operator $T: H \rightarrow G$. the adjoint $T^{*}$ exists and is unique.
+\begin{exm}
+Let $I$ be the identity operator on a Hilbert space $H$. then $I^{*}=I$
+\end{exm}
 
-\textbf{\textit{Example 1}}. Let $I$ be the identity operator on a Hilbert space $H$. then $I^{*}=I$
-
-\textbf{\textit{Example 2}}. $T_{k}: C[0,1] \rightarrow C[0,1]$
+\begin{exm}
+$T_{k}: C[0,1] \rightarrow C[0,1]$
 
 $$
 g(t) \longmapsto k(t) g(t)
@@ -60,23 +71,29 @@ $$
 
 for any $k \in C[0,1]$.\\
 then $\left(T_{k}\right)^{*}=T_{\bar{k}}$\\
+\end{exm}
 
 
-\textbf{\textit{Theorem 2}}. Let $H, G$ be Hilbert spaces, and $T=H \rightarrow G$. then\\
+\begin{thm}
+Let $H, G$ be Hilbert spaces, and $T=H \rightarrow G$. then\\
 i) $\left(T^{*}\right)^{*}=T$\\
 ii) $\left\|T^{*}\right\|=\|T\|$\\
 iii) $\left\|T^{*} T\right\|=\|T\|^{2}$\\
 iv) $\operatorname{ker} T=\left(\operatorname{Im} T^{*}\right)^{\perp}$\\
 v) $\operatorname{ker} T^{*}=(\operatorname{Im}T)^{\perp}$\\
 vi) $\operatorname{ker} T^{*}=\{0\} \Leftrightarrow \operatorname{Im} T$ dense in $G$.
+\end{thm}
 
-\textbf{\textit{Theorem 3}}.Let $H$ be a Hilbert space and $T: H \rightarrow H$ then $T$ is invertible $\Longleftrightarrow$  $\operatorname{ker}T^{*}=\{0\}$ and $\exists \alpha>0$ such that $\|T(x)\| \geqslant \alpha\|x\| \quad \forall x \in H$.
+\begin{thm}
+Let $H$ be a Hilbert space and $T: H \rightarrow H$ then $T$ is invertible $\Longleftrightarrow$  $\operatorname{ker}T^{*}=\{0\}$ and $\exists \alpha>0$ such that $\|T(x)\| \geqslant \alpha\|x\| \quad \forall x \in H$.
+\end{thm}
 
-\textbf{\textit{Example 3}}.
+\begin{thm}
 Let $T: l^{2} \rightarrow l^{2}$ Where 
 
 $\begin{aligned} T\left(x_{1}, x_{2} \ldots\right) & =\left(0_{1}, x_{1}, x_{2} \ldots\right)   \end{aligned}$\\
 $T$ is not invertible.
+\end{thm}
 
 \section{Normal Operators}
 
