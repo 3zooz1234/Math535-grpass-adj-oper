@@ -7,8 +7,6 @@ jobs:
       - name: Compile Notes
         uses: xu-cheng/latex-action@v3
         with:
-          file: notes/notes.tex
-      - name: Compile Slides
-        uses: xu-cheng/latex-action@v3
-        with:
-          file: slides/slides.tex
+          file: |
+            notes/notes.tex
+            slides/slides.tex
