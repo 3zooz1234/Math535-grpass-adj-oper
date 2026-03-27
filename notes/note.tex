@@ -45,10 +45,10 @@
 \section{The Adjoint}
 
 \begin{defn}
-  Let $K$ and $G$ be Hilbert spaces and let $T: H \longrightarrow G$ be a linear operator. An operator $T^{*}: G \rightarrow x$ sucn that
+  Let $K$ and $G$ be Hilbert spaces and let $T: H \longrightarrow G$ be a linear operator. An operator $T^{*}: G \rightarrow H$ such that
 
 $$
-\langle T x, y\rangle_{G}=\left\langle x, T_{y}^{*}\right\rangle_{H} \quad \text { for ad } x \in \mathcal{H}, y \in G
+\langle T x, y\rangle_{G}=\left\langle x, T_{y}^{*}\right\rangle_{H} \quad \text { for all } x \in \mathcal{H}, y \in G
 $$
 
 is called \textbf{the adjoint }of $T$.
@@ -57,6 +57,24 @@ is called \textbf{the adjoint }of $T$.
 \begin{thm}
   For any linear operator $T: H \rightarrow G$. the adjoint $T^{*}$ exists and is unique.
 \end{thm}
+\begin{proof}
+  \textbf{Existence of the Adjoint:}
+  \newline
+  \textbf{Uniqueness of the Adjoint:} Let $S:H\to G$ and $S':H\to G$ be adjoints of $T$, i.e. for all $x,y\in G$
+  $$
+    \begin{aligned}
+      \langle Tx,y\rangle &= \langle x,Sy\rangle \\
+      \langle Tx,y\rangle &= \langle x,S'y\rangle
+    \end{aligned}
+  $$
+  We then have
+  $$
+  \begin{aligned}
+    \langle x,(S-S')y\rangle = \langle x,Sy\rangle-\langle x,S'y\rangle = \langle Tx,y\rangle-\langle Tx,y\rangle = 0 \\
+  \end{aligned}
+  $$
+  This implies that $(S-S')y=0$, and hence, $S-S'=0\implies S=S'$.
+\end{proof}
 
 \begin{exm}
 Let $I$ be the identity operator on a Hilbert space $H$. then $I^{*}=I$
