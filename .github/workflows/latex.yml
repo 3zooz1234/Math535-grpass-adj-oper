@@ -1,10 +1,13 @@
-name: Bulid LaTeX
+name: Build LaTeX Documents
 on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Compile Notes
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Compile LaTeX files
         uses: xu-cheng/latex-action@v3
         with:
           root_file: |
