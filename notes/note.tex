@@ -26,4 +26,104 @@
   \vspace{1cm}
   {\large \today\par}
 \end{titlepage}
+\tableofcontents
+\newpage
+\begin{itemize}
+  \item The objectives are:
+\end{itemize}
+
+1-Study the adjoint of an operator\\
+2-Study (Self-odjonit, hormal, unitary operabors)\\
+3-Study the Spectrum of an operater.
+
+
+\section{The Adjoint}
+
+\textbf{\textit{Definition 1}}. Let $K$ and $G$ be Hilbert spaces and let $T: H \longrightarrow G$ be a linear operator. An operator $T^{*}: G \rightarrow x$ sucn that
+
+$$
+\langle T x, y\rangle_{G}=\left\langle x, T_{y}^{*}\right\rangle_{H} \quad \text { for ad } x \in \mathcal{H}, y \in G
+$$
+
+is called \textbf{the adjoint }of $T$.
+
+
+\textbf{\textit{Theorem 1}}.For any linear operator $T: H \rightarrow G$. the adjoint $T^{*}$ exists and is unique.
+
+\textbf{\textit{Example 1}}. Let $I$ be the identity operator on a Hilbert space $H$. then $I^{*}=I$
+
+\textbf{\textit{Example 2}}. $T_{k}: C[0,1] \rightarrow C[0,1]$
+
+$$
+g(t) \longmapsto k(t) g(t)
+$$
+
+for any $k \in C[0,1]$.\\
+then $\left(T_{k}\right)^{*}=T_{\bar{k}}$\\
+
+
+\textbf{\textit{Theorem 2}}. Let $H, G$ be Hilbert spaces, and $T=H \rightarrow G$. then\\
+i) $\left(T^{*}\right)^{*}=T$\\
+ii) $\left\|T^{*}\right\|=\|T\|$\\
+iii) $\left\|T^{*} T\right\|=\|T\|^{2}$\\
+iv) $\operatorname{ker} T=\left(\operatorname{Im} T^{*}\right)^{\perp}$\\
+v) $\operatorname{ker} T^{*}=(\operatorname{Im}T)^{\perp}$\\
+vi) $\operatorname{ker} T^{*}=\{0\} \Leftrightarrow \operatorname{Im} T$ dense in $G$.
+
+\textbf{\textit{Theorem 3}}.Let $H$ be a Hilbert space and $T: H \rightarrow H$ then $T$ is invertible $\Longleftrightarrow$  $\operatorname{ker}T^{*}=\{0\}$ and $\exists \alpha>0$ such that $\|T(x)\| \geqslant \alpha\|x\| \quad \forall x \in H$.
+
+\textbf{\textit{Example 3}}.
+Let $T: l^{2} \rightarrow l^{2}$ Where 
+
+$\begin{aligned} T\left(x_{1}, x_{2} \ldots\right) & =\left(0_{1}, x_{1}, x_{2} \ldots\right)   \end{aligned}$\\
+$T$ is not invertible.
+
+\section{Normal Operators}
+
+\textbf{\textit{Definition 2}}. Let $H$ be a Hilbert space and $T$ a lin. operaton $T: H \rightarrow H$. then if $T T^{*}=T^{*} T, T$ is said to be normal of eratu.
+
+\textbf{\textit{Example 4}}.$T$ is Exp3 is not normal.\\
+
+\textbf{\textit{Example 5}}. If $T$ is normal, then $T$ - $\lambda I$ is also normal.\\
+
+
+\textbf{\textit{Lemma}}.Let $T: H \rightarrow H$ be a normal operator, then\\
+a) $\|T(x)\|=\left\|T^{*}(x)\right\| ; \quad \forall x \in H$\\
+b) If $\|T(x)\| \geqslant \alpha\|x\| \quad \forall x \in H$ then $\operatorname{ker} T^{*}=\{0\}$. \\
+
+\textbf{\textit{Theorem 4}}.
+Let $H$ be a Hilbert space and $T: H \rightarrow H$ is a normal operator, then\\
+$T$ is invertible $\Longleftrightarrow \exists \alpha>$ such thar $\quad\|T(x)\| \geqslant \alpha\|x\| \forall x \in H$.
+
+Hence it is easier to determine whether a normal operator invertible compared with any operator.
+
+\section{Self-adjoint operators}
+An interesting subset of the normal operators is the self-adjoint operators.
+
+\textbf{\textit{Definition 3}}. $T: H \rightarrow H$ is called a self-adjoint if $T=T^{*}$
+
+\textbf{\textit{Theorem 5}}.Let $H$ be Hlibert space \& $T_{1}$ and $T_{2}$ be self-adjont oterator, then $1-\alpha T_{1}+\beta T_{2}$ is a self-adjon, $\alpha \beta \in \mathbb{R}$ 2 - The set of self-odjun operuter is a clseel subset of $B(H)$.
+
+\textbf{\textit{Example 6}}. For any $T \in B(H)$, show $T T^{*}$ and $T^{*} T$ are self-adjoint. \\
+
+\textbf{\textit{Example 7}}. Any operator $T \in B(H)$, $T=R+i S$ for $R \& S$ self-adjoint
+
+\section{Unitary operators}
+\textbf{\textit{Definition 4}}. An operator $T \in B(H)$ called unitary, if $\Pi T^{*}=T^{*} T=I$.
+
+
+
+\textbf{\textit{Lemma}}.If $S, T \in B (H)$ and\\
+$\langle S z, z\rangle=\langle T z, 3\rangle \quad \forall z \in H$\\
+$\Rightarrow \quad S=T$.
+
+\textbf{\textit{Theorem 6}}.Let $T \in B(H)$, then $T$ is unitary if $T$ is isometry.
+
+\textbf{\textit{Theorem 7}}. let $T, S$ be unitary opearturs, then\\
+a) $T^{*}$ is unitary \& $\|T\|=\left\|T^{*}\right\|=1$\\
+b) $T S$ is unitary\\
+c) $T^{-1}$ is unitary.
+
+\section{}
+
 \end{document}
