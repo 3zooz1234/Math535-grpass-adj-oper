@@ -1,12 +1,28 @@
-name: Bulid LaTeX
+name: Build and Save LaTeX
 on: [push]
+
+permissions:
+  contents: write  # Crucial: Gives the "robot" permission to save files
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Compile Notes
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Compile LaTeX files
         uses: xu-cheng/latex-action@v3
         with:
-          file: |
-            notes/notes.tex
+          root_file: |
+            notes/note.tex
             slides/slides.tex
+          work_in_root_file_dir: true
+
+      - name: Auto-Save PDFs to Repo
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add notes/note.pdf slides/slides.pdf
+          git commit -m "Auto-update PDFs [skip ci]" || echo "No changes to commit"
+          git push
