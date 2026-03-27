@@ -1,0 +1,14 @@
+name: Bulid LaTeX
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Compile Notes
+        uses: xu-cheng/latex-action@v3
+        with:
+          file: notes/notes.tex
+      - name: Compile Slides
+        uses: xu-cheng/latex-action@v3
+        with:
+          file: slides/slides.tex
