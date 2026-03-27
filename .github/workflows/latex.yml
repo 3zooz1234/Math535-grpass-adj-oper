@@ -8,5 +8,5 @@ jobs:
         uses: xu-cheng/latex-action@v3
         with:
           root_file: |
-            notes/notes.tex
+            notes/note.tex
             slides/slides.tex
