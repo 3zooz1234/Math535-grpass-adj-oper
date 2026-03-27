@@ -10,3 +10,4 @@ jobs:
           root_file: |
             notes/note.tex
             slides/slides.tex
+          work_in_root_file_dir: true
