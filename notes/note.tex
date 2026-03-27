@@ -48,7 +48,7 @@
   Let $K$ and $G$ be Hilbert spaces and let $T: H \longrightarrow G$ be a linear operator. An operator $T^{*}: G \rightarrow H$ such that
 
 $$
-\langle T x, y\rangle_{G}=\left\langle x, T_{y}^{*}\right\rangle_{H} \quad \text { for all } x \in \mathcal{H}, y \in G
+\langle T x, y\rangle_{G}=\left\langle x, T^{*}y\right\rangle_{H} \quad \text { for all } x \in \mathcal{H}, y \in G
 $$
 
 is called \textbf{the adjoint }of $T$.
@@ -91,9 +91,48 @@ for any $k \in C[0,1]$.\\
 then $\left(T_{k}\right)^{*}=T_{\bar{k}}$\\
 \end{exm}
 
+\begin{thm}
+  Let $H,G$ be Hilbert spaces and let $T:H\to G$ and $S:H\to G$ be linear operator, then
+  \begin{enumerate}
+    \item $(T+S)^{*} = T^{*} + S^{*}$
+    \item $(TS)^{*} = S^{*}T^{*}$
+    \item $T^{*}(\alpha u+\beta v) = \bar{\alpha}T^{*}(u)+\bar{\beta}T^{*}(v)$
+  \end{enumerate}
+\end{thm}
+\begin{proof}
+  \begin{enumerate}
+    \item We have
+      $$
+      \begin{aligned}
+        \langle x,(T+S)^{*}y\rangle = \langle (T+S)x,y\rangle &= \langle Tx,y\rangle+\langle Sx,y\rangle\\
+                                                              &= \langle x,T^{*}y\rangle+\langle x,S^{*}y\rangle \\
+                                                              &= \langle x,(T^{*}+S^{*})y\rangle
+      \end{aligned}
+      $$
+      Therefore, $(T+S)^{*} = T^{*}+S^{*}$.
+    \item We have
+      $$
+      \begin{aligned}
+        \langle x,(TS)^{*}y\rangle = \langle TSx,y\rangle = \langle Sx,T^{*}y\rangle = \langle x,S^{*}T^{*}y\rangle
+      \end{aligned}
+      $$
+      Therefore, $(TS)^{*} = S^{*}T^{*}$.
+    \item We have
+      $$
+      \begin{aligned}
+        \langle x,T^{*}(\alpha u+\beta v)\rangle = \langle T(x), \alpha u+\beta v\rangle &= \overline{\langle \alpha u+\beta v, T(x)\rangle} \\
+                                                                                         &= \bar{\alpha}\overline{\langle u,T(x)\rangle}+\bar{\beta}\overline{\langle v,T(x)\rangle} \\
+                                                                                         &= \bar{\alpha}\langle T(x),u\rangle+\bar{\beta}\langle T(x),v\rangle \\
+                                                                                         &= \bar{\alpha}\langle x,T^{*}(u)\rangle+\bar{\beta}\langle x,T^{*}(v)\rangle \\
+                                                                                         &= \langle x,\bar{\alpha}T^{*}(u)+\bar{\beta}T^{*}(v)\rangle
+      \end{aligned}
+      $$
+      Therefore, $T^{*}(\alpha u+\beta v) = \bar{\alpha} T^{*}u+\bar{\beta} T^{*}v$.
+  \end{enumerate}
+\end{proof}
 
 \begin{thm}
-Let $H, G$ be Hilbert spaces, and $T=H \rightarrow G$. then\\
+Let $H, G$ be Hilbert spaces, and $T:H \rightarrow G$. then\\
 i) $\left(T^{*}\right)^{*}=T$\\
 ii) $\left\|T^{*}\right\|=\|T\|$\\
 iii) $\left\|T^{*} T\right\|=\|T\|^{2}$\\
