@@ -169,7 +169,26 @@ is called \textbf{the adjoint }of $T$.
   For any linear operator $T: H \rightarrow G$. the adjoint $T^{*}$ exists and is unique.
 \end{thm}
 \begin{proof}
-  \textbf{Existence of the Adjoint:}
+  \textbf{Existence of the Adjoint:} We would like to show that for all $y\in G$, there is $w\in H$ such that 
+  $$\langle Tx,y\rangle = \langle x,w\rangle$$
+  for all $x\in H$. Let
+  $$
+  \begin{aligned}
+    f_{y}: H&\longrightarrow\mathbb{F} \\
+           x&\longmapsto\langle Tx,y\rangle
+  \end{aligned}
+  $$
+  This map is linear, since it is the composition of two linear maps, namely $T$ and $\langle\cdot,y\rangle$. Also, this map is bounded since
+  $$
+  \begin{aligned}
+    |f_{y}(x)| = |\langle Tx,y\rangle| &\leq \lVert y\rVert\lVert Tx\rVert \\
+                                       &\leq \lVert y\rVert\lVert T\rVert \lVert x\rVert
+  \end{aligned}
+  $$
+  So, $f_{y}\in H^{*}$. By Reisz Representation Theorem, for some $w\in H$, we can write $f_{y}$ as
+  $$
+  \langle Tx,y\rangle = f_{y}(x) = \langle x,w\rangle
+  $$
   \newline
   \textbf{Uniqueness of the Adjoint:} Let $S:H\to G$ and $S':H\to G$ be adjoints of $T$, i.e. for all $x,y\in G$
   $$

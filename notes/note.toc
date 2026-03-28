@@ -3,5 +3,5 @@
 \contentsline {section}{\numberline {0.3}The Adjoint}{4}{}%
 \contentsline {section}{\numberline {0.4}Normal Operators}{6}{}%
 \contentsline {section}{\numberline {0.5}Self-adjoint operators}{6}{}%
-\contentsline {section}{\numberline {0.6}Unitary operators}{6}{}%
+\contentsline {section}{\numberline {0.6}Unitary operators}{7}{}%
 \contentsline {section}{\numberline {0.7}}{7}{}%
