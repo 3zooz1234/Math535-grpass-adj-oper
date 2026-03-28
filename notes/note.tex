@@ -346,13 +346,35 @@ $T$ is not invertible.
 \textbf{\textit{Example 5}}. If $T$ is normal, then $T$ - $\lambda I$ is also normal.\\
 
 
-\textbf{\textit{Lemma}}.Let $T: H \rightarrow H$ be a normal operator, then\\
-a) $\|T(x)\|=\left\|T^{*}(x)\right\| ; \quad \forall x \in H$\\
-b) If $\|T(x)\| \geqslant \alpha\|x\| \quad \forall x \in H$ then $\operatorname{ker} T^{*}=\{0\}$. \\
+\begin{lem}
+Let $T: H \rightarrow H$ be a normal operator, then
+  \begin{enumerate}
+    \item $\|T(x)\|=\left\|T^{*}(x)\right\| ; \quad \forall x \in H$
+    \item If $\|T(x)\| \geqslant \alpha\|x\| \quad \forall x \in H$ then $\operatorname{ker} T^{*}=\{0\}$. ($\alpha>0$ ????)
+  \end{enumerate}
+\end{lem}
+\begin{proof}
+  \begin{enumerate}
+    \item We have
+      $$
+      \begin{aligned}
+        \lVert Tx\rVert = \langle Tx,Tx\rangle = \langle x,T^{*}Tx\rangle = \langle x,TT^{*}x\rangle = \langle T^{*}x,T^{*}x\rangle = \lVert T^{*}x\rVert
+      \end{aligned}
+      $$
+    \item Let $u\in\operatorname{ker}T^{*}$, i.e. $T^{*}(u)=0$. By 1, we have
+      $$
+      0=\lVert T^{*}u\rVert=\lVert T^{*}u\rVert\geq\alpha\lVert u\rVert\geq 0
+      $$
+      Hence, $\lVert u\rVert=0\implies u=0$
+  \end{enumerate}
+\end{proof}
 
-\textbf{\textit{Theorem 4}}.
-Let $H$ be a Hilbert space and $T: H \rightarrow H$ is a normal operator, then\\
+By the lemma above and theorem [reference the theorem], the next theorem immediately follows. \\
+
+\begin{thm}
+Let $H$ be a Hilbert space and $T: H \rightarrow H$ is a normal operator, then
 $T$ is invertible $\Longleftrightarrow \exists \alpha>$ such thar $\quad\|T(x)\| \geqslant \alpha\|x\| \forall x \in H$.
+\end{thm}
 
 Hence it is easier to determine whether a normal operator invertible compared with any operator.
 
