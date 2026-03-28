@@ -285,6 +285,25 @@ $T$ is not invertible.
 
 \textbf{\textit{Definition 2}}. Let $H$ be a Hilbert space and $T$ a lin. operaton $T: H \rightarrow H$. then if $T T^{*}=T^{*} T, T$ is said to be normal of eratu.
 
+\begin{exm}
+  Consider
+  $$
+  \begin{aligned}
+    T:\mathbb{R}^{2}&\longrightarrow\mathbb{R}^{2}\\
+    x&\longmapsto\begin{pmatrix}1&-1\\1&1\\\end{pmatrix}x
+  \end{aligned}
+  $$
+  We see that
+  $$
+    T^{*}(x) = \begin{pmatrix}1&-1\\1&1\\\end{pmatrix}^{T}x = \begin{pmatrix}1&1\\-1&1\\\end{pmatrix}x
+  $$
+  Since
+  $$
+    \begin{pmatrix}1&1\\-1&1\end{pmatrix}\begin{pmatrix}1&-1\\1&1\\\end{pmatrix} = \begin{pmatrix}2&0\\0&2\\\end{pmatrix} = \begin{pmatrix}1&-1\\1&1\\\end{pmatrix}\begin{pmatrix}1&1\\-1&1\\\end{pmatrix}
+  $$
+  we have $T^{*}T=TT^{*}$.
+\end{exm}
+
 \textbf{\textit{Example 4}}.$T$ is Exp3 is not normal.\\
 
 \textbf{\textit{Example 5}}. If $T$ is normal, then $T$ - $\lambda I$ is also normal.\\
