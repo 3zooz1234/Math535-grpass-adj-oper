@@ -10,6 +10,7 @@
 \newtheorem{exm}{Example}
 \newtheorem{cor}{Corollary}
 \newtheorem{prop}{Proposition}
+\newtheorem{rem}{Remark}
 
 \begin{document}
 \begin{titlepage}
@@ -410,7 +411,7 @@ An interesting subset of the normal operators is the self-adjoint operators.
 An operator $T \in B(H)$ called unitary, if $\Pi T^{*}=T^{*} T=I$.
 \end{defn}
 
-\begin{exm}
+\begin{exm} \label{IdIsUnitary}
   It can be see that the identity operator, $I$, is unitary, since $I^{*}I=II=I=II=II^{*}$.
 \end{exm}
 
@@ -420,14 +421,22 @@ $\Rightarrow \quad S=T$.
 
 \textbf{\textit{Theorem 6}}.Let $T \in B(H)$, then $T$ is unitary if $T$ is isometry.
 
-\begin{thm}
+\begin{thm} \label{UnitaryProp}
 Let $T, S$ be unitary operators, then
 \begin{enumerate}
-  \item $T^{*}$ is unitary \& $\|T\|=\left\|T^{*}\right\|=1$\\
-  \item $T S$ is unitary\\
+  \item $T^{*}$ is unitary and $\|T\|=\left\|T^{*}\right\|=1$
+  \item $T S$ is unitary
   \item $T^{-1}$ is unitary.
 \end{enumerate}
 \end{thm}
+
+\begin{rem}
+  By Theorem \ref{UnitaryProp}, Example \ref{IdIsUnitary} and the associativity of function composition, we observe that the set of all unitary operators forms a group under composition. Moreover, if $T:\mathbb{C}^{n}\to\mathbb{C}^{n}$, this group is called the \textbf{unitary group}, denoted $U(n)$. There is a special subgroup of $\operatorname{U}(n)$, which is the \textbf{special unitary group}, denoted $\operatorname{SU}(n)$, which is the set of all unitary operators from $\mathbb{C}^{n}$ to $\mathbb{C}^{n}$ such that its determinant is $1$. This forms a subgroup since if we let $A,B\in\operatorname{SU}(n)$, we have
+  $$
+  \operatorname{det}AB^{-1} = \frac{\operatorname{det}A}{\operatorname{det}B} = \frac{1}{1} = 1
+  $$
+  showing that $AB^{-1}\in\operatorname{SU}(n)$.
+\end{rem}
 
 \section{}
 
