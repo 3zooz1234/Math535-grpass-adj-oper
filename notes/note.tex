@@ -124,7 +124,7 @@ $$
 The matrix of the adjoint of a linear map on $\mathbb{C}^{n}$ with complex matrix $A$ is the Hermitian conjugate matrix, $A^{*} = \overline{A^{T}}$.
 \end{exm}
 
-\begin{exm}
+\begin{exm} \label{ShiftOp}
 Suppose that $S$ and $T$ are the right and left shift operators, respectively, on the sequence space $l^{2}(\mathbb{R})$, defined by
 $$
 S(x_{1}, x_{2}, x_{3}, \dots) = (0, x_{1}, x_{2}, x_{3}, \dots), \quad T(x_{1}, x_{2}, x_{3}, \dots) = (x_{2}, x_{3}, x_{4}, \dots).
@@ -307,16 +307,17 @@ v) $\operatorname{ker} T^{*}=(\operatorname{Im}T)^{\perp}$\\
 vi) $\operatorname{ker} T^{*}=\{0\} \Leftrightarrow \operatorname{Im} T$ dense in $G$.
 \end{thm}
 
-\begin{thm}
+\begin{thm} \label{Inv}
 Let $H$ be a Hilbert space and $T: H \rightarrow H$ then $T$ is invertible $\Longleftrightarrow$  $\operatorname{ker}T^{*}=\{0\}$ and $\exists \alpha>0$ such that $\|T(x)\| \geqslant \alpha\|x\| \quad \forall x \in H$.
 \end{thm}
 
-\begin{thm}
-Let $T: l^{2} \rightarrow l^{2}$ Where 
+\begin{exm} \label{ShiftOpInv}
+Let $T: l^{2} \rightarrow l^{2}$ where 
 
-$\begin{aligned} T\left(x_{1}, x_{2} \ldots\right) & =\left(0_{1}, x_{1}, x_{2} \ldots\right)   \end{aligned}$\\
-$T$ is not invertible.
-\end{thm}
+$$\begin{aligned} T\left(x_{1}, x_{2} \ldots\right) & =\left(0, x_{1}, x_{2} \ldots\right)   \end{aligned}$$
+
+As shown in Example \ref{ShiftOp}, we have $T^{*}(x_{1},x_{2},\dots) = (x_{2},x_{3},\dots)$. So, $$\operatorname{ker}T^{*} = \{u\in\mathbb{F}: (u,0,0,\dots)\}\not=\{(0,0,0,\dots)\}$$ By Theorem \ref{Inv}, $T$ is not invertible.
+\end{exm}
 
 \section{Normal Operators}
 
@@ -341,7 +342,21 @@ $T$ is not invertible.
   we have $T^{*}T=TT^{*}$.
 \end{exm}
 
-\textbf{\textit{Example 4}}.$T$ is Exp3 is not normal.\\
+\begin{exm}
+  If $T$ is the right shift operator defined in Example \ref{ShiftOp}, then $T$ is not normal. This can be shown by finding $T^{*}T$ and $TT^{*}$. We have
+  $$
+  \begin{aligned}
+    T^{*}T(x_{1},x_{2},\dots) = T^{*}(0,x_{1},x_{2},\dots) = (x_{1},x_{2},\dots)
+  \end{aligned}
+  $$
+  and
+  $$
+  \begin{aligned}
+    TT^{*}(x_{1},x_{2},\dots) = T(x_{2},x_{3},\dots) = (0,x_{2},x_{3},\dots)
+  \end{aligned}
+  $$
+  which are not equal.
+\end{exm}
 
 \textbf{\textit{Example 5}}. If $T$ is normal, then $T$ - $\lambda I$ is also normal.\\
 
@@ -369,7 +384,7 @@ Let $T: H \rightarrow H$ be a normal operator, then
   \end{enumerate}
 \end{proof}
 
-By the lemma above and theorem [reference the theorem], the next theorem immediately follows. \\
+By the lemma above and theorem \ref{Inv}, the next theorem immediately follows.
 
 \begin{thm}
 Let $H$ be a Hilbert space and $T: H \rightarrow H$ is a normal operator, then
