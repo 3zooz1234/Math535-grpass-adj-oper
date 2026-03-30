@@ -397,13 +397,43 @@ Hence it is easier to determine whether a normal operator invertible compared wi
 \section{Self-adjoint operators}
 An interesting subset of the normal operators is the self-adjoint operators.
 
-\textbf{\textit{Definition 3}}. $T: H \rightarrow H$ is called a self-adjoint if $T=T^{*}$
+\begin{defn}
+$T: H \rightarrow H$ is called a self-adjoint if $T=T^{*}$
+\end{defn}
 
 \textbf{\textit{Theorem 5}}.Let $H$ be Hlibert space \& $T_{1}$ and $T_{2}$ be self-adjont oterator, then $1-\alpha T_{1}+\beta T_{2}$ is a self-adjon, $\alpha \beta \in \mathbb{R}$ 2 - The set of self-odjun operuter is a clseel subset of $B(H)$.
 
-\textbf{\textit{Example 6}}. For any $T \in B(H)$, show $T T^{*}$ and $T^{*} T$ are self-adjoint. \\
+\begin{exm}
+For any $T \in B(H)$, we observe that $T T^{*}$ and $T^{*} T$ are self-adjoint, since
+$$
+(T^{*}T)^{*} = T^{*}(T^{*})^{*} = T^{*}T
+$$
+and
+$$
+(TT^{*})^{*} = (T^{*})^{*}T^{*} = TT^{*}
+$$
+\end{exm}
 
-\textbf{\textit{Example 7}}. Any operator $T \in B(H)$, $T=R+i S$ for $R \& S$ self-adjoint
+\begin{prop}
+Any operator $T \in B(H)$, $T=R+i S$ for $R$ and $S$ self-adjoint
+\end{prop}
+\begin{proof}
+  Let $R$ and $S$ be the following
+  $$
+  R=\frac{T+T^{*}}{2}\quad S=\frac{T-T^{*}}{2i}
+  $$
+  then we have
+  $$
+  R+iS = \Big(\frac{T+T^{*}}{2}\Big)+i\Big(\frac{T-T^{*}}{2i}\Big) = \frac{T+T^{*}}{2}+\frac{T-T^{*}}{2} = \frac{2T}{2} = T
+  $$
+  and
+  $$
+  \begin{aligned}
+    R^{*} = \Big(\frac{T+T^{*}}{2}\Big)^{*} = \frac{(T+T^{*})^{*}}{2} = \frac{T^{*}+(T^{*})^{*}}{2} = \frac{T^{*}+T}{2} = \frac{T+T^{*}}{2} = R \\ \\
+    S^{*} = \Big(\frac{T-T^{*}}{2i}\Big)^{*} = -\frac{(T-T^{*})^{*}}{2i} = -\frac{T^{*}-(T^{*})^{*}}{2} = -\frac{T^{*}-T}{2} = \frac{T-T^{*}}{2} = S
+  \end{aligned}
+  $$
+\end{proof}
 
 \section{Unitary operators}
 
