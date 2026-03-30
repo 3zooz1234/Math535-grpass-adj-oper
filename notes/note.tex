@@ -447,56 +447,58 @@ Let $T, S$ be unitary operators, then
 \section{The spectrum of an Operator}
 The notation of an eigenvalue of a matrix has many essential applications in finite dimensional vector space; however, we wish we could extend this notation to the infinite-dimensional vector space.
 
-Definition:\\
+\begin{defn}
 Let $T \in B(H), \lambda \in \mathbb{C}$ is called an eigenvalue of $T$, if there exsits $x \in H$ such that
 
 $$
 Tx=\lambda x
 $$
+\end{defn}
 
-Definition:\\
+\begin{defn}
 Let $T \in B(H)$. The spectrum of $T$, denoted by $\sigma(T)$ is\\
 $\sigma(T)=\{\lambda \in \mathbb{C}: T-\lambda I$ is not invertible $\}$
+\end{defn}
 
-Theorem: If $\lambda$ is an eigenvalue of $T$ , then $\lambda \in \sigma(T)$
+\begin{thm}
+If $\lambda$ is an eigenvalue of $T$ , then $\lambda \in \sigma(T)$
+\end{thm}
 
-Remark: for finite dimesonal Hilbert space, the spectrum of $T$ cosist only the eigenvalues
-
-However in Infite dimesond Hilbert Spare we may have no eigenvalus.
+\textbf{Remark }for finite dimesonial Hilbert space, the spectrum of $T$ cosist only the eigenvalues.
+However, in Infite dimesond Hilbert Spare we may have no eigenvalus.
 
 Example: Consider $S \in$ $B\left(l^{2}\right)$
 $S\left(x_{1}, x_{2}, \ldots\right)=\left(0, x_{1}, x_{2}, \ldots\right)$ 
 has no egienvalue 
 
-Theorem \\
-Let $\mathcal{H}$ be a complex Hilbert space and let $T \in B(\mathcal{H})$.\\
-(a) If $|\lambda|>\|T\|$ then $\lambda \notin \sigma(T)$.\\
-(b) $\sigma(T)$ is a closed set.
-
-Lemma 6.37\\
+\begin{exm}
+Let $\mathcal{H}$ be a complex Hilbert space and let $T \in B(\mathcal{H})$.\\ If $|\lambda|>\|T\|$ then $\lambda \notin \sigma(T)$.\\
+\end{exm}
+\begin{lem}
 If $\mathcal{H}$ is a complex Hilbert space and $T \in B(\mathcal{H})$ then $\sigma\left(T^{*}\right)=\{\bar{\lambda}: \lambda \in \sigma(T)\}$.
-
-\section*{Example 6.38}
+\end{lem}
+\begin{exm}
 If $S: \ell^{2} \rightarrow \ell^{2}$ is the unilateral shift then:\\
 (a) if $\lambda \in \mathbb{C}$ with $|\lambda|<1$ then $\lambda$ is an eigenvalue of $S^{*}$;\\
 (b) $\sigma(S)=\{\lambda \in \mathbb{C}:|\lambda| \leq 1\}$.
+\end{exm}
 
-\section*{Theorem 6.39}
-Let $\mathcal{H}$ be a complex Hilbert space and let $T \in B(\mathcal{H})$.\\
-(b) If $T$ is invertible then $\sigma\left(T^{-1}\right)=\left\{\mu^{-1}: \mu \in \sigma(T)\right\}$.
-
-Lemma 6.40\\
+\begin{thm}
+Let $\mathcal{H}$ be a complex Hilbert space and let $T \in B(\mathcal{H})$.\\If $T$ is invertible then $\sigma\left(T^{-1}\right)=\left\{\mu^{-1}: \mu \in \sigma(T)\right\}$.
+\end{thm}
+\begin{lem}
 If $\mathcal{H}$ is a complex Hilbert space and $U \in B(\mathcal{H})$ is unitary then
 
 $$
 \sigma(U) \subseteq\{\lambda \in \mathbb{C}:|\lambda|=1\}
 $$
-
-\section*{Corollary 6.44}
-(a) If $A$ is a self-adjoint matrix with eigenvalues $\left\{\lambda_{1}, \lambda_{2}, \ldots, \lambda_{n}\right\}$, then
+\end{lem}
+\begin{cor}
+ If $A$ is a self-adjoint matrix with eigenvalues $\left\{\lambda_{1}, \lambda_{2}, \ldots, \lambda_{n}\right\}$, then
 
 $$
 \|A\|=\max \left\{\left|\lambda_{1}\right|,\left|\lambda_{2}\right|, \ldots,\left|\lambda_{n}\right|\right\} .
 $$
+\end{cor}
 
 \end{document}
