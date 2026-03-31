@@ -63,18 +63,29 @@ $$\varphi(x)=\langle y, x\rangle \quad$$ for all $x \in H$ and $\|\varphi\|=\|y\
     Every Hilbert space is reflexive.
 \end{cor}
 
+\begin{cor} %File 5
+    Let $H$ be a Hilbert space and $T \in B(H)$, then
+
+    $$
+    \|T\|  = \sup \{ | \langle T(x), y \rangle | : x, y \in X \text{ and } \|x\| = \|y\| = 1 \}
+    $$.
+\end{cor}
+
+\begin{proof}
+Let $\alpha = \sup \{ | \langle T(x), y \rangle | : x, y \in H \text{ and } \|x\| = \|y\| = 1 \}$.
+By the Cauchy-Schwarz inequality, we have $| \langle T(x), y \rangle | \leq \|T(x)\| \|y\|$ and by the definition of the operator norm we get $ \|T(x)\| \|y\| \leq \|T\| \|x\| \|y\|$. Combining these two inequalities and substituting $\|x\| = \|y\| = 1$, we obtain $| \langle T(x), y \rangle | \leq \|T\|$. Taking the supremum, we reach $\alpha \leq \|T\| $.
+
+Now, let $x \in H$ be such that $\|x\| = 1$ and $T(x) \neq 0$. (If $T(x) = 0$ $\forall \|x\| = 1$, then $\|T\|  = 0$ and so $\|T\| \leq \alpha$). As $T(x) \neq 0$, by one of the consequences of the Hahn-Banach Theorem (Corollary 6.1 from the notes), there exists $f \in H^*$ continuous such that $\|f\| = 1$ and $f(T(x)) = \|T(x)\|$. Now since $f \in H^{*}$ and $f$ is bounded, by the Riesz Representation Theorem, there exists $y_f \in H$ such that $\|y_f\| = \|f\| = 1$ and $\|T(x)\| = f(T(x)) = \langle T(x), y_f \rangle$. Therefore, $\|T(x)\| \leq \alpha$ for all $\|x\| = 1$. This implies $\|T\| \leq \alpha$.
+
+Thus, $\|T\|  = \sup \{ | \langle T(x), y \rangle | : x, y \in X \text{ and } \|x\| = \|y\| = 1 \}$
+\end{proof}
+
+
 \begin{cor}[The weak compactness property]
 Every bounded sequence in a Hilbert space $H$ containing a weakly convergent subsequence.
 \end{cor}
 
-\begin{proof}
-Let $\{\ x_n \}\ $ be a bounded sequence in $H$ with bound $M$, i.e. $ \|x_n \| \leq M$, and let $X =$ span $ \{\ x_m : m \in \mathbb{N} \}\ $. 
-Then the closed unit ball $B_{1}[0]_X$ is closed and bounded. By Theorem 2.7 from the course notes it follows that $X$ is finite dimensional. Hence, $X$ is closed.
-Let $y_n ^1 = \langle x_1,x_n \rangle$ be a sequence of real numbers. Since $y_n ^1$,  by the Bolzano–Weierstrass theorem $y_n ^1$ has a convergent subsequence, denote it by $y_{n_k} ^1 = \langle x_1,x_{n_k} \rangle$.
-Similarly, for $y_n ^2 = \langle x_2,x_n \rangle$ we obtain its convergent subsequence $y_{n_k} ^2 = \langle x_2,x_{n_k} \rangle$.
 
-NOT DONE
-\end{proof}
 
 \textbf{Remark} The above Corollary is used to prove that
 
@@ -95,6 +106,7 @@ $$T(x)=f, x \in H$$
 
 has a unique solution for all $f \in H^{*}$.
 \end{cor}
+
 
 
 \section{The Adjoint}
