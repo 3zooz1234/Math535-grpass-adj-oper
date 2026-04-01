@@ -59,6 +59,30 @@ $$\varphi(x)=\langle y, x\rangle \quad$$ for all $x \in H$ and $\|\varphi\|=\|y\
 
 \end{thm}
 
+Now recall that $\mathbb{R}^n$, $(\ell_2$ and $L_2[a,b]$ are Hilbert spaces. Using the Riesz representation theorem, we can know the nature of bounded linear functionals on these spaces as in the following examples.
+
+\begin{exm}
+    For $F \in (\mathbb{R}^n)^{*}$, there exists a unique $a = (a_1, a_2, a_3, \dots, a_n) \in \mathbb{R}^n$ such that
+    \begin{align*}
+        F(x) = \langle x, a \rangle = \sum_{i=1}^{n} x_i a_i ,  \text{ for all } x = (x_1, x_2, \dots, x_n) \in \mathbb{R}^n
+    \end{align*}
+\end{exm}
+
+\begin{exm}
+   For $F \in (\ell_2)^{*}$, there exists a unique $a = (a_1, a_2, a_3, \dots, a_n, \dots) \in \ell_2$ such that
+    \begin{align*}
+        F(x) = \langle x, a \rangle = \sum_{i=1}^{\infty} x_i \overline{a_i}, \text{ for all } x = (x_1, x_2, \dots, x_n, \dots) \in \ell_2 
+    \end{align*} 
+\end{exm}
+
+\begin{exm}
+    For $F \in (L_2[a,b])^{*}$, there exists a unique $g \in L_2[a,b]$ such that
+    \begin{align*}
+        F(f) = \langle f, g \rangle = \int_{a}^{b} f(t) \overline{g}(t) dt, \text{ for all } f \in L_2 \\
+    \end{align*}
+\end{exm}
+
+
 \begin{cor}
     Every Hilbert space is reflexive.
 \end{cor}
@@ -67,8 +91,8 @@ $$\varphi(x)=\langle y, x\rangle \quad$$ for all $x \in H$ and $\|\varphi\|=\|y\
     Let $H$ be a Hilbert space and $T \in B(H)$, then
 
     $$
-    \|T\|  = \sup \{ | \langle T(x), y \rangle | : x, y \in X \text{ and } \|x\| = \|y\| = 1 \}
-    $$.
+    \|T\|  = \sup \{ | \langle T(x), y \rangle | : x, y \in X \text{ and } \|x\| = \|y\| = 1 \}.
+    $$
 \end{cor}
 
 \begin{proof}
@@ -83,28 +107,6 @@ Thus, $\|T\|  = \sup \{ | \langle T(x), y \rangle | : x, y \in X \text{ and } \|
 
 \begin{cor}[The weak compactness property]
 Every bounded sequence in a Hilbert space $H$ containing a weakly convergent subsequence.
-\end{cor}
-
-
-
-\textbf{Remark} The above Corollary is used to prove that
-
-NOT DONE
-
-\begin{cor}
-Let $T: H \rightarrow H^{*}$ be a bounded linear operator on a Hilbert space $H$ into its dual space $H^{*}$.
-Assume that there exists $\alpha>0$ such that:
-
-$$
-( T(x), x) \geqslant \alpha\|x\|^{2} \quad \forall x \in H
-$$
-
-where $(\cdot, \cdot)$ denotes the duality pairing between $H$ and $H^{*}$,
-then 
-
-$$T(x)=f, x \in H$$ 
-
-has a unique solution for all $f \in H^{*}$.
 \end{cor}
 
 
