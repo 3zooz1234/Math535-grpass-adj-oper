@@ -1,6 +1,6 @@
 \contentsline {section}{\numberline {0.1}Riesz Representation Theorem}{2}{}%
 \contentsline {section}{\numberline {0.2}The Adjoint}{2}{}%
-\contentsline {section}{\numberline {0.3}The Adjoint}{4}{}%
+\contentsline {section}{\numberline {0.3}The Adjoint}{5}{}%
 \contentsline {section}{\numberline {0.4}Normal Operators}{6}{}%
 \contentsline {section}{\numberline {0.5}Self-adjoint operators}{7}{}%
 \contentsline {section}{\numberline {0.6}Unitary operators}{8}{}%
