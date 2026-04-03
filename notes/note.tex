@@ -47,20 +47,11 @@
 
 
 
+
 %%%%%%%%%%%%%%%%%%%%%% Mohammed
 \section{Riesz Representation Theorem}
 
 \begin{thm}[Riesz Representation Theorem]
-<<<<<<< HEAD
-Let $H$ be a Hilbert space.
-For any bounded linear functional $\varphi \in H^{*}$,
-there exists a unique element $y \in H$ such that\\
-
-$$\varphi(x)=\langle y, x\rangle \quad$$ for all $x \in H$ and $\|\varphi\|=\|y\|$\\
-
-\end{thm}
-
-=======
     Let $H$ be a Hilbert space.
     For any bounded linear functional $\varphi \in H^{*}$,
     there exists a unique element $y \in H$ such that\\
@@ -93,13 +84,10 @@ Now recall that $\mathbb{R}^n$, $(\ell_2$ and $L_2[a,b]$ are Hilbert spaces. Usi
 \end{exm}
 
 
->>>>>>> d67e652c0ba31bff08fdf3d43a8e74348f5b5585
 \begin{cor}
     Every Hilbert space is reflexive.
 \end{cor}
 
-<<<<<<< HEAD
-=======
 \begin{cor} %File 5
     Let $H$ be a Hilbert space and $T \in B(H)$, then
 
@@ -118,38 +106,9 @@ Thus, $\|T\|  = \sup \{ | \langle T(x), y \rangle | : x, y \in X \text{ and } \|
 \end{proof}
 
 
->>>>>>> d67e652c0ba31bff08fdf3d43a8e74348f5b5585
 \begin{cor}[The weak compactness property]
 Every bounded sequence in a Hilbert space $H$ containing a weakly convergent subsequence.
 \end{cor}
-
-<<<<<<< HEAD
-\begin{proof}
-Let $\{\ x_n \}\ $ be a bounded sequence in $H$ with bound $M$, i.e. $ \|x_n \| \leq M$, and let $X =$ span $ \{\ x_m : m \in \mathbb{N} \}\ $. 
-Then the closed unit ball $B[0]_X$ is closed and bounded. By Theorem 2.7 from the course notes it follows that $X$ is finite dimensional. Hence, $X$ is closed.
-Let $y_n ^1 = \langle x_1,x_n \rangle$ be a sequence of real numbers. Since $y_n ^1$,  by the Bolzano–Weierstrass theorem $y_n ^1$ has a convergent subsequence, denote it by $y_{n_k} ^1 = \langle x_1,x_{n_k} \rangle$.
-Similarly, for $y_n ^2 = \langle x_2,x_n \rangle$ we obtain its convergent subsequence $y_{n_k} ^2 = \langle x_2,x_{n_k} \rangle$.
-
-NOT DONE
-\end{proof}
-
-\textbf{Remark} The above Corollary is used to prove that
-
-NOT DONE
-
-\begin{cor}
-Let $T: H \rightarrow H^{*}$ be a bounded linear operator on a Hilbert space $H$ into its dual space $H^{*}$.
-Assume that there exists $\alpha>0$ such that:
-
-$$
-( T(x), x) \geqslant \alpha\|x\|^{2} \quad \forall x \in H
-$$
-
-where $(\cdot, \cdot)$ denotes the duality pairing between $H$ and $H^{*}$,
-then $T(x)=f, x \in H$, has a unique solution for all $f \in H^{*}$.
-\end{cor}
-=======
->>>>>>> d67e652c0ba31bff08fdf3d43a8e74348f5b5585
 
 
 \section{The Adjoint}
@@ -265,8 +224,6 @@ The defining relation of the adjoint \eqref{eq:adjoint} shows that the action of
   \end{enumerate}
 \end{proof}
 
-<<<<<<< HEAD
-=======
 \begin{prop}
 If $H$ is a complex Hilbert space and $T \in B(H)$ is invertible then $T^*$ is invertible and $(T^*)^{-1} = (T^{-1})^*$.
 \end{prop}
@@ -281,25 +238,13 @@ Let $H$ be a complex Hilbert space and let $T \in B(H)$, then $\text{Ker } T = \
 Moreover, the closure of $\text{Im } T^*$ is equal to the closure of $\text{Im } (T^*T)$, where $\text{Im } T^*$ denotes the image of $T^*$.
 \end{prop}
 
->>>>>>> d67e652c0ba31bff08fdf3d43a8e74348f5b5585
 \begin{exm}
 Let $I$ be the identity operator on a Hilbert space $H$. then $I^{*}=I$
 \end{exm}
 
 \begin{exm}
-<<<<<<< HEAD
-$T_{k}: C[0,1] \rightarrow C[0,1]$
-
-$$
-g(t) \longmapsto k(t) g(t)
-$$
-
-for any $k \in C[0,1]$.\\
-then $\left(T_{k}\right)^{*}=T_{\bar{k}}$\\
-=======
 For $k \in C[0,1]$, let $T_{k}: C[0,1] \rightarrow C[0,1]$ be given by $(T_{k}g)(t)=k(t) g(t)$.
 Then $\left(T_{k}\right)^{*}=T_{\bar{k}}$.
->>>>>>> d67e652c0ba31bff08fdf3d43a8e74348f5b5585
 \end{exm}
 
 \begin{exm}
@@ -314,18 +259,6 @@ From the above example it follows that if $H$ is a real Hilbert space, then $T_1
 
 
 \begin{exm}
-<<<<<<< HEAD
-Let $T: \mathbb{R}^{n} \to \mathbb{R}^{m}$ be a linear operator represented by the matrix $A \in \mathbb{R}^{m \times n}$, i.e. $T(x)=Ax$. The matrix of the adjoint of $T$ is the transpose matrix $A^{T} \in \mathbb{R}^{n \times m}$, since for any $x \in \mathbb{R}^{m}$ and $y \in \mathbb{R}^{n}$:
-$$\langle  x, T(y) \rangle_{\mathbb{R}^{m}} = \langle  x, Ay \rangle_{\mathbb{R}^{m}} = x \cdot (Ay) = x^t (Ay) = (x^t A) y = (A^t x)^t y = (A^{t}x) \cdot y.$$ 
-\end{exm}
-
-In component notation, this identity is expressed by swapping the order of summation:  %May be deleted
-$$ %May be deleted
-\sum_{i=1}^{m} x_{i} \left( \sum_{j=1}^{n} a_{ij}y_{j} \right) = \sum_{j=1}^{n} \left( \sum_{i=1}^{m} a_{ij}x_{i} \right) y_{j}. %May be deleted
-$$ %May be deleted
- %May be deleted
-For a linear map on complex spaces $T: \mathbb{C}^{n} \to \mathbb{C}^{m}$, the matrix of the adjoint with respect to the standard inner product is the Hermitian conjugate matrix, $A^{*} = \overline{A^{T}}$, satisfying $\langle x, Ay \rangle = \langle A^* x, y \rangle$. %May be deleted
-=======
     Let $T: \mathbb{R}^{n} \to \mathbb{R}^{m}$ be a linear operator represented by the matrix $A \in \mathbb{R}^{m \times n}$, i.e. $T(x)=Ax$. The matrix of the adjoint of $T$ is the transpose matrix $A^{T} \in \mathbb{R}^{n \times m}$, since for any $x \in \mathbb{R}^{m}$ and $y \in \mathbb{R}^{n}$:
     $$\langle  x, T(y) \rangle_{\mathbb{R}^{m}} = \langle  x, Ay \rangle_{\mathbb{R}^{m}} = x \cdot (Ay) = x^t (Ay) = (x^t A) y = (A^t x)^t y = (A^{t}x) \cdot y.$$ 
 
@@ -337,7 +270,6 @@ For a linear map on complex spaces $T: \mathbb{C}^{n} \to \mathbb{C}^{m}$, the m
      %May be deleted
     For a linear map on complex spaces $T: \mathbb{C}^{n} \to \mathbb{C}^{m}$, the matrix of the adjoint with respect to the standard inner product is the Hermitian conjugate matrix, $A^{*} = \overline{A^{T}}$, satisfying $\langle x, Ay \rangle = \langle A^* x, y \rangle$. %May be deleted
 \end{exm}
->>>>>>> d67e652c0ba31bff08fdf3d43a8e74348f5b5585
 
 \begin{exm} \label{ShiftOp}
 Suppose that $S$ and $T$ are the right and left shift operators, respectively, on the sequence space $l^{2}(\mathbb{R})$, defined by
@@ -367,7 +299,6 @@ $$
 Then $M^{*}=M$, and $M$ is one-to-one, so every $g\in L^{2}([0,1])$ is orthogonal to $\ker M^{*}$; but the range of $M$ is a proper dense subspace of $L^{2}([0,1])$, so $Mf=g$ is not solvable for every $g\in L^{2}([0,1])$.
 \end{exm}
 %%%%%%%%%%%%%%%%%%%%%% Mohammed
-
 <<<<<<< HEAD
 =======
 
