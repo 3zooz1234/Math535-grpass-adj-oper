@@ -51,6 +51,7 @@
 \section{Riesz Representation Theorem}
 
 \begin{thm}[Riesz Representation Theorem]
+<<<<<<< HEAD
 Let $H$ be a Hilbert space.
 For any bounded linear functional $\varphi \in H^{*}$,
 there exists a unique element $y \in H$ such that\\
@@ -59,14 +60,70 @@ $$\varphi(x)=\langle y, x\rangle \quad$$ for all $x \in H$ and $\|\varphi\|=\|y\
 
 \end{thm}
 
+=======
+    Let $H$ be a Hilbert space.
+    For any bounded linear functional $\varphi \in H^{*}$,
+    there exists a unique element $y \in H$ such that\\
+
+$$\varphi(x)=\langle y, x\rangle \quad$$ for all $x \in H$ and $\|\varphi\|=\|y\|$ \\
+
+\end{thm}
+
+Now recall that $\mathbb{R}^n$, $(\ell_2$ and $L_2[a,b]$ are Hilbert spaces. Using the Riesz representation theorem, we can know the nature of bounded linear functionals on these spaces as in the following examples.
+
+\begin{exm}
+    For $F \in (\mathbb{R}^n)^{*}$, there exists a unique $a = (a_1, a_2, a_3, \dots, a_n) \in \mathbb{R}^n$ such that
+    \begin{align*}
+        F(x) = \langle x, a \rangle = \sum_{i=1}^{n} x_i a_i ,  \text{ for all } x = (x_1, x_2, \dots, x_n) \in \mathbb{R}^n
+    \end{align*}
+\end{exm}
+
+\begin{exm}
+   For $F \in (\ell_2)^{*}$, there exists a unique $a = (a_1, a_2, a_3, \dots, a_n, \dots) \in \ell_2$ such that
+    \begin{align*}
+        F(x) = \langle x, a \rangle = \sum_{i=1}^{\infty} x_i \overline{a_i}, \text{ for all } x = (x_1, x_2, \dots, x_n, \dots) \in \ell_2 
+    \end{align*} 
+\end{exm}
+
+\begin{exm}
+    For $F \in (L_2[a,b])^{*}$, there exists a unique $g \in L_2[a,b]$ such that
+    \begin{align*}
+        F(f) = \langle f, g \rangle = \int_{a}^{b} f(t) \overline{g}(t) dt, \text{ for all } f \in L_2 \\
+    \end{align*}
+\end{exm}
+
+
+>>>>>>> d67e652c0ba31bff08fdf3d43a8e74348f5b5585
 \begin{cor}
     Every Hilbert space is reflexive.
 \end{cor}
 
+<<<<<<< HEAD
+=======
+\begin{cor} %File 5
+    Let $H$ be a Hilbert space and $T \in B(H)$, then
+
+    $$
+    \|T\|  = \sup \{ | \langle T(x), y \rangle | : x, y \in X \text{ and } \|x\| = \|y\| = 1 \}.
+    $$
+\end{cor}
+
+\begin{proof}
+Let $\alpha = \sup \{ | \langle T(x), y \rangle | : x, y \in H \text{ and } \|x\| = \|y\| = 1 \}$.
+By the Cauchy-Schwarz inequality, we have $| \langle T(x), y \rangle | \leq \|T(x)\| \|y\|$ and by the definition of the operator norm we get $ \|T(x)\| \|y\| \leq \|T\| \|x\| \|y\|$. Combining these two inequalities and substituting $\|x\| = \|y\| = 1$, we obtain $| \langle T(x), y \rangle | \leq \|T\|$. Taking the supremum, we reach $\alpha \leq \|T\| $.
+
+Now, let $x \in H$ be such that $\|x\| = 1$ and $T(x) \neq 0$. (If $T(x) = 0$ $\forall \|x\| = 1$, then $\|T\|  = 0$ and so $\|T\| \leq \alpha$). As $T(x) \neq 0$, by one of the consequences of the Hahn-Banach Theorem (Corollary 6.1 from the notes), there exists $f \in H^*$ continuous such that $\|f\| = 1$ and $f(T(x)) = \|T(x)\|$. Now since $f \in H^{*}$ and $f$ is bounded, by the Riesz Representation Theorem, there exists $y_f \in H$ such that $\|y_f\| = \|f\| = 1$ and $\|T(x)\| = f(T(x)) = \langle T(x), y_f \rangle$. Therefore, $\|T(x)\| \leq \alpha$ for all $\|x\| = 1$. This implies $\|T\| \leq \alpha$.
+
+Thus, $\|T\|  = \sup \{ | \langle T(x), y \rangle | : x, y \in X \text{ and } \|x\| = \|y\| = 1 \}$
+\end{proof}
+
+
+>>>>>>> d67e652c0ba31bff08fdf3d43a8e74348f5b5585
 \begin{cor}[The weak compactness property]
 Every bounded sequence in a Hilbert space $H$ containing a weakly convergent subsequence.
 \end{cor}
 
+<<<<<<< HEAD
 \begin{proof}
 Let $\{\ x_n \}\ $ be a bounded sequence in $H$ with bound $M$, i.e. $ \|x_n \| \leq M$, and let $X =$ span $ \{\ x_m : m \in \mathbb{N} \}\ $. 
 Then the closed unit ball $B[0]_X$ is closed and bounded. By Theorem 2.7 from the course notes it follows that $X$ is finite dimensional. Hence, $X$ is closed.
@@ -91,6 +148,8 @@ $$
 where $(\cdot, \cdot)$ denotes the duality pairing between $H$ and $H^{*}$,
 then $T(x)=f, x \in H$, has a unique solution for all $f \in H^{*}$.
 \end{cor}
+=======
+>>>>>>> d67e652c0ba31bff08fdf3d43a8e74348f5b5585
 
 
 \section{The Adjoint}
@@ -206,11 +265,29 @@ The defining relation of the adjoint \eqref{eq:adjoint} shows that the action of
   \end{enumerate}
 \end{proof}
 
+<<<<<<< HEAD
+=======
+\begin{prop}
+If $H$ is a complex Hilbert space and $T \in B(H)$ is invertible then $T^*$ is invertible and $(T^*)^{-1} = (T^{-1})^*$.
+\end{prop}
+
+\begin{proof}
+As $TT^{-1} = T^{-1}T = I$, if we take the adjoint of this equation we obtain $(TT^{-1})^* = (T^{-1}T)^* = I^*$ and so $(T^{-1})^*T^* = T^*(T^{-1})^* = I$ (see example below). Hence $T^*$ is invertible and $(T^*)^{-1} = (T^{-1})^*$.
+\end{proof}
+
+
+\begin{prop}
+Let $H$ be a complex Hilbert space and let $T \in B(H)$, then $\text{Ker } T = \text{Ker } (T^*T)$.
+Moreover, the closure of $\text{Im } T^*$ is equal to the closure of $\text{Im } (T^*T)$, where $\text{Im } T^*$ denotes the image of $T^*$.
+\end{prop}
+
+>>>>>>> d67e652c0ba31bff08fdf3d43a8e74348f5b5585
 \begin{exm}
 Let $I$ be the identity operator on a Hilbert space $H$. then $I^{*}=I$
 \end{exm}
 
 \begin{exm}
+<<<<<<< HEAD
 $T_{k}: C[0,1] \rightarrow C[0,1]$
 
 $$
@@ -219,6 +296,10 @@ $$
 
 for any $k \in C[0,1]$.\\
 then $\left(T_{k}\right)^{*}=T_{\bar{k}}$\\
+=======
+For $k \in C[0,1]$, let $T_{k}: C[0,1] \rightarrow C[0,1]$ be given by $(T_{k}g)(t)=k(t) g(t)$.
+Then $\left(T_{k}\right)^{*}=T_{\bar{k}}$.
+>>>>>>> d67e652c0ba31bff08fdf3d43a8e74348f5b5585
 \end{exm}
 
 \begin{exm}
@@ -233,6 +314,7 @@ From the above example it follows that if $H$ is a real Hilbert space, then $T_1
 
 
 \begin{exm}
+<<<<<<< HEAD
 Let $T: \mathbb{R}^{n} \to \mathbb{R}^{m}$ be a linear operator represented by the matrix $A \in \mathbb{R}^{m \times n}$, i.e. $T(x)=Ax$. The matrix of the adjoint of $T$ is the transpose matrix $A^{T} \in \mathbb{R}^{n \times m}$, since for any $x \in \mathbb{R}^{m}$ and $y \in \mathbb{R}^{n}$:
 $$\langle  x, T(y) \rangle_{\mathbb{R}^{m}} = \langle  x, Ay \rangle_{\mathbb{R}^{m}} = x \cdot (Ay) = x^t (Ay) = (x^t A) y = (A^t x)^t y = (A^{t}x) \cdot y.$$ 
 \end{exm}
@@ -243,6 +325,19 @@ $$ %May be deleted
 $$ %May be deleted
  %May be deleted
 For a linear map on complex spaces $T: \mathbb{C}^{n} \to \mathbb{C}^{m}$, the matrix of the adjoint with respect to the standard inner product is the Hermitian conjugate matrix, $A^{*} = \overline{A^{T}}$, satisfying $\langle x, Ay \rangle = \langle A^* x, y \rangle$. %May be deleted
+=======
+    Let $T: \mathbb{R}^{n} \to \mathbb{R}^{m}$ be a linear operator represented by the matrix $A \in \mathbb{R}^{m \times n}$, i.e. $T(x)=Ax$. The matrix of the adjoint of $T$ is the transpose matrix $A^{T} \in \mathbb{R}^{n \times m}$, since for any $x \in \mathbb{R}^{m}$ and $y \in \mathbb{R}^{n}$:
+    $$\langle  x, T(y) \rangle_{\mathbb{R}^{m}} = \langle  x, Ay \rangle_{\mathbb{R}^{m}} = x \cdot (Ay) = x^t (Ay) = (x^t A) y = (A^t x)^t y = (A^{t}x) \cdot y.$$ 
+
+
+    In component notation, this identity is expressed by swapping the order of summation:  %May be deleted
+    $$ %May be deleted
+    \sum_{i=1}^{m} x_{i} \left( \sum_{j=1}^{n} a_{ij}y_{j} \right) = \sum_{j=1}^{n} \left( \sum_{i=1}^{m} a_{ij}x_{i} \right) y_{j}. %May be deleted
+    $$ %May be deleted
+     %May be deleted
+    For a linear map on complex spaces $T: \mathbb{C}^{n} \to \mathbb{C}^{m}$, the matrix of the adjoint with respect to the standard inner product is the Hermitian conjugate matrix, $A^{*} = \overline{A^{T}}$, satisfying $\langle x, Ay \rangle = \langle A^* x, y \rangle$. %May be deleted
+\end{exm}
+>>>>>>> d67e652c0ba31bff08fdf3d43a8e74348f5b5585
 
 \begin{exm} \label{ShiftOp}
 Suppose that $S$ and $T$ are the right and left shift operators, respectively, on the sequence space $l^{2}(\mathbb{R})$, defined by
@@ -273,6 +368,10 @@ Then $M^{*}=M$, and $M$ is one-to-one, so every $g\in L^{2}([0,1])$ is orthogona
 \end{exm}
 %%%%%%%%%%%%%%%%%%%%%% Mohammed
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> d67e652c0ba31bff08fdf3d43a8e74348f5b5585
 \section{The Adjoint}
 
 \begin{thm}
@@ -377,9 +476,13 @@ An interesting subset of the normal operators is the self-adjoint operators.
 $T: H \rightarrow H$ is called a self-adjoint if $T=T^{*}$
 \end{defn}
 
+<<<<<<< HEAD
 %\begin{exm}
 %  Let $C^{2}([a,b])$ be the space of functions with derivatives of second order continuous upto the endpoints. Let $C^{2}_{c}([a,b])$ be the subspace of functions that vanish near the 
 %\end{exm}
+=======
+\textbf{\textit{Theorem 5}}.Let $H$ be Hlibert space \& $T_{1}$ and $T_{2}$ be self-adjont oterator, then $1-\alpha T_{1}+\beta T_{2}$ is a self-adjon, $\alpha \beta \in \mathbb{R}$ 2 - The set of self-odjun operuter is a clseel subset of $B(H)$.
+>>>>>>> d67e652c0ba31bff08fdf3d43a8e74348f5b5585
 
 \begin{exm}
 For any $T \in B(H)$, we observe that $T T^{*}$ and $T^{*} T$ are self-adjoint, since
@@ -392,8 +495,11 @@ $$
 $$
 \end{exm}
 
+<<<<<<< HEAD
 \textbf{\textit{Theorem 5}}.Let $H$ be Hlibert space \& $T_{1}$ and $T_{2}$ be self-adjont oterator, then $1-\alpha T_{1}+\beta T_{2}$ is a self-adjon, $\alpha \beta \in \mathbb{R}$ 2 - The set of self-odjun operuter is a clseel subset of $B(H)$.
 
+=======
+>>>>>>> d67e652c0ba31bff08fdf3d43a8e74348f5b5585
 \begin{prop}
 Any operator $T \in B(H)$, $T=R+i S$ for $R$ and $S$ self-adjoint
 \end{prop}
@@ -448,6 +554,65 @@ Let $T, S$ be unitary operators, then
   showing that $AB^{-1}\in\operatorname{SU}(n)$.
 \end{rem}
 
+<<<<<<< HEAD
 \section{}
+=======
+\section{The spectrum of an Operator}
+The notation of an eigenvalue of a matrix has many essential applications in finite dimensional vector space; however, we wish we could extend this notation to the infinite-dimensional vector space.
+
+\begin{defn}
+Let $T \in B(H), \lambda \in \mathbb{C}$ is called an eigenvalue of $T$, if there exsits $x \in H$ such that
+
+$$
+Tx=\lambda x
+$$
+\end{defn}
+
+\begin{defn}
+Let $T \in B(H)$. The spectrum of $T$, denoted by $\sigma(T)$ is\\
+$\sigma(T)=\{\lambda \in \mathbb{C}: T-\lambda I$ is not invertible $\}$
+\end{defn}
+
+\begin{thm}
+If $\lambda$ is an eigenvalue of $T$ , then $\lambda \in \sigma(T)$
+\end{thm}
+
+\textbf{Remark }for finite dimesonial Hilbert space, the spectrum of $T$ cosist only the eigenvalues.
+However, in Infite dimesond Hilbert Spare we may have no eigenvalus.
+
+Example: Consider $S \in$ $B\left(l^{2}\right)$
+$S\left(x_{1}, x_{2}, \ldots\right)=\left(0, x_{1}, x_{2}, \ldots\right)$ 
+has no egienvalue 
+
+\begin{exm}
+Let $\mathcal{H}$ be a complex Hilbert space and let $T \in B(\mathcal{H})$.\\ If $|\lambda|>\|T\|$ then $\lambda \notin \sigma(T)$.\\
+\end{exm}
+\begin{lem}
+If $\mathcal{H}$ is a complex Hilbert space and $T \in B(\mathcal{H})$ then $\sigma\left(T^{*}\right)=\{\bar{\lambda}: \lambda \in \sigma(T)\}$.
+\end{lem}
+\begin{exm}
+If $S: \ell^{2} \rightarrow \ell^{2}$ is the unilateral shift then:\\
+(a) if $\lambda \in \mathbb{C}$ with $|\lambda|<1$ then $\lambda$ is an eigenvalue of $S^{*}$;\\
+(b) $\sigma(S)=\{\lambda \in \mathbb{C}:|\lambda| \leq 1\}$.
+\end{exm}
+
+\begin{thm}
+Let $\mathcal{H}$ be a complex Hilbert space and let $T \in B(\mathcal{H})$.\\If $T$ is invertible then $\sigma\left(T^{-1}\right)=\left\{\mu^{-1}: \mu \in \sigma(T)\right\}$.
+\end{thm}
+\begin{lem}
+If $\mathcal{H}$ is a complex Hilbert space and $U \in B(\mathcal{H})$ is unitary then
+
+$$
+\sigma(U) \subseteq\{\lambda \in \mathbb{C}:|\lambda|=1\}
+$$
+\end{lem}
+\begin{cor}
+ If $A$ is a self-adjoint matrix with eigenvalues $\left\{\lambda_{1}, \lambda_{2}, \ldots, \lambda_{n}\right\}$, then
+
+$$
+\|A\|=\max \left\{\left|\lambda_{1}\right|,\left|\lambda_{2}\right|, \ldots,\left|\lambda_{n}\right|\right\} .
+$$
+\end{cor}
+>>>>>>> d67e652c0ba31bff08fdf3d43a8e74348f5b5585
 
 \end{document}
