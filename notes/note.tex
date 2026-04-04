@@ -483,24 +483,52 @@ $$
 \end{defn}
 
 \begin{defn}
-Let $T \in B(H)$. The spectrum of $T$, denoted by $\sigma(T)$ is\\
-$\sigma(T)=\{\lambda \in \mathbb{C}: T-\lambda I$ is not invertible $\}$
+  Let $T \in B(H)$. The resolvent set of $T$, denoted by $\rho(T)$, is $\rho(T) = \{\lambda\in\mathbb{C}: T-\lambda I\text{ is invertible}\}$. The spectrum of $T$, denoted by $\sigma(T)$ is $\sigma(T)=\mathbb{C}\backslash\rho(T)$, or equivalently, $\sigma(T) = \{\lambda\in\mathbb{C}: T-\lambda I\text{ is not invertible}\}$
 \end{defn}
+
+\begin{rem}
+  Notice that, by Theorem \ref{Inv}, we can rewrite the resolvent set of $T$ as
+  $$
+  \rho(T) = \{\lambda\in\mathbb{C}: \operatorname{ker}(T-\lambda I)^{*}=\{0\}\text{ and }\lVert (T-\lambda I)x\rVert\geq\alpha\lVert x\rVert\text{ for some }\alpha>0\}
+  $$
+\end{rem}
 
 \begin{thm}
 If $\lambda$ is an eigenvalue of $T$ , then $\lambda \in \sigma(T)$
 \end{thm}
 
-\textbf{Remark }for finite dimesonial Hilbert space, the spectrum of $T$ cosist only the eigenvalues.
+\begin{rem} \label{defRho}
+for finite dimesonial Hilbert space, the spectrum of $T$ cosist only the eigenvalues.
 However, in Infite dimesond Hilbert Spare we may have no eigenvalus.
+\end{rem}
 
 Example: Consider $S \in$ $B\left(l^{2}\right)$
 $S\left(x_{1}, x_{2}, \ldots\right)=\left(0, x_{1}, x_{2}, \ldots\right)$ 
 has no egienvalue 
 
-\begin{exm}
-Let $\mathcal{H}$ be a complex Hilbert space and let $T \in B(\mathcal{H})$.\\ If $|\lambda|>\|T\|$ then $\lambda \notin \sigma(T)$.\\
-\end{exm}
+\begin{thm}
+Let $\mathcal{H}$ be a complex Hilbert space and let $T \in B(\mathcal{H})$. If $|\lambda|>\|T\|$ then $\lambda \notin \sigma(T)$.
+\end{thm}
+\begin{proof}
+  Let $u\in\operatorname{ker}(T-\lambda I)^{*}$, then $(T-\lambda I)^{*}u = (T^{*}-\bar{\lambda}I)u = 0$. So, $T^{*}u-\bar{\lambda}u = 0\implies T^{*}u = \bar{\lambda}u$. So,
+  $$
+  \begin{aligned}
+    |\lambda|\lVert u\rVert = |\bar{\lambda}|\lVert u\rVert = \lVert\bar{\lambda}u\rVert = \lVert T^{*}u\rVert&\leq\lVert T^{*}\rVert\lVert u\rVert = \lVert T\rVert\lVert u\rVert\\\\
+                                                                                                              &\implies (|\lambda|-\lVert T\rVert)\lVert u\rVert\leq 0
+  \end{aligned}
+  $$
+  Since $|\lambda|>\lVert T\rVert$, then $\lVert u\rVert\leq 0\implies \lVert u\rVert = 0\implies u=0$. Hence, $\operatorname{ker}(T-\lambda I)^{*} = \{0\}$. We also have that
+  $$
+  \begin{aligned}
+    \lVert (T-\lambda I)x\rVert = \rVert Tx-\lambda x\lVert\geq|\lVert Tx\rVert - |\lambda|\lVert x\rVert| &= \Big|\frac{\lVert Tx\rVert}{\lVert x\rVert} - |\lambda|\Big|\lVert x\rVert\\
+                                                                                                           &= \Big(|\lambda|-\frac{\lVert Tx\rVert}{\lVert x\rVert}\Big)\lVert x\rVert\\
+                                                                                                           &\geq (|\lambda|-\lVert T\lVert)\lVert x\rVert\\
+                                                                                                           &= \alpha\lVert x\rVert
+  \end{aligned}
+  $$
+  where $\alpha:=|\lambda|-\lVert T\rVert$ is positive, since $|\lambda|>\lVert T\rVert$. So, $\lambda\in\rho(T)$, by Remark \ref{defRho}. Hence, $\lambda\notin\sigma(T)$.
+\end{proof}
+
 \begin{lem}
 If $\mathcal{H}$ is a complex Hilbert space and $T \in B(\mathcal{H})$ then $\sigma\left(T^{*}\right)=\{\bar{\lambda}: \lambda \in \sigma(T)\}$.
 \end{lem}
