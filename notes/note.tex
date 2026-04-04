@@ -448,11 +448,24 @@ An operator $T \in B(H)$ called unitary, if $TT^{*}=T^{*}T=I$.
   It can be see that the identity operator, $I$, is unitary, since $I^{*}I=II=I=II=II^{*}$.
 \end{exm}
 
+% Is this lemma necessary ???
 \textbf{\textit{Lemma}}.If $S, T \in B (H)$ and\\
 $\langle S z, z\rangle=\langle T z, 3\rangle \quad \forall z \in H$\\
 $\Rightarrow \quad S=T$.
 
-\textbf{\textit{Theorem 6}}.Let $T \in B(H)$, then $T$ is unitary if $T$ is isometry.
+\begin{prop}
+Let $T \in B(H)$, then $T$ is unitary if $T$ is isometry.
+\end{prop}
+\begin{proof}
+  Let $T\in B(H)$ be an isometry, we have
+  $$
+  \begin{aligned}
+    \langle x,T^{*}Tx\rangle = \langle Tx,Tx\rangle = \lVert Tx\rVert &= \lVert x\rVert = \langle x,x\rangle = \langle x,Ix\rangle\\
+                                                                      &\implies \langle x,(T^{*}T-I)x\rangle = 0
+  \end{aligned}
+  $$
+  Hence, $(T^{*}T-I)x = 0$ for all $x\in H$. This implies that $T^{*}T-I = 0\implies T^{*}T = I$. Therefore, $T$ is unitary.
+\end{proof}
 
 \begin{thm} \label{UnitaryProp}
 Let $T, S$ be unitary operators, then
@@ -462,6 +475,21 @@ Let $T, S$ be unitary operators, then
   \item $T^{-1}$ is unitary.
 \end{enumerate}
 \end{thm}
+\begin{proof}
+  \begin{enumerate}
+    \item We know that $T^{*}T = I\implies T^{-1}=T^{*}$. So,
+      $$
+      (T^{*})^{-1}=(T^{-1})^{*}=(T^{*})^{*}\implies (T^{*})^{*}T^{*}=I
+      $$
+    \item We have
+      $$
+      \begin{aligned}
+        (TS)^{*}TS = S^{*}T^{*}TS = S^{*}IS = S^{*}S = I
+      \end{aligned}
+      $$
+    \item We have $(T^{-1})^{*}T^{-1} = (T^{*})^{*}T^{-1} = TT^{-1} = I$
+  \end{enumerate}
+\end{proof}
 
 \begin{rem}
   By Theorem \ref{UnitaryProp}, Example \ref{IdIsUnitary} and the associativity of function composition, we observe that the set of all unitary operators forms a group under composition. Moreover, if $T:\mathbb{C}^{n}\to\mathbb{C}^{n}$, this group is called the \textbf{unitary group}, denoted $U(n)$. There is a special subgroup of $\operatorname{U}(n)$, which is the \textbf{special unitary group}, denoted $\operatorname{SU}(n)$, which is the set of all unitary operators from $\mathbb{C}^{n}$ to $\mathbb{C}^{n}$ such that its determinant is $1$. This forms a subgroup since if we let $A,B\in\operatorname{SU}(n)$, we have
