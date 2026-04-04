@@ -415,7 +415,39 @@ $$
 $$
 \end{exm}
 
-\textbf{\textit{Theorem 5}}.Let $H$ be Hlibert space \& $T_{1}$ and $T_{2}$ be self-adjont oterator, then $1-\alpha T_{1}+\beta T_{2}$ is a self-adjon, $\alpha \beta \in \mathbb{R}$ 2 - The set of self-odjun operuter is a clseel subset of $B(H)$.
+\begin{thm}
+Let $H$ be Hlibert space \& $T_{1}$ and $T_{2}$ be self-adjont oterator, then
+  \begin{enumerate}
+    \item $\alpha T_{1}+\beta T_{2}$ is a self-adjon, $\alpha \beta \in \mathbb{R}$
+    \item The set
+      $$
+      \mathfrak{S} = \{T\in B(H): T\text{ is self-adjoint}\}\subset B(H)
+      $$
+      is a closed subset of $B(H)$.
+  \end{enumerate}
+\end{thm}
+\begin{proof}
+  \begin{enumerate}
+    \item We have
+      $$
+      (\alpha T_{1}+\beta T_{2})^{*} = (\alpha T_{1})^{*} + (\beta T_{2})^{*} = \bar{\alpha} T_{1}^{*}+\bar{\beta} T_{2}^{*} = \alpha T_{1}^{*}+\beta T_{2}^{*} = \alpha T_{1}+ \beta T_{2}
+      $$
+      Hence, $\alpha T_{1}+\beta T_{2}$ is self-adjoint.
+    \item Let $\{T_{n}\}$ be a convergent sequence of elements in $\mathfrak{S}$ which converges to $T\in B(H)$, then
+      $$
+      \lim_{n\to\infty}\lVert T_{n}-T\rVert = 0
+      $$
+      We see that
+      $$
+      \lim_{n\to\infty}\lVert T_{n}-T^{*}\rVert = \lim_{n\to\infty}\lVert T_{n}^{*}-T^{*}\rVert = \lim_{n\to\infty}\lVert (T_{n}-T)^{*}\rVert = \lim_{n\to\infty}\lVert T_{n}-T\rVert = 0
+      $$
+      So,
+      $$
+      \lim_{n\to\infty}\lVert T-T^{*}\rVert\leq\lim_{n\to\infty}\lVert T_{n}-T\rVert+\lim_{n\to\infty}\lVert T_{n}-T\rVert = 0+0 = 0
+      $$
+      Hence, $T^{*}=T$ and $T\in\mathfrak{S}$. Therefore, $\mathfrak{S}\subset B(H)$ is a closed set.
+  \end{enumerate}
+\end{proof}
 
 \begin{prop}
 Any operator $T \in B(H)$, $T=R+i S$ for $R$ and $S$ self-adjoint
