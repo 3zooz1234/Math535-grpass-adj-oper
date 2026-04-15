@@ -298,7 +298,7 @@ As $TT^{-1} = T^{-1}T = I$, if we take the adjoint of this equation we obtain $(
     |\varphi(x)| = |\langle x,T^{*}y\rangle| = |\langle Tx,y\rangle|\leq\lVert y\rVert\lVert Tx\rVert\leq\lVert y\rVert\lVert T\rVert\lVert x\rVert
   \end{aligned}
   $$
-  So, $\varphi$ is bounded and $\lVert\varphi\rVert\leq\lVert T\rVert\lVert y\rVert$. By Reisz Representation Theorem, we have $\lVert T^{*}y\rVert=\lVert\varphi\rVert\leq\lVert T\rVert\lVert y\rVert$. Therefore, $T^{*}$ is bounded with $\lVert T^{*}\rVert=\lVert T\rVert$. Now, consider the map
+  So, $\varphi$ is bounded and $\lVert\varphi\rVert\leq\lVert T\rVert\lVert y\rVert$. By Reisz Representation Theorem, we have $\lVert T^{*}y\rVert=\lVert\varphi\rVert\leq\lVert T\rVert\lVert y\rVert$. Therefore, $T^{*}$ is bounded with $\lVert T^{*}\rVert\leq\lVert T\rVert$. Now, consider the map
   $$
   \begin{aligned}
     \tilde{\varphi}:G&\longrightarrow\mathbb{F} \\
@@ -373,10 +373,6 @@ $$
 Then $M^{*}=M$, and $M$ is one-to-one, so every $g\in L^{2}([0,1])$ is orthogonal to $\ker M^{*}$; but the range of $M$ is a proper dense subspace of $L^{2}([0,1])$, so $Mf=g$ is not solvable for every $g\in L^{2}([0,1])$.
 \end{exm}
 %%%%%%%%%%%%%%%%%%%%%% Mohammed
-
-
-\section{The Adjoint}
-
 
 \section{Normal Operators}
 
@@ -508,7 +504,7 @@ Let $H$ be Hlibert space \& $T_{1}$ and $T_{2}$ be self-adjont oterator, then
       $$
       So,
       $$
-      \lim_{n\to\infty}\lVert T-T^{*}\rVert\leq\lim_{n\to\infty}\lVert T_{n}-T\rVert+\lim_{n\to\infty}\lVert T_{n}-T\rVert = 0+0 = 0
+      \lim_{n\to\infty}\lVert T-T^{*}\rVert\leq\lim_{n\to\infty}\lVert T_{n}-T\rVert+\lim_{n\to\infty}\lVert T_{n}-T^{*}\rVert = 0+0 = 0
       $$
       Hence, $T^{*}=T$ and $T\in\mathfrak{S}$. Therefore, $\mathfrak{S}\subset B(H)$ is a closed set.
   \end{enumerate}
