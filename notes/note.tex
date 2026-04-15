@@ -417,8 +417,18 @@ Then $M^{*}=M$, and $M$ is one-to-one, so every $g\in L^{2}([0,1])$ is orthogona
   which are not equal.
 \end{exm}
 
-\textbf{\textit{Example 5}}. If $T$ is normal, then $T$ - $\lambda I$ is also normal.\\
-
+\begin{exm}
+If $T$ is normal, then $T$ - $\lambda I$ is also normal. That is, since
+$$
+\begin{aligned}
+  (T-\lambda I)^{*}(T-\lambda I) = (T^{*}-\bar{\lambda}I)(T-\lambda I) &= T^{*}T-\bar{\lambda}T-\lambda T^{*}+\bar{\lambda}\lambda I \\
+                                                                       &= TT^{*}-\bar{\lambda}T-\lambda T^{*}+\lambda\bar{\lambda}I \\
+                                                                       &= T(T^{*}-\bar{\lambda}I) - \lambda (T^{*}-\bar{\lambda}I) \\
+                                                                       &= (T-\lambda I)(T^{*}-\bar{\lambda}I) \\
+                                                                       &= (T-\lambda I)(T-\lambda I)^{*}
+\end{aligned}
+$$
+\end{exm}
 
 \begin{lem}
 Let $T: H \rightarrow H$ be a normal operator, then
