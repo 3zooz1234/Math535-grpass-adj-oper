@@ -596,7 +596,7 @@ Let $T, S$ be unitary operators, then
 The notation of an eigenvalue of a matrix has many essential applications in finite dimensional vector space; however, we wish we could extend this notation to the infinite-dimensional vector space.
 
 \begin{defn}
-Let $T \in B(H), \lambda \in \mathbb{C}$ is called an eigenvalue of $T$, if there exsits $x \in H$ such that
+Let $T \in B(H), \lambda \in \mathbb{C}$ is called an eigenvalue of $T$, if there exists $x \in H$ with $x\not=0$ such that
 
 $$
 Tx=\lambda x
@@ -617,6 +617,9 @@ $$
 \begin{thm}
 If $\lambda$ is an eigenvalue of $T$ , then $\lambda \in \sigma(T)$
 \end{thm}
+\begin{proof}
+  Suppose that $\lambda\notin\sigma(T)$, then $T-\lambda I$ is invertible. So, we have $(T-\lambda I)u=0\implies u = (T-\lambda I)^{-1}(T-\lambda I)u = (T-\lambda I)(0)=0$. So, if there is $u\in\mathcal{H}$ such that $Tu=\lambda u$, then $u=0$. So, $\lambda$ is not an eignvalue of $T$.
+\end{proof}
 
 \begin{rem}
 for finite dimesonial Hilbert space, the spectrum of $T$ cosist only the eigenvalues.
