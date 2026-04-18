@@ -621,9 +621,23 @@ If $\lambda$ is an eigenvalue of $T$ , then $\lambda \in \sigma(T)$
   Suppose that $\lambda\notin\sigma(T)$, then $T-\lambda I$ is invertible. So, we have $(T-\lambda I)u=0\implies u = (T-\lambda I)^{-1}(T-\lambda I)u = (T-\lambda I)^{-1}(0)=0$. So, if there is $u\in\mathcal{H}$ such that $Tu=\lambda u$, then $u=0$. So, $\lambda$ is not an eignvalue of $T$.
 \end{proof}
 
+\begin{thm}
+  Let $H$ be a finite dimensional Hilbert space, and let $T:H\to H$. If $\lambda\in\sigma(T)$, then $\lambda$ is an eigenvalue of $T$.
+\end{thm}
+\begin{proof}
+  Suppose that $\lambda$ is not an eigenvalue of $T$, then there is nonzero $u\in H$ such that $Tu=\lambda u$. So, there is no nonzero $u\in H$ such that $(T-\lambda I)u=0$. So, $\ker(T-\lambda I)=\{0\}$. By rank-nullity theorem, we have
+  $$
+  \begin{aligned}
+    \dim H &= \dim\ker(T-\lambda I) + \dim\im(T-\lambda I) \\
+           &= 0 + \dim\im(T-\lambda I) \\
+           &= \dim\im(T-\lambda I)
+  \end{aligned}
+  $$
+  So, $\im(T-\lambda I)=H$. This means that $(T-\lambda I)$ is surjective, and therefore, invertible. So, $\lambda\in\rho(T)$, and therefore, $\lambda\notin\sigma(T)$.
+\end{proof}
+
 \begin{rem}
-for finite dimesonial Hilbert space, the spectrum of $T$ cosist only the eigenvalues.
-However, in Infite dimesond Hilbert Spare we may have no eigenvalus.
+For finite dimesonial Hilbert space, the spectrum of $T$ consist only the eigenvalues of $T$. However, in infite dimesional Hilbert space, we may have no eigenvalues. For instance, consider the shift operator defined in Example \ref{ShiftOp}. 
 \end{rem}
 
 Example: Consider $S \in$ $B\left(l^{2}\right)$
