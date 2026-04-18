@@ -670,6 +670,44 @@ Let $\mathcal{H}$ be a complex Hilbert space and let $T \in B(\mathcal{H})$. If 
 \begin{thm} \label{SpectIsCl}
   $\sigma(T)\subseteq\mathbb{C}$ is a closed set.
 \end{thm}
+\begin{proof}
+  We will show that $\rho(T)=\mathbb{C}\backslash\sigma(T)$ is open. Let $\lambda\in\rho(T)$. This means that, by Remark \ref{defRho}, there is $\alpha>0$ such that
+  $$
+  \lVert(T-\lambda I)u\rVert\geq\alpha\lVert u\rVert\implies\frac{\lVert(T-\lambda I)u\rVert}{\lVert u\rVert}\geq\alpha
+  $$
+  Since the quantity $\frac{\lVert(T-\lambda I)u\rVert}{\lVert u\rVert}$ has a lower bound, its infimum exists. Now, let
+  $$
+  \gamma:=\inf_{x\in H\backslash\{0\}}\frac{\lVert(T-\lambda I)u\rVert}{\lVert u\rVert}
+  $$
+  and let $\delta:=\frac{\gamma}{2}$. We want to show that
+  $$
+  B(\lambda,\delta)\subseteq\rho(T)
+  $$
+  Let $\tilde{\lambda}\in B(\lambda,\delta)$, then $|\tilde{\lambda}-\lambda|<\delta$. First, we observe that
+  $$
+  \begin{aligned}
+    \lVert(T-\tilde{\lambda}I)u\rVert=\lVert(T-\lambda I)u-(\tilde{\lambda}-\lambda)I(u)\rVert&\geq|\lVert(T-\lambda I)u\rVert-|\bar{\lambda}-\lambda|\lVert u\rVert| \\
+                                                                                              &=\Big|\frac{\lVert(T-\lambda I)u\rVert}{\lVert u\rVert}-|\tilde{\lambda}-\lambda|\Big|\lVert u\rVert \\
+                                                                                              &=\Big(\frac{\lVert(T-\lambda I)u\rVert}{\lVert u\rVert}-|\tilde{\lambda}-\lambda|\Big)\lVert u\rVert \\
+                                                                                              &>(\gamma-\frac{\gamma}{2})\lVert u\rVert \\
+                                                                                              &=\frac{\gamma}{2}\lVert u\rVert
+  \end{aligned}
+  $$
+  Also, we claim that $\ker(T-\tilde{\lambda}I)^{*}=\{0\}$. Suppose for contradiction that there exists $v\in H\backslash\{0\}$ such that $(T-\tilde{\lambda}I)^{*}v=0$. We, now, have
+  $$
+  \begin{aligned}
+    \lVert(T-\lambda I)v\rVert=\lVert(T-\lambda I)^{*}v+(\overline{\lambda-\tilde{\lambda}})v\rVert&\leq\lVert(T-\lambda I)^{*}v\rVert+|\tilde{\lambda}-\lambda|\lVert v\rVert \\
+                                                                                                   &=|\tilde{\lambda}-\lambda|\lVert v\rVert \\
+                                                                                                   &<\delta\lVert v\rVert \\
+                                                                                                   &=\frac{\gamma}{2}\lVert v\rVert \\
+  \end{aligned}
+  $$
+  Since $v\not=0$, dividing both sides of the inequality yields
+  $$
+  \gamma\leq\frac{\lVert(T-\lambda I)^{*}v\rVert}{\lVert v\rVert}<\frac{\gamma}{2}
+  $$
+  which is a contradiction. So, $v$ must be $0$ and $\ker(T-\tilde{\lambda}I)=\{0\}$. Hence, $\tilde{\lambda}\in\rho(T)$, and therefore, $B(\lambda,\delta)\subseteq\rho(T)$.
+\end{proof}
 
 \begin{lem} \label{SpectBar}
 If $\mathcal{H}$ is a complex Hilbert space and $T \in B(\mathcal{H})$ then $\sigma\left(T^{*}\right)=\{\bar{\lambda}: \lambda \in \sigma(T)\}$.
