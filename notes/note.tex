@@ -696,7 +696,7 @@ Let $\mathcal{H}$ be a complex Hilbert space and let $T \in B(\mathcal{H})$. If 
   Also, we claim that $\ker(T-\tilde{\lambda}I)^{*}=\{0\}$. Suppose for contradiction that there exists $v\in H\backslash\{0\}$ such that $(T-\tilde{\lambda}I)^{*}v=0$. We, now, have
   $$
   \begin{aligned}
-    \lVert(T-\lambda I)v\rVert=\lVert(T-\lambda I)^{*}v+(\overline{\lambda-\tilde{\lambda}})v\rVert&\leq\lVert(T-\lambda I)^{*}v\rVert+|\tilde{\lambda}-\lambda|\lVert v\rVert \\
+    \lVert(T-\lambda I)^{*}v\rVert=\lVert(T-\bar{\lambda}I)^{*}v+(\overline{\lambda-\tilde{\lambda}})v\rVert&\leq\lVert(T-\lambda I)^{*}v\rVert+|\tilde{\lambda}-\lambda|\lVert v\rVert \\
                                                                                                    &=|\tilde{\lambda}-\lambda|\lVert v\rVert \\
                                                                                                    &<\delta\lVert v\rVert \\
                                                                                                    &=\frac{\gamma}{2}\lVert v\rVert \\
@@ -704,7 +704,7 @@ Let $\mathcal{H}$ be a complex Hilbert space and let $T \in B(\mathcal{H})$. If 
   $$
   Since $v\not=0$, dividing both sides of the inequality yields
   $$
-  \gamma\leq\frac{\lVert(T-\lambda I)v\rVert}{\lVert v\rVert}<\frac{\gamma}{2}
+  \gamma\leq\frac{\lVert(T-\lambda I)^{*}v\rVert}{\lVert v\rVert}<\frac{\gamma}{2}
   $$
   which is a contradiction. So, $v$ must be $0$ and $\ker(T-\tilde{\lambda}I)=\{0\}$. Hence, $\tilde{\lambda}\in\rho(T)$, and therefore, $B(\lambda,\delta)\subseteq\rho(T)$.
 \end{proof}
@@ -716,7 +716,7 @@ If $\mathcal{H}$ is a complex Hilbert space and $T \in B(\mathcal{H})$ then $\si
 \begin{exm}
   Let $T:\ell^{2}\to\ell^{2}$ be the unilateral shift operator defined in Example \ref{ShiftOp}. We would like to find the spectrum of $T$, $\sigma(T)$. First, we claim that if $\lambda\in\mathbb{C}$ such that $|\lambda|<1$, then $\lambda$ is an eigen value of $T^{*}$. Consider the sequence
   $$
-  x = (1,\lambda,\lambda^{2},\dots)
+  x = (1,\lambda,\lambda^{2},\cdots)
   $$
   Here, $x\in\ell^{2}$, since
   $$
@@ -727,8 +727,8 @@ If $\mathcal{H}$ is a complex Hilbert space and $T \in B(\mathcal{H})$ then $\si
   where this series converge, since $|\lambda|<1$. Now, observe that
   $$
   \begin{aligned}
-    Tx &= T(1,\lambda,\lambda^{2},\dots) \\
-       &= (\lambda,\lambda^{2},\lambda^{3},\dots) = \lambda(1,\lambda,\lambda^{2},\dots) = \lambda x
+    Tx &= T(1,\lambda,\lambda^{2},\cdots) \\
+       &= (\lambda,\lambda^{2},\lambda^{3},\cdots) = \lambda(1,\lambda,\lambda^{2},\cdots) = \lambda x
   \end{aligned}
   $$
   So, $x\in\ell^{2}$ is an eigenvalue of $T$. This means that $\{\lambda\in\mathbb{C}:|\lambda|<1\}\subseteq\sigma(T^{*})$. By lemma \ref{SpectBar}, we have $\{\lambda\in\mathbb{C}:|\lambda|<1\}=\{\bar{\lambda}:|\lambda|<1\}\subseteq\{\bar{\lambda}:\lambda\in\sigma(T^{*})\}=\sigma(T)$. So, by theorem \ref{SpectIsBd} and that $T$ is an isometry, we have
