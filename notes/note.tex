@@ -347,6 +347,20 @@ As $TT^{-1} = T^{-1}T = I$, if we take the adjoint of this equation we obtain $(
 Let $H$ be a Hilbert space and $T: H \rightarrow H$ then $T$ is invertible $\Longleftrightarrow$  $\operatorname{ker}T^{*}=\{0\}$ and $\exists \alpha>0$ such that $\|T(x)\| \geqslant \alpha\|x\| \quad \forall x \in H$.
 \end{thm}
 
+\begin{cor} \label{CorInv}
+Let $H$ be a Hilbert space and $T: H \rightarrow H$ then $T$ is invertible $\Longleftrightarrow$ $\exists \beta>0$ such that $\|T^{*}(x)\| \geqslant \beta\|x\|$ and $\exists \alpha>0$ such that $\|T(x)\| \geqslant \alpha\|x\| \quad \forall x \in H$.
+\end{cor}
+\begin{proof}
+  If $T$ is invertible, then so is $T^{*}$. So, by Theorem \ref{Inv}, $\exists \beta>0$ such that $\|T^{*}(x)\| \geqslant \beta\|x\|$ and $\exists \alpha>0$ such that $\|T(x)\| \geqslant \alpha\|x\|$ for all $x\in H$. Conversely, if $\exists \beta>0$ such that $\|T^{*}(x)\| \geqslant \beta\|x\|$, then if $T^{*}u=0$ for some $u\in H$, then
+  $$
+  \begin{aligned}
+  0 = \lVert T^{*}u\rVert&\geq\beta\lVert u\rVert \\
+                         &\implies u=0
+  \end{aligned}
+  $$
+  So, $\ker T^{*}=\{0\}$. By Theorem \ref{Inv}, $T$ is invertible.
+\end{proof}
+
 \begin{exm} \label{ShiftOpInv}
 Let $T: l^{2} \rightarrow l^{2}$ where 
 
@@ -612,6 +626,10 @@ $$
   $$
   \rho(T) = \{\lambda\in\mathbb{C}: \operatorname{ker}(T-\lambda I)^{*}=\{0\}\text{ and }\lVert (T-\lambda I)x\rVert\geq\alpha\lVert x\rVert\text{ for some }\alpha>0\}
   $$
+  Alternatively, we can rewrite the resolvent set of $T$ as
+  $$
+  \rho(T) = \{\lambda\in\mathbb{C}: \lVert (T-\lambda I)^{*}x\rVert\geq\beta\lVert x\rVert\text{ and }\lVert (T-\lambda I)x\rVert\geq\alpha\lVert x\rVert\text{ for some }\beta,\alpha>0\}
+  $$
 \end{rem}
 
 \begin{thm}
@@ -664,22 +682,25 @@ Let $\mathcal{H}$ be a complex Hilbert space and let $T \in B(\mathcal{H})$. If 
                                                                                                            &= \alpha\lVert x\rVert
   \end{aligned}
   $$
-  where $\alpha:=|\lambda|-\lVert T\rVert$ is positive, since $|\lambda|>\lVert T\rVert$. So, $\lambda\in\rho(T)$, by Remark \ref{defRho}. Hence, $\lambda\notin\sigma(T)$.
+  where $\alpha:=|\lambda|-\lVert T\rVert$ is positive, since $|\lambda|>\lVert T\rVert$. So, $\lambda\in\rho(T)$, by first equality in Remark \ref{defRho}. Hence, $\lambda\notin\sigma(T)$.
 \end{proof}
 
 \begin{thm} \label{SpectIsCl}
   $\sigma(T)\subseteq\mathbb{C}$ is a closed set.
 \end{thm}
 \begin{proof}
-  We will show that $\rho(T)=\mathbb{C}\backslash\sigma(T)$ is open. Let $\lambda\in\rho(T)$. This means that, by Remark \ref{defRho}, there is $\alpha>0$ such that
+  We will show that $\rho(T)=\mathbb{C}\backslash\sigma(T)$ is open. Let $\lambda\in\rho(T)$. This means that, by second equality in Remark \ref{defRho}, there is $\alpha>0$ such that
   $$
   \lVert(T-\lambda I)u\rVert\geq\alpha\lVert u\rVert\implies\frac{\lVert(T-\lambda I)u\rVert}{\lVert u\rVert}\geq\alpha
   $$
-  Since the quantity $\frac{\lVert(T-\lambda I)u\rVert}{\lVert u\rVert}$ has a lower bound, its infimum exists. Now, let
+  Since the quantity $\frac{\lVert(T-\lambda I)u\rVert}{\lVert u\rVert}$ has a lower bound, its infimum exists. Similarly, by second equality in Remark \ref{defRho}, the infimum of the quantity $\frac{\lVert(T-\lambda I)^{*}u\rVert}{\lVert u\rVert}$ exists. Now, let
   $$
-  \gamma:=\inf_{x\in H\backslash\{0\}}\frac{\lVert(T-\lambda I)u\rVert}{\lVert u\rVert}
+  \begin{aligned}
+    \gamma&:=\inf_{x\in H\backslash\{0\}}\frac{\lVert(T-\lambda I)u\rVert}{\lVert u\rVert} \\
+    \gamma'&:=\inf_{x\in G\backslash\{0\}}\frac{\lVert(T-\lambda I)^{*}u\rVert}{\lVert u\rVert}
+  \end{aligned}
   $$
-  and let $\delta:=\frac{\gamma}{2}$. We want to show that
+  and let $\delta:=\frac{1}{2}\min(\gamma,\gamma')$. We want to show that
   $$
   B(\lambda,\delta)\subseteq\rho(T)
   $$
@@ -689,24 +710,24 @@ Let $\mathcal{H}$ be a complex Hilbert space and let $T \in B(\mathcal{H})$. If 
     \lVert(T-\tilde{\lambda}I)u\rVert=\lVert(T-\lambda I)u-(\tilde{\lambda}-\lambda)I(u)\rVert&\geq|\lVert(T-\lambda I)u\rVert-|\bar{\lambda}-\lambda|\lVert u\rVert| \\
                                                                                               &=\Big|\frac{\lVert(T-\lambda I)u\rVert}{\lVert u\rVert}-|\tilde{\lambda}-\lambda|\Big|\lVert u\rVert \\
                                                                                               &=\Big(\frac{\lVert(T-\lambda I)u\rVert}{\lVert u\rVert}-|\tilde{\lambda}-\lambda|\Big)\lVert u\rVert \\
-                                                                                              &>(\gamma-\frac{\gamma}{2})\lVert u\rVert \\
+                                                                                              &>(\gamma-\frac{1}{2}\min(\gamma,\gamma'))\lVert u\rVert \\
+                                                                                              &\geq(\gamma-\frac{\gamma}{2})\lVert u\rVert \\
                                                                                               &=\frac{\gamma}{2}\lVert u\rVert
   \end{aligned}
   $$
-  Also, we claim that $\ker(T-\tilde{\lambda}I)^{*}=\{0\}$. Suppose for contradiction that there exists $v\in H\backslash\{0\}$ such that $(T-\tilde{\lambda}I)^{*}v=0$. We, now, have
+  Similarly, we have
   $$
   \begin{aligned}
-    \lVert(T-\lambda I)v\rVert=\lVert(T-\lambda I)^{*}v+(\overline{\lambda-\tilde{\lambda}})v\rVert&\leq\lVert(T-\lambda I)^{*}v\rVert+|\tilde{\lambda}-\lambda|\lVert v\rVert \\
-                                                                                                   &=|\tilde{\lambda}-\lambda|\lVert v\rVert \\
-                                                                                                   &<\delta\lVert v\rVert \\
-                                                                                                   &=\frac{\gamma}{2}\lVert v\rVert \\
+    \lVert(T-\tilde{\lambda}I)^{*}u\rVert=\lVert(T-\lambda I)^{*}u-\overline{(\tilde{\lambda}-\lambda)}I(u)\rVert&\geq|\lVert(T-\lambda I)^{*}u\rVert-|\overline{\bar{\lambda}-\lambda}|\lVert u\rVert| \\
+                                                                                                                 &=|\lVert(T-\lambda I)^{*}u\rVert-|\tilde{\lambda}-\lambda|\lVert u\rVert| \\
+                                                                                                                 &=\Big|\frac{\lVert(T-\lambda I)^{*}u\rVert}{\lVert u\rVert}-|\tilde{\lambda}-\lambda|\Big|\lVert u\rVert \\
+                                                                                                                 &=\Big(\frac{\lVert(T-\lambda I)^{*}u\rVert}{\lVert u\rVert}-|\tilde{\lambda}-\lambda|\Big)\lVert u\rVert \\
+                                                                                                                 &>(\gamma'-\frac{1}{2}\min(\gamma,\gamma'))\lVert u\rVert \\
+                                                                                                                 &\geq(\gamma'-\frac{\gamma'}{2})\lVert u\rVert \\
+                                                                                                                 &=\frac{\gamma'}{2}\lVert u\rVert
   \end{aligned}
   $$
-  Since $v\not=0$, dividing both sides of the inequality yields
-  $$
-  \gamma\leq\frac{\lVert(T-\lambda I)^{*}v\rVert}{\lVert v\rVert}<\frac{\gamma}{2}
-  $$
-  which is a contradiction. So, $v$ must be $0$ and $\ker(T-\tilde{\lambda}I)=\{0\}$. Hence, $\tilde{\lambda}\in\rho(T)$, and therefore, $B(\lambda,\delta)\subseteq\rho(T)$.
+  So, by the second equality in Remark \ref{Inv}, $\tilde{\lambda}\in\rho(T)$. Therefore, $B(\lambda,\delta)\subseteq\rho(T)$.
 \end{proof}
 
 \begin{lem} \label{SpectBar}
