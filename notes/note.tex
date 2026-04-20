@@ -630,6 +630,7 @@ $$
   $$
   \rho(T) = \{\lambda\in\mathbb{C}: \lVert (T-\lambda I)^{*}x\rVert\geq\beta\lVert x\rVert\text{ and }\lVert (T-\lambda I)x\rVert\geq\alpha\lVert x\rVert\text{ for some }\beta,\alpha>0\}
   $$
+  by Corollary \ref{CorInv}
 \end{rem}
 
 \begin{thm}
@@ -696,8 +697,8 @@ Let $\mathcal{H}$ be a complex Hilbert space and let $T \in B(\mathcal{H})$. If 
   Since the quantity $\frac{\lVert(T-\lambda I)u\rVert}{\lVert u\rVert}$ has a lower bound, its infimum exists. Similarly, by second equality in Remark \ref{defRho}, the infimum of the quantity $\frac{\lVert(T-\lambda I)^{*}u\rVert}{\lVert u\rVert}$ exists. Now, let
   $$
   \begin{aligned}
-    \gamma&:=\inf_{x\in H\backslash\{0\}}\frac{\lVert(T-\lambda I)u\rVert}{\lVert u\rVert} \\
-    \gamma'&:=\inf_{x\in G\backslash\{0\}}\frac{\lVert(T-\lambda I)^{*}u\rVert}{\lVert u\rVert}
+    \gamma&:=\inf_{u\in H\backslash\{0\}}\frac{\lVert(T-\lambda I)u\rVert}{\lVert u\rVert} \\
+    \gamma'&:=\inf_{u\in G\backslash\{0\}}\frac{\lVert(T-\lambda I)^{*}u\rVert}{\lVert u\rVert}
   \end{aligned}
   $$
   and let $\delta:=\frac{1}{2}\min(\gamma,\gamma')$. We want to show that
