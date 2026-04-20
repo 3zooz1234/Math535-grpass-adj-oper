@@ -686,8 +686,29 @@ Let $\mathcal{H}$ be a complex Hilbert space and let $T \in B(\mathcal{H})$. If 
   where $\alpha:=|\lambda|-\lVert T\rVert$ is positive, since $|\lambda|>\lVert T\rVert$. So, $\lambda\in\rho(T)$, by first equality in Remark \ref{defRho}. Hence, $\lambda\notin\sigma(T)$.
 \end{proof}
 
+\begin{cor} \label{SpectIsBd2}
+  If $T\in B(H)$, then $\sigma(T)$ is bounded.
+\end{cor}
+\begin{proof}
+  If $\lambda\in\sigma(T)$, then, by the contrapositive of Theorem \ref{SpectIsBd}, $|\lambda|\leq\lVert T\rVert$. So, $\lambda\in\overline{B(0,\lVert T\rVert)}$. Hence, $\sigma(T)\subseteq\overline{B(0,\lVert T\rVert)}$, i.e. $\sigma(T)$ is bounded.
+\end{proof}
+
+\begin{cor}
+ If $A$ is a self-adjoint matrix with eigenvalues $\left\{\lambda_{1}, \lambda_{2}, \ldots, \lambda_{n}\right\}$, then
+
+$$
+\|A\|=\max \left\{\left|\lambda_{1}\right|,\left|\lambda_{2}\right|, \ldots,\left|\lambda_{n}\right|\right\} .
+$$
+\end{cor}
+\begin{proof}
+  Since $\left\{\lambda_{1}, \lambda_{2}, \ldots, \lambda_{n}\right\}\subseteq\sigma(T)$, then $|\lambda_{i}|\leq\lVert A\rVert$ for all $1\leq i\leq n$. So, $\max \left\{\left|\lambda_{1}\right|,\left|\lambda_{2}\right|, \ldots,\left|\lambda_{n}\right|\right\}\leq\lVert A\rVert$. Also, since, for each $\lambda_{i}$, there is $x_{i}\in H$ such that $Ax_{i}=\lambda_{i}x_{i}$ we have
+  $$
+  \lVert Ax_{i}\rVert=\lVert\lambda_{i}x_{i}\rVert=|\lambda_{i}|\lVert x_{i}\rVert
+  $$
+\end{proof}
+
 \begin{thm} \label{SpectIsCl}
-  $\sigma(T)\subseteq\mathbb{C}$ is a closed set.
+  If $T\in B(H)$, then $\sigma(T)\subseteq\mathbb{C}$ is a closed set.
 \end{thm}
 \begin{proof}
   We will show that $\rho(T)=\mathbb{C}\backslash\sigma(T)$ is open. Let $\lambda\in\rho(T)$. This means that, by second equality in Remark \ref{defRho}, there is $\alpha>0$ such that
@@ -729,6 +750,13 @@ Let $\mathcal{H}$ be a complex Hilbert space and let $T \in B(\mathcal{H})$. If 
   \end{aligned}
   $$
   So, by the second equality in Remark \ref{Inv}, $\tilde{\lambda}\in\rho(T)$. Therefore, $B(\lambda,\delta)\subseteq\rho(T)$.
+\end{proof}
+
+\begin{cor}
+  If $T\in B(H)$, then $\sigma(T)$ is compact in $\mathbb{C}$
+\end{cor}
+\begin{proof}
+  By Theorem \ref{SpectIsCl} and Corollary \ref{SpectIsBd2}, $\sigma(T)$ is closed and bounded. By Heine-Borel Theorem, $\sigma(T)\subseteq\mathbb{C}$ is compact.
 \end{proof}
 
 \begin{lem} \label{SpectBar}
@@ -773,12 +801,5 @@ $$
 \sigma(U) \subseteq\{\lambda \in \mathbb{C}:|\lambda|=1\}
 $$
 \end{lem}
-\begin{cor}
- If $A$ is a self-adjoint matrix with eigenvalues $\left\{\lambda_{1}, \lambda_{2}, \ldots, \lambda_{n}\right\}$, then
-
-$$
-\|A\|=\max \left\{\left|\lambda_{1}\right|,\left|\lambda_{2}\right|, \ldots,\left|\lambda_{n}\right|\right\} .
-$$
-\end{cor}
 
 \end{document}
