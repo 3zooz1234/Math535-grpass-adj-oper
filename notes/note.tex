@@ -656,12 +656,12 @@ If $\lambda$ is an eigenvalue of $T$ , then $\lambda \in \sigma(T)$
 \end{proof}
 
 \begin{rem}
-For finite dimesonial Hilbert space, the spectrum of $T$ consist only the eigenvalues of $T$. However, in infite dimesional Hilbert space, we may have no eigenvalues. For instance, consider the shift operator defined in Example \ref{ShiftOp}. 
+For finite dimesonial Hilbert space, the spectrum of $T$ consist only the eigenvalues of $T$. However, in infite dimesional Hilbert space, we may have no eigenvalues. For instance, consider the shift operator defined in Example \ref{ShiftOp}. Here, it has no eigenvalues, since if we consider $(T-\lambda I)x=0$, we see that
+$$
+(-\lambda x_{1}, x_{1}-\lambda x_{2}, x_{2}-\lambda x_{3},\cdots)=(0,0,0,\cdots) \implies x = (0,0,0,\cdots)
+$$
+So, $T$ does not have an eigenvalue. However, in Example \ref{ShiftOpInv}, we showed that $T$ is not invertible. So, $T-0I$ is not invertible and $0\in\sigma(T)$. So, the spectrum of an operator does not only consist of eigenvalues.
 \end{rem}
-
-Example: Consider $S \in$ $B\left(l^{2}\right)$
-$S\left(x_{1}, x_{2}, \ldots\right)=\left(0, x_{1}, x_{2}, \ldots\right)$ 
-has no egienvalue 
 
 \begin{prop}
   Let $\mathcal{H}$ be a Hilbert space. Let $T:\mathcal{H}\to\mathcal{H}$. The following properties hold:
