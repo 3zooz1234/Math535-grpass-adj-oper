@@ -663,6 +663,19 @@ Example: Consider $S \in$ $B\left(l^{2}\right)$
 $S\left(x_{1}, x_{2}, \ldots\right)=\left(0, x_{1}, x_{2}, \ldots\right)$ 
 has no egienvalue 
 
+\begin{prop}
+  Let $\mathcal{H}$ be a Hilbert space. Let $T:\mathcal{H}\to\mathcal{H}$. The following properties hold:
+  \begin{enumerate}
+    \item $\sigma\left(T^{*}\right)=\{\bar{\lambda}: \lambda \in \sigma(T)\}$
+    \item If $T$ is invertible, then $\sigma\left(T^{-1}\right)=\left\{\mu^{-1}: \mu \in \sigma(T)\right\}$
+  \end{enumerate}
+\end{prop}
+\begin{proof}
+  \begin{enumerate}
+    \item Suppose that $\bar{\mu}\in\{\bar{\lambda}: \lambda\in\sigma(T)\}$. This means that $\mu\in\sigma(T)$, i.e. $T-\mu I$ is not invertible. This implies that $(T-\mu I)^{*}=T^{*}-\bar{\mu}I$ is not invertible. Hence, $\bar{\mu}\in\sigma(T^{*})$. So, $\{\bar{\lambda}: \lambda\in\sigma(T)\}\subseteq\sigma(T^{*})$. 
+  \end{enumerate}
+\end{proof}
+
 \begin{thm} \label{SpectIsBd}
 Let $\mathcal{H}$ be a complex Hilbert space and let $T \in B(\mathcal{H})$. If $|\lambda|>\|T\|$ then $\lambda \notin \sigma(T)$.
 \end{thm}
