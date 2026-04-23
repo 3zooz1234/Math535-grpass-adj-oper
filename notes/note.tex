@@ -58,7 +58,7 @@
     For any bounded linear functional $\varphi \in H^{*}$,
     there exists a unique element $y \in H$ such that\\
 
-$$\varphi(x)=\langle y, x\rangle \quad$$ for all $x \in H$ and $\|\varphi\|=\|y\|$ \\
+$$\varphi(x)=\langle x, y\rangle \quad$$ for all $x \in H$ and $\|\varphi\|=\|y\|$ \\
 
 \end{thm}
 
@@ -302,12 +302,12 @@ As $TT^{-1} = T^{-1}T = I$, if we take the adjoint of this equation we obtain $(
   $$
   \begin{aligned}
     \tilde{\varphi}:G&\longrightarrow\mathbb{F} \\
-    y&\longmapsto\langle Tx,y\rangle
+    y&\longmapsto\langle y,Tx\rangle
   \end{aligned}
   $$
   We have
   $$
-  |\tilde{\varphi}(y)| = |\langle Tx,y\rangle| = |\langle x,T^{*}y\rangle|\leq\lVert x\rVert\lVert T^{*}y\rVert\leq\lVert x\rVert\lVert T^{*}\rVert\lVert y\rVert
+  |\tilde{\varphi}(y)| = |\langle y,Tx\rangle| = |\overline{\langle Tx,y\rangle}| = |\langle Tx,y\rangle| = |\langle x,T^{*}y\rangle|\leq\lVert x\rVert\lVert T^{*}y\rVert\leq\lVert x\rVert\lVert T^{*}\rVert\lVert y\rVert
   $$
   So, $\tilde{\varphi}$ is bounded and $\lVert\tilde{\varphi}\rVert\leq\lVert T^{*}\rVert\lVert x\rVert$. By Reisz Representation Theorem, $\lVert Tx\rVert=\lVert\tilde{\varphi}\rVert\leq\lVert T^{*}\rVert\lVert x\rVert$. Therefore, $\lVert T\rVert\leq\lVert T^{*}\rVert$, and hence, $\lVert T^{*}\rVert = \lVert T\rVert$.
 \end{proof}
@@ -715,19 +715,20 @@ Let $\mathcal{H}$ be a complex Hilbert space and let $T \in B(\mathcal{H})$. If 
   If $\lambda\in\sigma(T)$, then, by the contrapositive of Theorem \ref{SpectIsBd}, $|\lambda|\leq\lVert T\rVert$. So, $\lambda\in\overline{B(0,\lVert T\rVert)}$. Hence, $\sigma(T)\subseteq\overline{B(0,\lVert T\rVert)}$, i.e. $\sigma(T)$ is bounded.
 \end{proof}
 
-\begin{cor}
- If $A$ is a self-adjoint matrix with eigenvalues $\left\{\lambda_{1}, \lambda_{2}, \ldots, \lambda_{n}\right\}$, then
-
-$$
-\|A\|=\max \left\{\left|\lambda_{1}\right|,\left|\lambda_{2}\right|, \ldots,\left|\lambda_{n}\right|\right\} .
-$$
-\end{cor}
-\begin{proof}
-  Since $\left\{\lambda_{1}, \lambda_{2}, \ldots, \lambda_{n}\right\}\subseteq\sigma(T)$, then $|\lambda_{i}|\leq\lVert A\rVert$ for all $1\leq i\leq n$. So, $\max \left\{\left|\lambda_{1}\right|,\left|\lambda_{2}\right|, \ldots,\left|\lambda_{n}\right|\right\}\leq\lVert A\rVert$. Also, since, for each $\lambda_{i}$, there is $x_{i}\in H$ such that $Ax_{i}=\lambda_{i}x_{i}$ we have
-  $$
-  \lVert Ax_{i}\rVert=\lVert\lambda_{i}x_{i}\rVert=|\lambda_{i}|\lVert x_{i}\rVert
-  $$
-\end{proof}
+% May be removed
+%\begin{cor}
+% If $A$ is a self-adjoint matrix with eigenvalues $\left\{\lambda_{1}, \lambda_{2}, \ldots, \lambda_{n}\right\}$, then
+%
+%$$
+%\|A\|=\max \left\{\left|\lambda_{1}\right|,\left|\lambda_{2}\right|, \ldots,\left|\lambda_{n}\right|\right\} .
+%$$
+%\end{cor}
+%\begin{proof}
+%  Since $\left\{\lambda_{1}, \lambda_{2}, \ldots, \lambda_{n}\right\}\subseteq\sigma(T)$, then $|\lambda_{i}|\leq\lVert A\rVert$ for all $1\leq i\leq n$. So, $\max \left\{\left|\lambda_{1}\right|,\left|\lambda_{2}\right|, \ldots,\left|\lambda_{n}\right|\right\}\leq\lVert A\rVert$. Also, since, for each $\lambda_{i}$, there is $x_{i}\in H$ such that $Ax_{i}=\lambda_{i}x_{i}$ we have
+%  $$
+%  \lVert Ax_{i}\rVert=\lVert\lambda_{i}x_{i}\rVert=|\lambda_{i}|\lVert x_{i}\rVert
+%  $$
+%\end{proof}
 
 \begin{thm} \label{SpectIsCl}
   If $T\in B(H)$, then $\sigma(T)\subseteq\mathbb{C}$ is a closed set.
@@ -781,6 +782,14 @@ $$
   By Theorem \ref{SpectIsCl} and Corollary \ref{SpectIsBd2}, $\sigma(T)$ is closed and bounded. By Heine-Borel Theorem, $\sigma(T)\subseteq\mathbb{C}$ is compact.
 \end{proof}
 
+\begin{lem}
+If $\mathcal{H}$ is a complex Hilbert space and $U \in B(\mathcal{H})$ is unitary then
+
+$$
+\sigma(U) \subseteq\{\lambda \in \mathbb{C}:|\lambda|=1\}
+$$
+\end{lem}
+
 \begin{exm}
   Let $T:\ell^{2}\to\ell^{2}$ be the unilateral shift operator defined in Example \ref{ShiftOp}. We would like to find the spectrum of $T$, $\sigma(T)$. First, we claim that if $\lambda\in\mathbb{C}$ such that $|\lambda|<1$, then $\lambda$ is an eigen value of $T^{*}$. Consider the sequence
   $$
@@ -799,7 +808,7 @@ $$
        &= (\lambda,\lambda^{2},\lambda^{3},\cdots) = \lambda(1,\lambda,\lambda^{2},\cdots) = \lambda x
   \end{aligned}
   $$
-  So, $x\in\ell^{2}$ is an eigenvalue of $T$. This means that $\{\lambda\in\mathbb{C}:|\lambda|<1\}\subseteq\sigma(T^{*})$. By lemma \ref{SpectBar}, we have $\{\lambda\in\mathbb{C}:|\lambda|<1\}=\{\bar{\lambda}:|\lambda|<1\}\subseteq\{\bar{\lambda}:\lambda\in\sigma(T^{*})\}=\sigma(T)$. So, by theorem \ref{SpectIsBd} and that $T$ is an isometry, we have
+  So, $x\in\ell^{2}$ is an eigenvalue of $T$. This means that $\{\lambda\in\mathbb{C}:|\lambda|<1\}\subseteq\sigma(T^{*})$. We have $\{\lambda\in\mathbb{C}:|\lambda|<1\}=\{\bar{\lambda}:|\lambda|<1\}\subseteq\{\bar{\lambda}:\lambda\in\sigma(T^{*})\}=\sigma(T)$. So, by theorem \ref{SpectIsBd} and that $T$ is an isometry, we have
   $$
   \{\lambda\in\mathbb{C}:|\lambda|<1\}\subseteq\sigma(T)\subseteq\{\lambda\in\mathbb{C}:|\lambda|\leq 1\}
   $$
@@ -809,12 +818,5 @@ $$
   $$
 \end{exm}
 
-\begin{lem}
-If $\mathcal{H}$ is a complex Hilbert space and $U \in B(\mathcal{H})$ is unitary then
-
-$$
-\sigma(U) \subseteq\{\lambda \in \mathbb{C}:|\lambda|=1\}
-$$
-\end{lem}
 
 \end{document}
