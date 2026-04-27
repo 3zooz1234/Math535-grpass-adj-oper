@@ -24,6 +24,12 @@
   \end{frame}
 
   \begin{frame}
+    \frametitle{Outline}
+    \tableofcontents[pausesections]
+  \end{frame}
+
+  \section{Introduction}
+  \begin{frame}
     \begin{defn}
     Let $T$ be a linear operator, $\lambda \in \mathbb{C}$ is called an eigenvalue of $T$, if there exists $x \in H$ with $x\not=0$ such that
 
@@ -37,6 +43,7 @@
 
   \end{frame}
 
+  \section{Spectrum}
   \begin{frame}
     \begin{defn}
       Let $T$ be a linear operator. The resolvent set of $T$, denoted by $\rho(T)$, is $\rho(T) = \{\lambda\in\mathbb{C}: T-\lambda I\text{ is invertible}\}$. The spectrum of $T$, denoted by $\sigma(T)$ is $\sigma(T)=\mathbb{C}\backslash\rho(T)$, or equivalently, $\sigma(T) = \{\lambda\in\mathbb{C}: T-\lambda I\text{ is not invertible}\}$
@@ -194,7 +201,65 @@
     \end{lem}
   \end{frame}
 
+  \section{Examples of Spectra of Operators}
   \begin{frame}
-    An Example
+    We would like to find the spectrum of the unilateral shift,$T:\ell^{2}\to\ell^{2}$, defined by
+    $$
+    T(x_{1},x_{2},\cdots) = (0,x_{1},x_{2},\cdots)
+    $$
+    Since $T$ has been shown to have no eigenvalue, we will consider the eigenvalues of $T^{*}$ instead and use the properties of the spectrum to have a lower bound for the spectrum.
+  \end{frame}
+
+  \begin{frame}
+    %We claim that if $|\lambda|$
+    Suppose that $|\lambda|<1$, then consider the sequence
+    \pause
+    $$
+    x = (1,\lambda,\lambda^{2},\cdots)
+    $$
+    \pause
+    \textbf{Claim: }$x\in\ell^{2}$
+    \pause
+    \newline
+    We have
+    $$
+    \begin{aligned}
+      \sum^{\infty}_{n=0}|x_{n}|^{2} = \sum^{\infty}_{n=0}(|\lambda|^{n})^{2} = \sum^{\infty}_{n=0}(|\lambda|^{2})^{n} = \frac{1}{1-|\lambda|^{2}} < \infty
+    \end{aligned}
+    $$
+  \end{frame}
+
+  \begin{frame}
+    Now, observe that
+    $$
+    \begin{aligned}
+      Tx &= T(1,\lambda,\lambda^{2},\cdots) \\
+         &= (\lambda,\lambda^{2},\lambda^{3},\cdots) = \lambda(1,\lambda,\lambda^{2},\cdots) = \lambda x
+    \end{aligned}
+    $$
+    \pause
+    So, every $\lambda\in\mathbb{C}$ suhc that $|\lambda|<1$ is an eigenvalue of $T^{*}$.
+    \pause
+    Now, we have
+    $$
+    \{\lambda:|\lambda|<1\}=\{\bar{\lambda}:|\lambda|<1\}\subseteq\sigma(T)
+    $$
+  \end{frame}
+
+  \begin{frame}
+    So,
+    $$
+    \{\lambda\in\mathbb{C}:|\lambda|<1\}\subseteq\sigma(T)\subseteq\{\lambda\in\mathbb{C}:|\lambda|\leq 1\}
+    $$
+    \pause
+    or
+    $$
+    B(0,1)\subseteq\sigma(T)\subseteq\overline{B(0,1)}
+    $$
+    \pause
+    Since $\sigma(T)$ is closed, we have
+    $$
+    \sigma(T)=\overline{B(0,1)}=\{\lambda\in\mathbb{C}:|\lambda|\leq 1\}
+    $$
   \end{frame}
 \end{document}
