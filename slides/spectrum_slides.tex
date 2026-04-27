@@ -4,12 +4,197 @@
 \usepackage{amsmath}
 \usepackage{amsthm}
 \usepackage{amssymb}
-\title{The Spectrum of an operator}
+\title{The Spectrum of an Operator}
 \author{Abdulaziz AlMutairi}
 \date{\today}
+
+\newtheorem{thm}{Theorem}
+\newtheorem{lem}{Lemma}
+\newtheorem{defn}{Definition}
+\newtheorem{exm}{Example}
+\newtheorem{cor}{Corollary}
+\newtheorem{prop}{Proposition}
+\newtheorem{rem}{Remark}
+
+\newcommand{\im}{\operatorname{Im}}
 
 \begin{document}
   \begin{frame}
     \maketitle
+  \end{frame}
+
+  \begin{frame}
+    \begin{defn}
+    Let $T$ be a linear operator, $\lambda \in \mathbb{C}$ is called an eigenvalue of $T$, if there exists $x \in H$ with $x\not=0$ such that
+
+    $$
+    Tx=\lambda x
+    $$
+    \end{defn}
+  \end{frame}
+
+  \begin{frame}
+
+  \end{frame}
+
+  \begin{frame}
+    \begin{defn}
+      Let $T$ be a linear operator. The resolvent set of $T$, denoted by $\rho(T)$, is $\rho(T) = \{\lambda\in\mathbb{C}: T-\lambda I\text{ is invertible}\}$. The spectrum of $T$, denoted by $\sigma(T)$ is $\sigma(T)=\mathbb{C}\backslash\rho(T)$, or equivalently, $\sigma(T) = \{\lambda\in\mathbb{C}: T-\lambda I\text{ is not invertible}\}$
+    \end{defn}
+  \end{frame}
+
+  \begin{frame}
+    \begin{thm} \label{Inv}
+    Let $H$ be a Hilbert space and $T: H \rightarrow H$ then $T$ is invertible $\Longleftrightarrow$  $\operatorname{ker}T^{*}=\{0\}$ and $\exists \alpha>0$ such that $\|T(x)\| \geqslant \alpha\|x\| \quad \forall x \in H$.
+    \end{thm}
+    \begin{cor} \label{CorInv}
+    Let $H$ be a Hilbert space and $T: H \rightarrow H$ then $T$ is invertible $\Longleftrightarrow$ $\exists \beta>0$ such that $\|T^{*}(x)\| \geqslant \beta\|x\|$ and $\exists \alpha>0$ such that $\|T(x)\| \geqslant \alpha\|x\| \quad \forall x \in H$.
+    \end{cor}
+  \end{frame}
+
+  \begin{frame}
+    \begin{proof}
+      If $T$ is invertible, then so is $T^{*}$. So, by Theorem \ref{Inv}, $\exists \beta>0$ such that $\|T^{*}(x)\| \geqslant \beta\|x\|$ and $\exists \alpha>0$ such that $\|T(x)\| \geqslant \alpha\|x\|$ for all $x\in H$. Conversely, if $\exists \beta>0$ such that $\|T^{*}(x)\| \geqslant \beta\|x\|$, then if $T^{*}u=0$ for some $u\in H$, then
+      $$
+      \begin{aligned}
+      0 = \lVert T^{*}u\rVert&\geq\beta\lVert u\rVert \\
+                             &\implies u=0
+      \end{aligned}
+      $$
+      So, $\ker T^{*}=\{0\}$. By Theorem \ref{Inv}, $T$ is invertible.
+    \end{proof}
+  \end{frame}
+
+  \begin{frame}
+    \begin{rem} \label{defRho}
+      Notice that, if $T\in B(H)$, by Theorem \ref{Inv}, we can rewrite the resolvent set of $T$ as
+      $$
+      \begin{aligned}
+        \rho(T) = \{\lambda\in\mathbb{C}: \operatorname{ker}(T-\lambda I)^{*}=\{0\}\text{ and }\lVert (T-\lambda I)x\rVert\geq\alpha\lVert x\rVert\\
+        \text{ for some }\alpha>0\}
+      \end{aligned}
+      $$
+      Alternatively, we can rewrite the resolvent set of $T$ as
+      $$
+      \begin{aligned}
+        \rho(T) = \{\lambda\in\mathbb{C}: \lVert (T-\lambda I)^{*}x\rVert\geq\beta\lVert x\rVert\text{ and }\lVert (T-\lambda I)x\rVert\geq\alpha\lVert x\rVert\\
+        \text{ for some }\beta,\alpha>0\}
+      \end{aligned}
+      $$
+      by Corollary \ref{CorInv}
+    \end{rem}
+  \end{frame}
+
+  \begin{frame}
+    \begin{thm}
+    If $\lambda$ is an eigenvalue of $T$ , then $\lambda \in \sigma(T)$
+    \end{thm}
+  \end{frame}
+
+  \begin{frame}
+    \begin{proof}
+      Suppose that $\lambda\notin\sigma(T)$, then $T-\lambda I$ is invertible. So, we have $(T-\lambda I)u=0\implies u = (T-\lambda I)^{-1}(T-\lambda I)u = (T-\lambda I)^{-1}(0)=0$. So, if there is $u\in\mathcal{H}$ such that $Tu=\lambda u$, then $u=0$. So, $\lambda$ is not an eignvalue of $T$.
+    \end{proof}
+  \end{frame}
+
+  \begin{frame}
+    \begin{thm}
+      Let $H$ be a finite dimensional Hilbert space, and let $T:H\to H$ be linear. If $\lambda\in\sigma(T)$, then $\lambda$ is an eigenvalue of $T$.
+    \end{thm}
+  \end{frame}
+
+  \begin{frame}
+    \begin{rem}
+    For finite dimesonial Hilbert space, the spectrum of $T$ consist only the eigenvalues of $T$. However, in infinite dimesional Hilbert space, we may have no eigenvalues. For instance, consider the shift operator. Here, it has no eigenvalues, since if we consider $(T-\lambda I)x=0$, we see that
+    $$
+    (-\lambda x_{1}, x_{1}-\lambda x_{2}, x_{2}-\lambda x_{3},\cdots)=(0,0,0,\cdots) \implies x = (0,0,0,\cdots)
+    $$
+    So, $T$ does not have an eigenvalue. However, we showed that $T$ is not invertible. So, $T-0I$ is not invertible and $0\in\sigma(T)$. So, the spectrum of an operator does not only consist of eigenvalues.
+    \end{rem}
+  \end{frame}
+
+  \begin{frame}
+    \begin{proof}
+      Suppose that $\lambda$ is not an eigenvalue of $T$, then there is nonzero $u\in H$ such that $Tu=\lambda u$. So, there is no nonzero $u\in H$ such that $(T-\lambda I)u=0$. So, $\ker(T-\lambda I)=\{0\}$. By rank-nullity theorem, we have
+      $$
+      \begin{aligned}
+        \dim H &= \dim\ker(T-\lambda I) + \dim\im(T-\lambda I) \\
+               &= 0 + \dim\im(T-\lambda I) \\
+               &= \dim\im(T-\lambda I)
+      \end{aligned}
+      $$
+      So, $\im(T-\lambda I)=H$. This means that $(T-\lambda I)$ is surjective, and therefore, invertible. So, $\lambda\in\rho(T)$, and therefore, $\lambda\notin\sigma(T)$.
+    \end{proof}
+  \end{frame}
+
+  \begin{frame}
+    \begin{prop}
+      Let $\mathcal{H}$ be a Hilbert space. Let $T:\mathcal{H}\to\mathcal{H}$ be linear operator. The following properties hold:
+      \begin{enumerate}
+        \item $\sigma(I) = \{1\}$
+        \item $\sigma\left(T^{*}\right)=\{\bar{\lambda}: \lambda \in \sigma(T)\}$
+        \item If $T$ is invertible, then $\sigma\left(T^{-1}\right)=\left\{\mu^{-1}: \mu \in \sigma(T)\right\}$
+        \item If $T$ is self-adjoint, then $\sigma(T)\subseteq\mathbb{R}$.
+        \item If $U:\mathcal{H}\to\mathcal{H}$ is invertible, then $\sigma(UTU^{-1})=\sigma(T)$
+      \end{enumerate}
+    \end{prop}
+  \end{frame}
+
+%  \begin{frame}
+%    \begin{proof}
+%      \begin{enumerate}
+%        \item Suppose that $\lambda\in\sigma(I)$, then $I-\lambda I=(1-\lambda)I$ is not invertible. $(1-\lambda)I$ is not invertible if and only if $1-\lambda=0$, since $1-\lambda\in\mathbb{F}$. So, this is true if and only if $\lambda=1$.
+%
+%        \item Suppose that $\mu\in\sigma(T^{*})$, then $T^{*}-\mu I$ is not invertible. Observe that $T^{*}-\mu I$ is invertible if and only if $(T^{*}-\mu I)^{*}=T-\bar{\mu}I$ is invertible, since if $(T^{*}-\mu I)^{*}$ is invertible, then $((T^{*}-\mu I)^{*})^{*}=T^{*}-\mu I$ is invertible. So, $T^{*}-\mu I$ is not invertible iff $(T^{*}-\mu I)^{*}=T-\bar{\mu}I$ is not invertible. So, $\bar{\mu}\in\sigma(T)$, i.e. $\mu\in\{\bar{\lambda}: \lambda\in\sigma(T)\}$.
+%
+%        \item If $T$ is invertible, i.e. $T-0I$ is invertible, then $0\notin\sigma(T)$. Similarly, $0\notin\sigma(T^{-1})$. Suppose that $\mu\in\sigma(T^{-1})$, then $T^{-1}-\mu I$ is not invertible. Observe that $T^{-1}-\mu I$ is invertible if and only if $T(T^{-1}-\mu I)=I-\mu T$ is invertible, since if $T(T^{-1}-\mu I)$ has an inverse, $K$, then $KT$ would be an inverse of $T^{-1}-\mu I$. So, $T^{-1}-\mu I$ is not invertible iff $T(T^{-1}-\mu I)=I-\mu T$ is not invertible. Also, $I-\mu T$ is not invertible iff $T-\mu^{-1}I$, where $\mu^{-1}$ exists, since $\mu\not=0$. So, $\mu^{-1}\in\sigma(T)$, i.e. $\mu\in\{\lambda^{-1}: \lambda\in\sigma(T)\}$.
+%      \item 
+%        \item Suppose that $\lambda\in\sigma(UTU^{-1})$, then $UTU^{-1}-\lambda I$ is not invertible. Observe that $UTU^{-1}-\lambda I=U(T-\lambda)U^{-1}$ is not invertible iff $T-\lambda I$ is not invertible. So, $\lambda\in\sigma(T)$.
+%      \end{enumerate}
+%    \end{proof}
+%  \end{frame}
+
+  \begin{frame}
+    \begin{thm} \label{SpectIsBd}
+    Let $\mathcal{H}$ be a complex Hilbert space and let $T \in B(\mathcal{H})$. If $|\lambda|>\|T\|$ then $\lambda \notin \sigma(T)$.
+    \end{thm}
+  \end{frame}
+
+  \begin{frame}
+    \begin{cor} \label{SpectIsBd2}
+      If $T\in B(H)$, then $\sigma(T)$ is bounded.
+    \end{cor}
+  \end{frame}
+
+  \begin{frame}
+    \begin{proof}
+      If $\lambda\in\sigma(T)$, then, by the contrapositive of Theorem \ref{SpectIsBd}, $|\lambda|\leq\lVert T\rVert$. So, $\lambda\in\overline{B(0,\lVert T\rVert)}$. Hence, $\sigma(T)\subseteq\overline{B(0,\lVert T\rVert)}$, i.e. $\sigma(T)$ is bounded.
+    \end{proof}
+  \end{frame}
+
+  \begin{frame}
+    \begin{thm} \label{SpectIsCl}
+      If $T\in B(H)$, then $\sigma(T)\subseteq\mathbb{C}$ is a closed set.
+    \end{thm}
+  \end{frame}
+
+  \begin{frame}
+    \begin{cor}
+      If $T\in B(H)$, then $\sigma(T)$ is compact in $\mathbb{C}$
+    \end{cor}
+  \end{frame}
+
+  \begin{frame}
+    \begin{lem}
+    If $\mathcal{H}$ is a complex Hilbert space and $U \in B(\mathcal{H})$ is unitary then
+
+    $$
+    \sigma(U) \subseteq\{\lambda \in \mathbb{C}:|\lambda|=1\}
+    $$
+    \end{lem}
+  \end{frame}
+
+  \begin{frame}
+    An Example
   \end{frame}
 \end{document}

@@ -610,7 +610,7 @@ Let $T, S$ be unitary operators, then
 The notation of an eigenvalue of a matrix has many essential applications in finite dimensional vector space; however, we wish we could extend this notation to the infinite-dimensional vector space.
 
 \begin{defn}
-Let $T \in B(H), \lambda \in \mathbb{C}$ is called an eigenvalue of $T$, if there exists $x \in H$ with $x\not=0$ such that
+Let $T$ be a linear operator, $\lambda \in \mathbb{C}$ is called an eigenvalue of $T$, if there exists $x \in H$ with $x\not=0$ such that
 
 $$
 Tx=\lambda x
@@ -618,11 +618,11 @@ $$
 \end{defn}
 
 \begin{defn}
-  Let $T \in B(H)$. The resolvent set of $T$, denoted by $\rho(T)$, is $\rho(T) = \{\lambda\in\mathbb{C}: T-\lambda I\text{ is invertible}\}$. The spectrum of $T$, denoted by $\sigma(T)$ is $\sigma(T)=\mathbb{C}\backslash\rho(T)$, or equivalently, $\sigma(T) = \{\lambda\in\mathbb{C}: T-\lambda I\text{ is not invertible}\}$
+  Let $T$ be a linear operator. The resolvent set of $T$, denoted by $\rho(T)$, is $\rho(T) = \{\lambda\in\mathbb{C}: T-\lambda I\text{ is invertible}\}$. The spectrum of $T$, denoted by $\sigma(T)$ is $\sigma(T)=\mathbb{C}\backslash\rho(T)$, or equivalently, $\sigma(T) = \{\lambda\in\mathbb{C}: T-\lambda I\text{ is not invertible}\}$
 \end{defn}
 
 \begin{rem} \label{defRho}
-  Notice that, by Theorem \ref{Inv}, we can rewrite the resolvent set of $T$ as
+  Notice that, if $T\in B(H)$, by Theorem \ref{Inv}, we can rewrite the resolvent set of $T$ as
   $$
   \rho(T) = \{\lambda\in\mathbb{C}: \operatorname{ker}(T-\lambda I)^{*}=\{0\}\text{ and }\lVert (T-\lambda I)x\rVert\geq\alpha\lVert x\rVert\text{ for some }\alpha>0\}
   $$
@@ -641,7 +641,7 @@ If $\lambda$ is an eigenvalue of $T$ , then $\lambda \in \sigma(T)$
 \end{proof}
 
 \begin{thm}
-  Let $H$ be a finite dimensional Hilbert space, and let $T:H\to H$. If $\lambda\in\sigma(T)$, then $\lambda$ is an eigenvalue of $T$.
+  Let $H$ be a finite dimensional Hilbert space, and let $T:H\to H$ be linear. If $\lambda\in\sigma(T)$, then $\lambda$ is an eigenvalue of $T$.
 \end{thm}
 \begin{proof}
   Suppose that $\lambda$ is not an eigenvalue of $T$, then there is nonzero $u\in H$ such that $Tu=\lambda u$. So, there is no nonzero $u\in H$ such that $(T-\lambda I)u=0$. So, $\ker(T-\lambda I)=\{0\}$. By rank-nullity theorem, we have
@@ -656,7 +656,7 @@ If $\lambda$ is an eigenvalue of $T$ , then $\lambda \in \sigma(T)$
 \end{proof}
 
 \begin{rem}
-For finite dimesonial Hilbert space, the spectrum of $T$ consist only the eigenvalues of $T$. However, in infite dimesional Hilbert space, we may have no eigenvalues. For instance, consider the shift operator defined in Example \ref{ShiftOp}. Here, it has no eigenvalues, since if we consider $(T-\lambda I)x=0$, we see that
+For finite dimesonial Hilbert space, the spectrum of $T$ consist only the eigenvalues of $T$. However, in infinite dimesional Hilbert space, we may have no eigenvalues. For instance, consider the shift operator defined in Example \ref{ShiftOp}. Here, it has no eigenvalues, since if we consider $(T-\lambda I)x=0$, we see that
 $$
 (-\lambda x_{1}, x_{1}-\lambda x_{2}, x_{2}-\lambda x_{3},\cdots)=(0,0,0,\cdots) \implies x = (0,0,0,\cdots)
 $$
@@ -664,7 +664,7 @@ So, $T$ does not have an eigenvalue. However, in Example \ref{ShiftOpInv}, we sh
 \end{rem}
 
 \begin{prop}
-  Let $\mathcal{H}$ be a Hilbert space. Let $T:\mathcal{H}\to\mathcal{H}$. The following properties hold:
+  Let $\mathcal{H}$ be a Hilbert space. Let $T:\mathcal{H}\to\mathcal{H}$ be linear operator. The following properties hold:
   \begin{enumerate}
     \item $\sigma(I) = \{1\}$
     \item $\sigma\left(T^{*}\right)=\{\bar{\lambda}: \lambda \in \sigma(T)\}$
