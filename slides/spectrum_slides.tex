@@ -277,64 +277,72 @@
 
   \subsection{The Shift Operator}
   \begin{frame}{\subsecname}
-    We would like to find the spectrum of the unilateral shift,$T:\ell^{2}\to\ell^{2}$, defined by
-    $$
-    T(x_{1},x_{2},\cdots) = (0,x_{1},x_{2},\cdots)
-    $$
-    Since $T$ has been shown to have no eigenvalue, we will consider the eigenvalues of $T^{*}$ instead and use the properties of the spectrum to have a lower bound for the spectrum.
+    \begin{exm}
+      We would like to find the spectrum of the unilateral shift,$T:\ell^{2}\to\ell^{2}$, defined by
+      $$
+      T(x_{1},x_{2},\cdots) = (0,x_{1},x_{2},\cdots)
+      $$
+      Since $T$ has been shown to have no eigenvalue, we will consider the eigenvalues of $T^{*}$ instead and use the properties of the spectrum to have a lower bound for the spectrum.
+    \end{exm}
   \end{frame}
 
   \begin{frame}{\subsecname}
+    \begin{exm}
     %We claim that if $|\lambda|$
-    Suppose that $\lambda\in\mathbb{C}$ such that $|\lambda|<1$, then consider the sequence
-    \pause
-    $$
-    x = (1,\lambda,\lambda^{2},\cdots)
-    $$
-    \pause
-    \textbf{Claim: }$x\in\ell^{2}$
-    \pause
-    \newline
-    We have
-    $$
-    \begin{aligned}
-      \sum^{\infty}_{n=0}|x_{n}|^{2} = \sum^{\infty}_{n=0}(|\lambda|^{n})^{2} = \sum^{\infty}_{n=0}(|\lambda|^{2})^{n} = \frac{1}{1-|\lambda|^{2}} < \infty
-    \end{aligned}
-    $$
+      Suppose that $\lambda\in\mathbb{C}$ such that $|\lambda|<1$, then consider the sequence
+      \pause
+      $$
+      x = (1,\lambda,\lambda^{2},\cdots)
+      $$
+      \pause
+      \textbf{Claim: }$x\in\ell^{2}$
+      \pause
+      \newline
+      We have
+      $$
+      \begin{aligned}
+        \sum^{\infty}_{n=0}|x_{n}|^{2} = \sum^{\infty}_{n=0}(|\lambda|^{n})^{2} = \sum^{\infty}_{n=0}(|\lambda|^{2})^{n} = \frac{1}{1-|\lambda|^{2}} < \infty
+      \end{aligned}
+      $$
+    \end{exm}
   \end{frame}
 
   \begin{frame}{\subsecname}
-    Now, observe that
-    \pause
-    $$
-    \begin{aligned}
-      T^{*}x &= T^{*}(1,\lambda,\lambda^{2},\cdots) \\
-         &= (\lambda,\lambda^{2},\lambda^{3},\cdots) = \lambda(1,\lambda,\lambda^{2},\cdots) = \lambda x
-    \end{aligned}
-    $$
-    \pause
-    So, every $\lambda\in\mathbb{C}$ suhc that $|\lambda|<1$ is an eigenvalue of $T^{*}$.
-    \pause
-    Now, we have
-    $$
-    \{\lambda:|\lambda|<1\}=\{\bar{\lambda}:|\lambda|<1\}\subseteq\sigma(T)
-    $$
+    \begin{exm}
+      Now, observe that
+      \pause
+      $$
+      \begin{aligned}
+        T^{*}x &= T^{*}(1,\lambda,\lambda^{2},\cdots) \\
+           &= (\lambda,\lambda^{2},\lambda^{3},\cdots) = \lambda(1,\lambda,\lambda^{2},\cdots) = \lambda x
+      \end{aligned}
+      $$
+      \pause
+      So, every $\lambda\in\mathbb{C}$ suhc that $|\lambda|<1$ is an eigenvalue of $T^{*}$.
+      \pause
+      Now, we have
+      $$
+      \{\lambda:|\lambda|<1\}=\{\bar{\lambda}:|\lambda|<1\}\subseteq\sigma(T)
+      $$
+    \end{exm}
   \end{frame}
 
   \begin{frame}{\subsecname}
-    So,
-    $$
-    \{\lambda\in\mathbb{C}:|\lambda|<1\}\subseteq\sigma(T)\subseteq\{\lambda\in\mathbb{C}:|\lambda|\leq 1\}
-    $$
-    \pause
-    or
-    $$
-    B(0,1)\subseteq\sigma(T)\subseteq\overline{B(0,1)}
-    $$
-    \pause
-    Since $\sigma(T)$ is closed, we have
-    $$
-    \sigma(T)=\overline{B(0,1)}=\{\lambda\in\mathbb{C}:|\lambda|\leq 1\}
-    $$
+    \begin{exm}
+      So,
+      $$
+      \{\lambda\in\mathbb{C}:|\lambda|<1\}\subseteq\sigma(T)\subseteq\{\lambda\in\mathbb{C}:|\lambda|\leq 1\}
+      $$
+      \pause
+      or
+      $$
+      B(0,1)\subseteq\sigma(T)\subseteq\overline{B(0,1)}
+      $$
+      \pause
+      Since $\sigma(T)$ is closed, we have
+      $$
+      \sigma(T)=\overline{B(0,1)}=\{\lambda\in\mathbb{C}:|\lambda|\leq 1\}
+      $$
+    \end{exm}
   \end{frame}
 \end{document}
