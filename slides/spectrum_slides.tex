@@ -49,6 +49,22 @@
   \end{frame}
 
   \begin{frame}{\subsecname}
+    \begin{exm}
+      Consider
+      $$
+      \begin{aligned}
+        T:\mathbb{R}^{2}&\longrightarrow\mathbb{R}^{2} \\
+        x&\longmapsto\begin{pmatrix}1&1\\0&1\\\end{pmatrix}x
+      \end{aligned}
+      $$
+      $1\in\mathbb{C}$ is an eigenvalue of $T$, since there is $(1,0)\in\mathbb{R}^{2}$ such that
+      $$
+      T\begin{pmatrix}1\\0\\\end{pmatrix} = \begin{pmatrix}1&1\\0&1\\\end{pmatrix}\begin{pmatrix}1\\0\\\end{pmatrix} = 1\cdot\begin{pmatrix}1\\0\\\end{pmatrix}
+      $$
+    \end{exm}
+  \end{frame}
+
+  \begin{frame}{\subsecname}
     \begin{thm} \label{Inv}
       Let $\mathcal{H}$ be a Hilbert space and $T: \mathcal{H}\rightarrow\mathcal{H}$ then $T$ is invertible $\Longleftrightarrow$  $\operatorname{ker}T^{*}=\{0\}$ and $\exists \alpha>0$ such that $\|T(x)\| \geqslant \alpha\|x\| \quad \forall x \in\mathcal{H}$.
     \end{thm}
@@ -138,15 +154,15 @@
 
   \begin{frame}{\subsecname}
     \begin{proof}
-      Suppose that $\lambda$ is not an eigenvalue of $T$, then there is nonzero $u\in H$ such that $Tu=\lambda u$. So, there is no nonzero $u\in H$ such that $(T-\lambda I)u=0$. So, $\ker(T-\lambda I)=\{0\}$. By rank-nullity theorem, we have
+      Suppose that $\lambda$ is not an eigenvalue of $T$, then there is nonzero $u\in \mathcal{H}$ such that $Tu=\lambda u$. So, there is no nonzero $u\in\mathcal{H}$ such that $(T-\lambda I)u=0$. So, $\ker(T-\lambda I)=\{0\}$. By rank-nullity theorem, we have
       $$
       \begin{aligned}
-        \dim H &= \dim\ker(T-\lambda I) + \dim\im(T-\lambda I) \\
+        \dim\mathcal{H} &= \dim\ker(T-\lambda I) + \dim\im(T-\lambda I) \\
                &= 0 + \dim\im(T-\lambda I) \\
                &= \dim\im(T-\lambda I)
       \end{aligned}
       $$
-      So, $\im(T-\lambda I)=H$. This means that $(T-\lambda I)$ is surjective, and therefore, invertible. So, $\lambda\in\rho(T)$, and therefore, $\lambda\notin\sigma(T)$.
+      So, $\im(T-\lambda I)=\mathcal{H}$. This means that $(T-\lambda I)$ is surjective, and therefore, invertible. So, $\lambda\in\rho(T)$, and therefore, $\lambda\notin\sigma(T)$.
     \end{proof}
   \end{frame}
 
@@ -162,6 +178,19 @@
         \item If $U:\mathcal{H}\to\mathcal{H}$ is invertible, then $\sigma(UTU^{-1})=\sigma(T)$
       \end{enumerate}
     \end{prop}
+  \end{frame}
+
+  \begin{frame}{\subsecname}
+    \begin{exm}{Quantum Physics}
+    We have seen that for an observable $t$, we associate a self-adjoint operator $T$.\textbf{ The eigenvalues of the operator $T$ represent the possible values of that observable $t$.}
+    \pause
+    For example, if we want to find the possible values of the energy, we need to find the eigenvalues of $H$. In other words, we solve
+    \[
+    H\psi=E\psi=\left(-\frac{\hbar^2}{2m}\frac{\partial^2}{\partial x^2}+V(x)\right)\psi.
+    \]
+    \pause
+    This is the famous \textbf{Schrödinger} equation.
+    \end{exm}
   \end{frame}
 
   \begin{frame}{\subsecname}
