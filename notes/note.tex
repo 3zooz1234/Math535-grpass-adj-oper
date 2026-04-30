@@ -782,14 +782,18 @@ Let $\mathcal{H}$ be a complex Hilbert space and let $T \in B(\mathcal{H})$. If 
   By Theorem \ref{SpectIsCl} and Corollary \ref{SpectIsBd2}, $\sigma(T)$ is closed and bounded. By Heine-Borel Theorem, $\sigma(T)\subseteq\mathbb{C}$ is compact.
 \end{proof}
 
-\begin{lem}
+\begin{prop}
 If $\mathcal{H}$ is a complex Hilbert space and $U \in B(\mathcal{H})$ is unitary then
 $$
 \sigma(U) \subseteq\{\lambda \in \mathbb{C}:|\lambda|=1\}
 $$
-\end{lem}
+\end{prop}
 \begin{proof}
-
+If $|\lambda|>1=\lVert U\rVert$, then $\lambda\notin\sigma(U)$. Moreover, if $|\lambda|<1$, then
+$$
+U-\lambda I = -\lambda U(U^{-1}-\frac{1}{\lambda}I)
+$$
+is invertible, since $-\lambda U$ is invertible and $\Big|\frac{1}{\lambda}\Big|>1=\lVert U^{-1}\rVert$. So, $\lambda\notin\sigma(U)$. Therefore, $|\lambda|=1$ if $\lambda\in\sigma(U)$.
 \end{proof}
 
 \begin{exm}
