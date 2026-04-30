@@ -172,9 +172,13 @@
       Let $\mathcal{H}$ be a Hilbert space. Let $T:\mathcal{H}\to\mathcal{H}$ be linear operator. The following properties hold:
       \begin{enumerate}
         \item $\sigma(I) = \{1\}$
+        \pause
         \item $\sigma\left(T^{*}\right)=\{\bar{\lambda}: \lambda \in \sigma(T)\}$
+        \pause
         \item If $T$ is invertible, then $\sigma\left(T^{-1}\right)=\left\{\mu^{-1}: \mu \in \sigma(T)\right\}$
+        \pause
         \item If $T$ is self-adjoint, then $\sigma(T)\subseteq\mathbb{R}$.
+        \pause
         \item If $U:\mathcal{H}\to\mathcal{H}$ is invertible, then $\sigma(UTU^{-1})=\sigma(T)$
       \end{enumerate}
     \end{prop}
@@ -194,30 +198,6 @@
   \end{frame}
 
   \begin{frame}{\subsecname}
-    \begin{lem}
-    If $\mathcal{H}$ is a complex Hilbert space and $U \in B(\mathcal{H})$ is unitary then
-
-    $$
-    \sigma(U) \subseteq\{\lambda \in \mathbb{C}:|\lambda|=1\}
-    $$
-    \end{lem}
-  \end{frame}
-
-%  \begin{frame}{\subsecname}
-%    \begin{proof}
-%      \begin{enumerate}
-%        \item Suppose that $\lambda\in\sigma(I)$, then $I-\lambda I=(1-\lambda)I$ is not invertible. $(1-\lambda)I$ is not invertible if and only if $1-\lambda=0$, since $1-\lambda\in\mathbb{F}$. So, this is true if and only if $\lambda=1$.
-%
-%        \item Suppose that $\mu\in\sigma(T^{*})$, then $T^{*}-\mu I$ is not invertible. Observe that $T^{*}-\mu I$ is invertible if and only if $(T^{*}-\mu I)^{*}=T-\bar{\mu}I$ is invertible, since if $(T^{*}-\mu I)^{*}$ is invertible, then $((T^{*}-\mu I)^{*})^{*}=T^{*}-\mu I$ is invertible. So, $T^{*}-\mu I$ is not invertible iff $(T^{*}-\mu I)^{*}=T-\bar{\mu}I$ is not invertible. So, $\bar{\mu}\in\sigma(T)$, i.e. $\mu\in\{\bar{\lambda}: \lambda\in\sigma(T)\}$.
-%
-%        \item If $T$ is invertible, i.e. $T-0I$ is invertible, then $0\notin\sigma(T)$. Similarly, $0\notin\sigma(T^{-1})$. Suppose that $\mu\in\sigma(T^{-1})$, then $T^{-1}-\mu I$ is not invertible. Observe that $T^{-1}-\mu I$ is invertible if and only if $T(T^{-1}-\mu I)=I-\mu T$ is invertible, since if $T(T^{-1}-\mu I)$ has an inverse, $K$, then $KT$ would be an inverse of $T^{-1}-\mu I$. So, $T^{-1}-\mu I$ is not invertible iff $T(T^{-1}-\mu I)=I-\mu T$ is not invertible. Also, $I-\mu T$ is not invertible iff $T-\mu^{-1}I$, where $\mu^{-1}$ exists, since $\mu\not=0$. So, $\mu^{-1}\in\sigma(T)$, i.e. $\mu\in\{\lambda^{-1}: \lambda\in\sigma(T)\}$.
-%      \item 
-%        \item Suppose that $\lambda\in\sigma(UTU^{-1})$, then $UTU^{-1}-\lambda I$ is not invertible. Observe that $UTU^{-1}-\lambda I=U(T-\lambda)U^{-1}$ is not invertible iff $T-\lambda I$ is not invertible. So, $\lambda\in\sigma(T)$.
-%      \end{enumerate}
-%    \end{proof}
-%  \end{frame}
-
-  \begin{frame}{\subsecname}
     \begin{thm} \label{SpectIsBd}
     Let $\mathcal{H}$ be a complex Hilbert space and let $T \in B(\mathcal{H})$. If $|\lambda|>\|T\|$ then $\lambda \notin \sigma(T)$.
     \end{thm}
@@ -235,6 +215,48 @@
     \end{proof}
   \end{frame}
 
+
+  \begin{frame}{\subsecname}
+    \begin{cor}
+    If $\mathcal{H}$ is a complex Hilbert space and $U \in B(\mathcal{H})$ is unitary then
+
+    $$
+    \sigma(U) \subseteq\{\lambda \in \mathbb{C}:|\lambda|=1\}
+    $$
+    \end{cor}
+  \end{frame}
+
+  \begin{frame}{\subsecname}
+    \begin{prop}
+    If $\mathcal{H}$ is a complex Hilbert space and $U \in B(\mathcal{H})$ is unitary then
+    $$
+    \sigma(U) \subseteq\{\lambda \in \mathbb{C}:|\lambda|=1\}
+    $$
+    \end{prop}
+    \begin{proof}
+    If $|\lambda|>1=\lVert U\rVert$, then $\lambda\notin\sigma(U)$. Moreover, if $|\lambda|<1$, then
+    $$
+    U-\lambda I = -\lambda U(U^{-1}-\frac{1}{\lambda}I)
+    $$
+    is invertible, since $-\lambda U$ is invertible and $\Big|\frac{1}{\lambda}\Big|>1=\lVert U^{-1}\rVert$. So, $\lambda\notin\sigma(U)$. Therefore, $|\lambda|=1$ if $\lambda\in\sigma(U)$.
+    \end{proof}
+  \end{frame}
+
+%  \begin{frame}{\subsecname}
+%    \begin{proof}
+%      \begin{enumerate}
+%        \item Suppose that $\lambda\in\sigma(I)$, then $I-\lambda I=(1-\lambda)I$ is not invertible. $(1-\lambda)I$ is not invertible if and only if $1-\lambda=0$, since $1-\lambda\in\mathbb{F}$. So, this is true if and only if $\lambda=1$.
+%
+%        \item Suppose that $\mu\in\sigma(T^{*})$, then $T^{*}-\mu I$ is not invertible. Observe that $T^{*}-\mu I$ is invertible if and only if $(T^{*}-\mu I)^{*}=T-\bar{\mu}I$ is invertible, since if $(T^{*}-\mu I)^{*}$ is invertible, then $((T^{*}-\mu I)^{*})^{*}=T^{*}-\mu I$ is invertible. So, $T^{*}-\mu I$ is not invertible iff $(T^{*}-\mu I)^{*}=T-\bar{\mu}I$ is not invertible. So, $\bar{\mu}\in\sigma(T)$, i.e. $\mu\in\{\bar{\lambda}: \lambda\in\sigma(T)\}$.
+%
+%        \item If $T$ is invertible, i.e. $T-0I$ is invertible, then $0\notin\sigma(T)$. Similarly, $0\notin\sigma(T^{-1})$. Suppose that $\mu\in\sigma(T^{-1})$, then $T^{-1}-\mu I$ is not invertible. Observe that $T^{-1}-\mu I$ is invertible if and only if $T(T^{-1}-\mu I)=I-\mu T$ is invertible, since if $T(T^{-1}-\mu I)$ has an inverse, $K$, then $KT$ would be an inverse of $T^{-1}-\mu I$. So, $T^{-1}-\mu I$ is not invertible iff $T(T^{-1}-\mu I)=I-\mu T$ is not invertible. Also, $I-\mu T$ is not invertible iff $T-\mu^{-1}I$, where $\mu^{-1}$ exists, since $\mu\not=0$. So, $\mu^{-1}\in\sigma(T)$, i.e. $\mu\in\{\lambda^{-1}: \lambda\in\sigma(T)\}$.
+%      \item 
+%        \item Suppose that $\lambda\in\sigma(UTU^{-1})$, then $UTU^{-1}-\lambda I$ is not invertible. Observe that $UTU^{-1}-\lambda I=U(T-\lambda)U^{-1}$ is not invertible iff $T-\lambda I$ is not invertible. So, $\lambda\in\sigma(T)$.
+%      \end{enumerate}
+%    \end{proof}
+%  \end{frame}
+
+  
   \begin{frame}{\subsecname}
     \begin{thm} \label{SpectIsCl}
       If $T\in B(\mathcal{H})$, then $\sigma(T)\subseteq\mathbb{C}$ is a closed set.
