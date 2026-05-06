@@ -312,7 +312,7 @@ As $TT^{-1} = T^{-1}T = I$, if we take the adjoint of this equation we obtain $(
   So, $\tilde{\varphi}$ is bounded and $\lVert\tilde{\varphi}\rVert\leq\lVert T^{*}\rVert\lVert x\rVert$. By Reisz Representation Theorem, $\lVert Tx\rVert=\lVert\tilde{\varphi}\rVert\leq\lVert T^{*}\rVert\lVert x\rVert$. Therefore, $\lVert T\rVert\leq\lVert T^{*}\rVert$, and hence, $\lVert T^{*}\rVert = \lVert T\rVert$.
 \end{proof}
 
-\begin{prop}
+\begin{prop} \label{Bdprops}
   Let $H, G$ be Hilbert spaces, and $T:H \rightarrow G$. then
   \begin{enumerate}
     \item $\left\|T^{*} T\right\|=\|T\|^{2}$
@@ -346,6 +346,19 @@ As $TT^{-1} = T^{-1}T = I$, if we take the adjoint of this equation we obtain $(
 \begin{thm} \label{Inv}
 Let $H$ be a Hilbert space and $T: H \rightarrow H$ then $T$ is invertible $\Longleftrightarrow$  $\operatorname{ker}T^{*}=\{0\}$ and $\exists \alpha>0$ such that $\|T(x)\| \geqslant \alpha\|x\| \quad \forall x \in H$.
 \end{thm}
+\begin{proof}
+  $\implies$) Assume that $T$ is invertible, then $T^{*}$ is invertible and $T^{-1}\in B(\mathcal{H})$. So, $\ker T^{*}=\{0\}$ and $\|T^{-1}u\|\leq\|T^{-1}\|\|u\|=\|T^{-1}\|\|TT^{-1}u\|\implies\|TT^{-1}u\|\geq\frac{1}{\|T^{-1}\|}\|T^{-1}u\|$. Letting $x=T^{-1}u$, we have $\ker T^{*}=\{0\}$ and $\|Tx\|\geq\frac{1}{\|T^{-1}\|}\|x\|$.
+  \newline
+  $\impliedby$) Assume that $\ker T^{*}=\{0\}$ and $\|Tx\|\geq\alpha\|x\|$ for some $\alpha\in\mathbb{F}$. $T$ is injective, since if $Tx=0$, then
+  $$
+  0=\|Tx\|\geq\alpha\|x\|\implies\|x\|\leq 0\implies x=0
+  $$
+  Now, we show that $T$ is surjective. Since $\ker T^{*}=\{0\}$, by \ref{Bdprops}, $\im T$ is dense in $\mathcal{H}$. So, for every $y\in\mathcal{H}$, there is a sequence $\{Tx_{n}\}\in\im T$ such that $Tx_{n}\to y$. So, $\{Tx_{n}\}$ is a Cauchy sequence. So, we have
+  $$
+  \|Tx_{n}-Tx_{m}\|\geq\alpha\|x_{n}-x_{m}\|\implies\|x_{n}-x_{m}\|\leq\frac{1}{\alpha}\|Tx_{n}-Tx_{m}\|
+  $$
+  So, $\{x_{n}\}\in\mathcal{H}$ is a Cauchy sequence. Since $\mathcal{H}$ is a Hilbert space, $\{x_{n}\}$ converges to some $x\in\mathcal{H}$. So, $Tx_{n}\to Tx$. By uniqueness of limit, and that $Tx_{n}\to y$, $Tx=y$. So, $T$ is surjective and $T$ is invertible.
+\end{proof}
 
 \begin{cor} \label{CorInv}
 Let $H$ be a Hilbert space and $T: H \rightarrow H$ then $T$ is invertible $\Longleftrightarrow$ $\exists \beta>0$ such that $\|T^{*}(x)\| \geqslant \beta\|x\|$ and $\exists \alpha>0$ such that $\|T(x)\| \geqslant \alpha\|x\| \quad \forall x \in H$.
@@ -545,6 +558,12 @@ Any operator $T \in B(H)$, $T=R+i S$ for $R$ and $S$ self-adjoint
   $$
 \end{proof}
 
+The following lemma will be used for The Spectum of an Operator section.
+
+\begin{lem}
+  If $T$ is self-adjoint, $T$ is closed.
+\end{lem}
+
 \section{Unitary operators}
 
 \begin{defn}
@@ -680,7 +699,29 @@ So, $T$ does not have an eigenvalue. However, in Example \ref{ShiftOpInv}, we sh
     \item Suppose that $\mu\in\sigma(T^{*})$, then $T^{*}-\mu I$ is not invertible. Observe that $T^{*}-\mu I$ is invertible if and only if $(T^{*}-\mu I)^{*}=T-\bar{\mu}I$ is invertible, since if $(T^{*}-\mu I)^{*}$ is invertible, then $((T^{*}-\mu I)^{*})^{*}=T^{*}-\mu I$ is invertible. So, $T^{*}-\mu I$ is not invertible iff $(T^{*}-\mu I)^{*}=T-\bar{\mu}I$ is not invertible. So, $\bar{\mu}\in\sigma(T)$, i.e. $\mu\in\{\bar{\lambda}: \lambda\in\sigma(T)\}$.
 
     \item If $T$ is invertible, i.e. $T-0I$ is invertible, then $0\notin\sigma(T)$. Similarly, $0\notin\sigma(T^{-1})$. Suppose that $\mu\in\sigma(T^{-1})$, then $T^{-1}-\mu I$ is not invertible. Observe that $T^{-1}-\mu I$ is invertible if and only if $T(T^{-1}-\mu I)=I-\mu T$ is invertible, since if $T(T^{-1}-\mu I)$ has an inverse, $K$, then $KT$ would be an inverse of $T^{-1}-\mu I$. So, $T^{-1}-\mu I$ is not invertible iff $T(T^{-1}-\mu I)=I-\mu T$ is not invertible. Also, $I-\mu T$ is not invertible iff $T-\mu^{-1}I$, where $\mu^{-1}$ exists, since $\mu\not=0$. So, $\mu^{-1}\in\sigma(T)$, i.e. $\mu\in\{\lambda^{-1}: \lambda\in\sigma(T)\}$.
-  \item 
+    \item If $T$ is self-adjoint, then if $a\in\mathbb{R}$, then $T-aI$ is self-adjoint. This is since $(T-aI)^{*}=T^{*}-\bar{a}I=T-aI$. So, $\langle(T-aI)x,x\rangle\in\mathbb{R}$. Observe that, if $\lambda = a+ib$, then
+      $$
+      \begin{aligned}
+        \|(T-\lambda I)x\|\|x\|\geq|\langle(T-\lambda I)x,x\rangle|&=|\langle(T-aI)x-ibI(x),x\rangle|\\
+                                                                   &=|\langle(T-aI)x,x\rangle-ib\langle x,x\rangle|\\
+                                                                   &=\sqrt{\langle(T-aI)x,x\rangle^{2}+b^{2}\langle x,x\rangle^{2}}\\
+                                                                   &\geq|b|\langle x,x\rangle\\
+                                                                   &=|b|\|x\|^{2}
+      \end{aligned}
+      $$
+      So,
+      $$
+      \|(T-\lambda I)x\|\geq|b|\|x\|
+      $$
+      Similarly,
+      $$
+      \|(T-\lambda I)^{*}x\|\geq|b|\|x\|
+      $$
+      So, $T-\lambda I$ is injective, since $(T-\lambda I)x=0\implies x=0$, and $\ker(T-\lambda I)^{*}=\{0\}$. So, $\im(T-\lambda I)$ is dense in $\mathcal{H}$. This means that for all $y\in\mathcal{H}$, there is a sequence $\{(T-\lambda I)x_{n}\}\in\im(T-\lambda I)$ such that $(T-\lambda I)x_{n}\to y$. So, $\{(T-\lambda I)x_{n}\}$ is a Cauchy sequence and $\{x_{n}\}$ is Cauchy, since
+      $$
+      \|x_{n}-x_{m}\|\leq\frac{1}{|b|}\|(T-\lambda I)x_{n}-(T-\lambda I)x_{m}\|
+      $$
+      Since $\mathcal{H}$ is a Hilbert space, $\{x_{n}\}$ converges to some $x\in\mathcal{H}$. So, $(T-\lambda I)x_{n}+\lambda x_{n}\to y+\lambda x$. Since $T$ is self adjoint, the $T$ is closed, by \ref{ClOfSA}. By closedness of $T$, $y=(T-\lambda I)x+\lambda x=y+\lambda x$, i.e. $(T\lambda I)x\to y$. So, $T-\lambda I$ is surjective and $\lambda\in\rho(T)$ if $b\not=0$. So, $\sigma(T)\subseteq\mathbb{R}$
     \item Suppose that $\lambda\in\sigma(UTU^{-1})$, then $UTU^{-1}-\lambda I$ is not invertible. Observe that $UTU^{-1}-\lambda I=U(T-\lambda)U^{-1}$ is not invertible iff $T-\lambda I$ is not invertible. So, $\lambda\in\sigma(T)$.
   \end{enumerate}
 \end{proof}
@@ -713,6 +754,20 @@ Let $\mathcal{H}$ be a complex Hilbert space and let $T \in B(\mathcal{H})$. If 
 \end{cor}
 \begin{proof}
   If $\lambda\in\sigma(T)$, then, by the contrapositive of Theorem \ref{SpectIsBd}, $|\lambda|\leq\lVert T\rVert$. So, $\lambda\in\overline{B(0,\lVert T\rVert)}$. Hence, $\sigma(T)\subseteq\overline{B(0,\lVert T\rVert)}$, i.e. $\sigma(T)$ is bounded.
+\end{proof}
+
+\begin{cor}
+If $\mathcal{H}$ is a complex Hilbert space and $U \in B(\mathcal{H})$ is unitary then
+$$
+\sigma(U) \subseteq\{\lambda \in \mathbb{C}:|\lambda|=1\}
+$$
+\end{cor}
+\begin{proof}
+  If $|\lambda|>1=\lVert U\rVert$, then $\lambda\notin\sigma(U)$, by Theorem \ref{SpectIsBd}. Moreover, if $|\lambda|<1$, then
+$$
+U-\lambda I = -\lambda U(U^{-1}-\frac{1}{\lambda}I)
+$$
+is invertible, since $-\lambda U$ is invertible and, by Theorem \ref{SpectIsBd}, $\Big|\frac{1}{\lambda}\Big|>1=\lVert U^{-1}\rVert\implies\frac{1}{\lambda}\notin\sigma(U^{-1})$. So, $\lambda\notin\sigma(U)$. Therefore, $|\lambda|=1$ if $\lambda\in\sigma(U)$.
 \end{proof}
 
 % May be removed
@@ -782,20 +837,6 @@ Let $\mathcal{H}$ be a complex Hilbert space and let $T \in B(\mathcal{H})$. If 
   By Theorem \ref{SpectIsCl} and Corollary \ref{SpectIsBd2}, $\sigma(T)$ is closed and bounded. By Heine-Borel Theorem, $\sigma(T)\subseteq\mathbb{C}$ is compact.
 \end{proof}
 
-\begin{prop}
-If $\mathcal{H}$ is a complex Hilbert space and $U \in B(\mathcal{H})$ is unitary then
-$$
-\sigma(U) \subseteq\{\lambda \in \mathbb{C}:|\lambda|=1\}
-$$
-\end{prop}
-\begin{proof}
-If $|\lambda|>1=\lVert U\rVert$, then $\lambda\notin\sigma(U)$. Moreover, if $|\lambda|<1$, then
-$$
-U-\lambda I = -\lambda U(U^{-1}-\frac{1}{\lambda}I)
-$$
-is invertible, since $-\lambda U$ is invertible and $\Big|\frac{1}{\lambda}\Big|>1=\lVert U^{-1}\rVert$. So, $\lambda\notin\sigma(U)$. Therefore, $|\lambda|=1$ if $\lambda\in\sigma(U)$.
-\end{proof}
-
 \begin{exm}
   Let $T:\ell^{2}\to\ell^{2}$ be the unilateral shift operator defined in Example \ref{ShiftOp}. We would like to find the spectrum of $T$, $\sigma(T)$. First, we claim that if $\lambda\in\mathbb{C}$ such that $|\lambda|<1$, then $\lambda$ is an eigen value of $T^{*}$. Consider the sequence
   $$
@@ -824,5 +865,33 @@ is invertible, since $-\lambda U$ is invertible and $\Big|\frac{1}{\lambda}\Big|
   $$
 \end{exm}
 
+\begin{exm}
+  Let $a\in\ell^{\infty}$, define $D_{a}:\ell^{2}\to\ell^{2}$ by
+  $$
+  D_{a}(x_{1},x_{2},\cdots)=(a_{1}x_{1},a_{2}x_{2},\cdots)
+  $$
+  Fisrt, note that $D_{a}$ is a bounded linear operator, since
+  $$
+  \begin{aligned}
+    \|D_{a}x\|=\Big(\sum^{\infty}_{n=1}|a_{n}x_{n}|^{2}\Big)^{\frac{1}{2}}=\Big(\sum^{\infty}_{n=1}|a_{n}|^{2}|x_{n}|^{2}\Big)^{\frac{1}{2}}&\leq\Big(\sup|a_{n}|^{2}\sum^{\infty}_{n=1}|x_{n}|^{2}\Big)^{\frac{1}{2}}\\
+                                                                                                                                            &=\sup|a_{n}|\Big(\sum^{\infty}_{n=1}|x_{n}|^{2}\Big)^{\frac{1}{2}}\\
+                                                                                                                                            &=\sup|a_{n}|\|x\|
+  \end{aligned}
+  $$
+  Now, we would like to find $\sigma(D_{a})$. First, we will begin by finding its eigenvalues in order to find a lower bound for the set. Suppose that $\lambda$ is an eigenvalue of $D_{a}$, then we have that $D_{a}-\lambda I$ is
+  $$
+  (D_{a}-\lambda I)(x_{1},x_{2},\cdots)=((a_{1}-\lambda)x_{1},(a_{2}-\lambda)x_{2},\cdots)=(0,0,\cdots)
+  $$
+  if either $x_{n}=0$ for all $n$ or $a_{k}-\lambda=0$ for some $k$. For the former case, this yields $x=0$. For the later case, $\lambda=a_{k}$ for some $k$. So, if $\lambda$ is an eigenvalue of $D_{a}$, then $\lambda\in\{a_{n}|n\in\mathbb{N}\}$. Indeed, if $e_{k}=(0,\cdots,0,1,0,\cdots)$, with $1$ on the $k$th term of the sequence, then we have
+  $$
+  \begin{aligned}
+    D_{a}e_{k}&=D_{a}(0,\cdots,0,1,0,\cdots)\\
+              &=(0,\cdots,0,a_{k},0,\cdots)=a_{k}(0,\cdots,0,1,0,\cdots)=a_{k}e_{k}
+  \end{aligned}
+  $$
+  So, the set of eigenvalues of $D_{a}$ is $\{a_{n}|n\in\mathbb{N}\}$. Hence, $\{a_{n}|n\in\mathbb{N}\}$. Since $\sigma(D_{a})$ is a closed set, we have $\overline{\{a_{n}|n\in\mathbb{N}\}}\subseteq\sigma(D_{a})$.
+  \newline
+  We now claim that $\sigma(D_{a})\subseteq\overline{\{a_{n}|n\in\mathbb{N}\}}$. So, let $\lambda\in\sigma(D_{a})$. 
+\end{exm}
 
 \end{document}
