@@ -403,7 +403,9 @@ Then $M^{*}=M$, and $M$ is one-to-one, so every $g\in L^{2}([0,1])$ is orthogona
 
 \section{Normal Operators}
 
-\textbf{\textit{Definition 2}}. Let $H$ be a Hilbert space and $T$ a lin. operaton $T: H \rightarrow H$. then if $T T^{*}=T^{*} T, T$ is said to be normal of eratu.
+\begin{defn} %[Normal Operators]
+  Let $\mathcal{H}$ be a Hilbert space and $T: \mathcal{H} \rightarrow \mathcal{H}$ be a linear operator. Then we said $T$ is \textbf{normal} if $TT^{*}=T^{*}T$
+\end{defn} 
 
 \begin{exm}
   Consider
@@ -441,6 +443,23 @@ Then $M^{*}=M$, and $M$ is one-to-one, so every $g\in L^{2}([0,1])$ is orthogona
 \end{exm}
 
 \begin{exm}
+    $T_k:L^2[0,1]\to L^2[0,1]$, defined by
+    \[
+    (T_kf)(t)=k(t)f(t), \qquad k\in C[0,1],
+    \]
+    is a \textbf{normal} operator. 
+    Since $T_k^*=T_{\bar{k}}$, we have
+    \[
+    T_kT_k^*f=T_k(T_{\bar{k}}f)=k\bar{k}f
+    \]
+    and
+    \[
+    T_k^*T_kf=T_{\bar{k}}(T_kf)=\bar{k}kf
+    \]
+    for all $f\in L^2[0,1]$. Hence $T_kT_k^*=T_k^*T_k$.
+\end{exm}
+
+\begin{exm}
 If $T$ is normal, then $T$ - $\lambda I$ is also normal. That is, since
 $$
 \begin{aligned}
@@ -457,7 +476,8 @@ $$
 Let $T: H \rightarrow H$ be a normal operator, then
   \begin{enumerate}
     \item $\|T(x)\|=\left\|T^{*}(x)\right\| ; \quad \forall x \in H$
-    \item If $\|T(x)\| \geqslant \alpha\|x\| \quad \forall x \in H$ then $\operatorname{ker} T^{*}=\{0\}$. ($\alpha>0$ ????)
+    \item $\ker(T)=\ker(T^*)$
+    \item If there is $\alpha>0$ such that $\|T(x)\| \geqslant \alpha\|x\| \quad \forall x \in H$ then $\operatorname{ker} T^{*}=\{0\}$.
   \end{enumerate}
 \end{lem}
 \begin{proof}
@@ -468,6 +488,22 @@ Let $T: H \rightarrow H$ be a normal operator, then
         \lVert Tx\rVert = \langle Tx,Tx\rangle = \langle x,T^{*}Tx\rangle = \langle x,TT^{*}x\rangle = \langle T^{*}x,T^{*}x\rangle = \lVert T^{*}x\rVert
       \end{aligned}
       $$
+    \item Let $x\in \ker(T)$. Then $Tx=0$, so $\|Tx\|=0$. By 1, since $T$ is normal, we have
+      $
+      \|Tx\|=\|T^*x\|.
+      $
+      Hence $\|T^*x\|=0$, which implies $T^*x=0$. Thus $x\in \ker(T^*)$, and so
+      \[
+      \ker(T)\subseteq \ker(T^*).
+      \]
+      In a similar way, one shows that
+      \[
+      \ker(T^*)\subseteq \ker(T).
+      \]
+      Therefore,
+      $
+      \ker(T)=\ker(T^*).
+      $ 
     \item Let $u\in\operatorname{ker}T^{*}$, i.e. $T^{*}(u)=0$. By 1, we have
       $$
       0=\lVert T^{*}u\rVert=\lVert Tu\rVert\geq\alpha\lVert u\rVert\geq 0
@@ -480,10 +516,121 @@ By the lemma above and theorem \ref{Inv}, the next theorem immediately follows.
 
 \begin{thm}
 Let $H$ be a Hilbert space and $T: H \rightarrow H$ is a normal operator, then
-$T$ is invertible $\Longleftrightarrow \exists \alpha>$ such thar $\quad\|T(x)\| \geqslant \alpha\|x\| \forall x \in H$.
+$T$ is invertible $\Longleftrightarrow \exists \alpha>$ such that $\quad\|T(x)\| \geqslant \alpha\|x\| \forall x \in H$.
 \end{thm}
 
 Hence it is easier to determine whether a normal operator invertible compared with any operator.
+
+\begin{thm}
+Let $T$ be a bounded \textbf{normal} operator on a Hilbert space $\mathcal{H}$. Then $T$ is \textbf{invertible} if and only if $\ker(T)=\{0\}$ and the range of $T$ is closed. Moreover, if $T$ is invertible, then $T^{-1}$ is bounded and normal.
+\end{thm}
+\begin{proof}
+$(\Rightarrow)$ Assume $T$ is invertible. Then $T$ is one-to-one and onto. Since $T$ is one-to-one, we have
+$
+\ker(T)=\{0\}.
+$
+Since $T$ is onto, we have
+$
+\mathrm{Range}(T)=\mathcal{H},
+$
+which is closed.
+
+$(\Leftarrow)$ Assume $\ker(T)=\{0\}$ and $\mathrm{Range}(T)$ is closed. Now we show that $T$ is onto.
+$
+\overline{\mathrm{Range}(T)}=(\ker(T^*))^\perp
+$
+and $\mathrm{Range}(T)$ is closed, it follows that
+\[
+\mathrm{Range}(T)=(\ker(T^*))^\perp.
+\]
+Since $T$ is normal,
+$
+\ker(T^*)=\ker(T)=\{0\}.
+$
+Hence
+$
+\mathrm{Range}(T)=(\{0\})^\perp=\mathcal{H}.
+$
+Therefore, $T$ is onto. Thus $T$ is bijective. Since $\mathcal{H}$ is a Banach space, the bounded inverse theorem implies that $T^{-1}$ is bounded.
+
+Now suppose $T$ is invertible. Therefore,$
+T^{-1}(T^{-1})^*=T^{-1}(T^*)^{-1}=(T^*T)^{-1}
+=(TT^*)^{-1}=(T^{-1})^{*}T^{-1}$ so $T^{-1}$ is normal.
+\end{proof}
+
+\begin{cor}
+ Let $T$ be a bounded \textbf{normal} operator on a Hilbert space $\mathcal{H}$ . Then the following statements are equivalent:
+ \begin{enumerate}
+     \item $T$ is invertible 
+     \item there exists $c>0$ such that $\|T(x)\|\ge c \|x\|$ for all $x \in \mathcal{H}$
+     \item $\mathrm{ker}(T)=\{0 \}$ and the range of $T$ is closed.\end{enumerate}
+\end{cor}
+
+\begin{exm}
+Consider the diagonal operator $D:\ell^2\to\ell^2$ defined by
+\[
+D(x_1,x_2,x_3,\dots)=\left(x_1,\frac{x_2}{2},\frac{x_3}{3},\dots\right)=\left\{\frac{x_n}{n}\right\}_{n\ge1}.
+\]
+Then $D$ is \textbf{not} invertible and its range is \textbf{not} closed.
+\textbf{Method 1 \(\neg(2)\implies \neg(1)\):} \textbf{Assume for contradiction} that there exists $c>0$ such that
+\[
+\|D(x)\|\ge c\|x\| \qquad \text{for all } x\in \ell^2.
+\]
+In particular, take
+$
+e_n=(0,0,\dots,\underbrace{1}_{n},0,\dots).
+$
+Then
+$
+D(e_n)=\left(0,0,\dots,\underbrace{\frac{1}{n}}_{n},0,\dots\right),
+$
+so
+$
+\|D(e_n)\|=\frac{1}{n}, \quad \|e_n\|=1.
+$
+Hence
+\[
+\frac{1}{n}\ge c \qquad \text{for all } n\in\mathbb N,
+\]
+which is a contradiction. Thus there is no such constant $c>0$.
+ Therefore,$D$ is not invertible.
+Moreover,
+\[
+\ker(D)=\left\{x\in\ell^2:\left(x_1,\frac{x_2}{2},\frac{x_3}{3},\dots\right)=0\right\}=\{0\}.
+\]
+    since $D$ is normal, $\ker(D)=\{0\}$, and $D$ is \textbf{not} invertible, it follows that the range of $D$ is \textbf{not} closed.
+\textbf{Method 2 \(\neg(3)\implies \neg(1)\):}  We have already shown that $\ker(D)=\{0\}$, so it remains to show that \textbf{$\mathrm{Range}(D)$ is not closed.} To do this, we choose a sequence $(y_n)$ in the range and show that it converges to an element not in the range.
+
+Consider
+\[
+y_n=\left(1,\frac{1}{2},\frac{1}{3},\dots,\frac{1}{n},0,0,\dots\right)=D(x_n),
+\]
+where
+\[
+x_n=(\underbrace{1,1,1,\dots,1}_{\text{first } n},0,0,\dots).
+\]
+Since $x_n\in \ell^2$, we have $y_n\in \mathrm{Range}(D)$ for all $n$.
+
+Now consider
+$
+y=\left(1,\frac{1}{2},\frac{1}{3},\dots\right).
+$
+Since
+$
+\sum_{n=1}^{\infty}\frac{1}{n^2}<\infty,
+$
+we have $y\in \ell^2$. Also, $y_n\to y$ in $\ell^2$, since
+\[
+\|y_n-y\|^2=\sum_{k=n+1}^{\infty}\frac{1}{k^2}\to 0.
+\]
+However, $y\notin \mathrm{Range}(D)$, because if $y=D(x)$, then necessarily
+\[
+x=(1,1,1,\dots),
+\]
+but $(1,1,1,\dots)\notin \ell^2$.
+
+Thus $\mathrm{Range}(D)$ is not closed. Hence $D$ is not invertible.
+\end{exm}
 
 \section{Self-adjoint operators}
 An interesting subset of the normal operators is the self-adjoint operators.
@@ -491,6 +638,8 @@ An interesting subset of the normal operators is the self-adjoint operators.
 \begin{defn}
 $T: H \rightarrow H$ is called a self-adjoint if $T=T^{*}$
 \end{defn}
+
+
 
 \begin{exm}
 For any $T \in B(H)$, we observe that $T T^{*}$ and $T^{*} T$ are self-adjoint, since
@@ -504,7 +653,7 @@ $$
 \end{exm}
 
 \begin{thm}
-Let $H$ be Hlibert space \& $T_{1}$ and $T_{2}$ be self-adjont oterator, then
+Let $H$ be Hilbert space \& $T_{1}$ and $T_{2}$ be self-adjont oterator, then
   \begin{enumerate}
     \item $\alpha T_{1}+\beta T_{2}$ is a self-adjon, $\alpha \beta \in \mathbb{R}$
     \item The set
@@ -535,6 +684,7 @@ Let $H$ be Hlibert space \& $T_{1}$ and $T_{2}$ be self-adjont oterator, then
       $$
       Hence, $T^{*}=T$ and $T\in\mathfrak{S}$. Therefore, $\mathfrak{S}\subset B(H)$ is a closed set.
   \end{enumerate}
+
 \end{proof}
 
 \begin{prop}
@@ -558,6 +708,89 @@ Any operator $T \in B(H)$, $T=R+i S$ for $R$ and $S$ self-adjoint
   $$
 \end{proof}
 
+  \begin{thm}
+    Let $T$ be a bounded linear operator on a Hilbert space $\mathcal{H}$. Then the following statements are equivalent:
+    \begin{enumerate}
+        \item $T$ is self-adjoint.
+        \item $\langle Tx,y \rangle = \langle x,Ty \rangle$ for all $x,y \in \mathcal{H}$.
+        \item $\langle Tx,x \rangle = \langle x,Tx \rangle$ for all $x \in \mathcal{H}$.
+    \end{enumerate}
+  \end{thm}
+
+  \begin{proof}
+$(1\iff 2)$ By definition of the adjoint,
+$
+\langle Tx,y\rangle=\langle x,T^*y\rangle 
+$
+Hence $T=T^*$ if and only if
+$
+\langle Tx,y\rangle=\langle x,Ty\rangle
+$
+
+Also, $(2\implies 3)$ is clear by taking $y=x$.
+
+
+
+Now we show $(3\implies 2)$. Assume that
+
+First take $z=x+y$. Then
+\[
+\langle Tz,z\rangle
+=
+\langle Tx,x\rangle+\langle Tx,y\rangle+\langle Ty,x\rangle+\langle Ty,y\rangle.
+\]
+Also,
+\[
+\langle z,Tz\rangle
+=
+\langle x,Tx\rangle+\langle x,Ty\rangle+\langle y,Tx\rangle+\langle y,Ty\rangle.
+\]
+Since $\langle Tz,z\rangle=\langle z,Tz\rangle$, and also
+\[
+\langle Tx,x\rangle=\langle x,Tx\rangle,\qquad
+\langle Ty,y\rangle=\langle y,Ty\rangle,
+\]
+we get
+\[
+\langle Tx,y\rangle+\langle Ty,x\rangle
+=
+\langle x,Ty\rangle+\langle y,Tx\rangle. \tag{1}
+\]
+Now take $z=x+iy$. Then
+\[
+\langle Tz,z\rangle
+=
+\langle Tx,x\rangle-i\langle Tx,y\rangle+i\langle Ty,x\rangle+\langle Ty,y\rangle.
+\]
+Also,
+\[
+\langle z,Tz\rangle
+=
+\langle x,Tx\rangle-i\langle x,Ty\rangle+i\langle y,Tx\rangle+\langle y,Ty\rangle.
+\]
+Again using $\langle Tz,z\rangle=\langle z,Tz\rangle$ and canceling the diagonal terms, we get
+\[
+-\langle Tx,y\rangle+\langle Ty,x\rangle
+=
+-\langle x,Ty\rangle+\langle y,Tx\rangle. \tag{2}
+\]
+Adding (1) and (2), we obtain
+\[
+2\langle Ty,x\rangle=2\langle y,Tx\rangle.
+\]
+
+Hence
+
+\[
+\langle Tx,y\rangle=\langle x,Ty\rangle
+\qquad \text{for all }x,y\in\mathcal H.
+\]
+Therefore, $(3\implies 2)$, and the three statements are equivalent.
+  \end{proof}
+
+  \begin{cor}
+Let $T$ be a bounded linear operator on a  Hilbert space $\mathcal{H}$. Then $T$ is \textbf{self-adjoint} if and only if $\langle x,Tx\rangle$ is \textbf{real} for all $x\in\mathcal{H}$.
+  \end{cor}
 The following lemma will be used for The Spectum of an Operator section.
 
 \begin{lem}
@@ -574,23 +807,51 @@ An operator $T \in B(H)$ called unitary, if $TT^{*}=T^{*}T=I$.
   It can be see that the identity operator, $I$, is unitary, since $I^{*}I=II=I=II=II^{*}$.
 \end{exm}
 
+\begin{exm}
+    \begin{enumerate}
+        \item $T_k:L^2[0,1]\to L^2[0,1]$, defined by
+        $
+        (T_kf)(t)=k(t)f(t),
+        $
+        where $|k(t)|=1$ for all $t\in[0,1]$.
+        \item The Fourier transform $\mathcal{F}:L^2(\mathbb{R})\to L^2(\mathbb{R})$ is unitary. 
+With the convention
+\[
+(\mathcal{F}f)(\xi)=\frac{1}{\sqrt{2\pi}}\int_{\mathbb{R}} f(x)e^{-ix\xi}\,dx,
+\]
+we have
+$
+\mathcal{F}^*=\mathcal{F}^{-1}.
+$
+    \end{enumerate}
+  \end{exm}
+
 % Is this lemma necessary ???
-\textbf{\textit{Lemma}}.If $S, T \in B (H)$ and\\
-$\langle S z, z\rangle=\langle T z, 3\rangle \quad \forall z \in H$\\
-$\Rightarrow \quad S=T$.
+%\textbf{\textit{Lemma}}.If $S, T \in B (H)$ and\\
+%$\langle S z, z\rangle=\langle T z, 3\rangle \quad \forall z \in H$\\
+%$\Rightarrow \quad S=T$.
 
 \begin{prop}
-Let $T \in B(H)$, then $T$ is unitary if $T$ is isometry.
+Let $T \in B(H)$, then $T$ is unitary if and only if $T$ is surjective isometry.
 \end{prop}
 \begin{proof}
-  Let $T\in B(H)$ be an isometry, we have
+  If $T$ is unitary, then it is surjective, since it is invertible, and it is isometry, since
+  $$
+  \|Tx\|^{2}=\langle Tx,Tx\rangle=\langle x,T^{*}Tx\rangle=\langle x,x\rangle=\|x\|^{2}
+  $$
+  Conversely, let $T$ be a surjective isometry, we have
   $$
   \begin{aligned}
     \langle x,T^{*}Tx\rangle = \langle Tx,Tx\rangle = \lVert Tx\rVert &= \lVert x\rVert = \langle x,x\rangle = \langle x,Ix\rangle\\
                                                                       &\implies \langle x,(T^{*}T-I)x\rangle = 0
   \end{aligned}
   $$
-  Hence, $(T^{*}T-I)x = 0$ for all $x\in H$. This implies that $T^{*}T-I = 0\implies T^{*}T = I$. Therefore, $T$ is unitary.
+  Hence, $(T^{*}T-I)x = 0$ for all $x\in H$. This implies that $T^{*}T-I = 0\implies T^{*}T = I$. Since $T$ is surjective, for all $y$, there is $x$ such that $Tx=y$. So,
+  $$
+  TT^{*}y=TT^{*}(Tx)=T(T^{*}T)x=TIx=Tx=y
+  $$
+  So, $TT^{*}=T^{*}T=I$. Therefore, $T$ is unitary.
+  Therefore, $T$ is unitary.
 \end{proof}
 
 \begin{thm} \label{UnitaryProp}
