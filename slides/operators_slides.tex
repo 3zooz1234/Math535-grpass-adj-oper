@@ -1,0 +1,992 @@
+\documentclass[9pt, aspectratio=169]{beamer}
+ % Required for inserting images
+
+\usepackage{graphicx} % Required for inserting images
+\usetheme{Copenhagen}
+\usepackage{mathrsfs}
+\usepackage{wasysym}
+\usepackage{float}
+\usepackage{mdframed}
+\usepackage{subcaption}
+\usepackage{subfigure}
+\usepackage{tikz}
+\usepackage{graphicx} %
+\usepackage{lipsum}
+\usepackage{tcolorbox}
+\usepackage{mdframed}
+\usepackage{tikz}
+\usepackage{empheq}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+\usepackage{tcolorbox}
+\usepackage[margin=1in]{geometry}
+\usefonttheme{serif}
+\usepackage{bbold}
+\title{Linear Operators on Hilbert Spaces}
+
+\author[Ahmed Alotaibi]{Ahmed Alotaibi}
+
+\institute[KFUPM]{%
+Department of Mathematics\\
+King Fahd University of Petroleum \& Minerals\\
+
+Instructor: Dr.Mohammad Algharabli\\
+Math 535 -- Functional Analysis\\
+}
+
+\date{}
+
+\setbeamertemplate{navigation symbols}{}
+
+
+
+\begin{document}
+\maketitle
+\begin{frame}{Review}
+\begin{tcolorbox}[colback=blue!5, colframe=blue!20!orange, title=Recall]
+\begin{enumerate}
+    \item For $T:X\to Y$,
+    \[
+    \ker(T)=\{x\in X: Tx=0\}, \qquad \mathrm{Range}(T)=\{Tx: x\in X\}.
+    \] \pause 
+    \item $\ker(T)=\{0\}$ if and only if $T$ is one-to-one (injective).
+     \pause 
+    \item $T$ is invertible if and only if $\ker(T)=\{0\}$ and $\mathrm{Range}(T)=Y$.
+    \pause \item If $X$ and $Y$ are Banach spaces, and $T:X\to Y$ is bounded and bijective, then $T^{-1}$ is bounded(Bounded Inverse Theorem ,Theorem 5.1 ).
+\end{enumerate}
+\end{tcolorbox}
+
+\end{frame}
+
+\begin{frame}{From Previous Lecture}
+\begin{tcolorbox}[colback=black!5, colframe=blue!20!pink, title= Main Results]
+ \begin{enumerate}
+     \item  let $T: \mathcal{H} \longrightarrow \mathcal{H}$ be a linear operator. An operator $T^{*}: \mathcal{H} \rightarrow \mathcal{H}$ such that
+      $
+        \langle T(x), y\rangle=\left\langle x, T^{*}(y)\right\rangle \quad
+      $
+      for all  $x,y$ $\in \mathcal{H}$,  is called the \textbf{adjoint} of $T$.
+     \item  The \textbf{adjoint} operator $T^{*}$ exists and is unique.
+     \pause
+     \item If $T$ is \textbf{invertible}, then $T^*$ is invertible and $(T^*)^{-1} = (T^{-1})^*$.
+     \pause
+     \item  Suppose that $S$ is \textbf{the right shift} operator on $l^{2}(\mathbb{R})$:
+        $$S(x_{1}, x_{2}, \dots) = (0, x_{1}, x_{2}, \dots), \quad S^*(x_{1}, x_{2}, \dots) = (x_{2}, x_{3}, \dots).$$
+        \pause
+        \item If $T$ is a \textbf{bounded} linear , then $T^{*}$ is a \textbf{bounded} linear  with $\lVert T^{*}\rVert = \lVert T\rVert$.
+        \pause
+        \item  $T$ is \textbf{invertible} $\Longleftrightarrow$  $\operatorname{ker}T^{*}=\{0\}$ and $\exists \alpha>0$ such that $\|T(x)\| \geqslant \alpha\|x\| \quad \forall x \in H$.
+   
+        
+ \end{enumerate}
+ \end{tcolorbox}
+
+\end{frame}
+
+\begin{frame}{Warming up}
+These are some important theorems on Hilbert spaces. We will use them frequently, so \textbf{we list them without proof.}
+\pause
+\begin{tcolorbox}[colback=blue!5, colframe=blue!20!orange, title=Theorem 0.1]
+Let $T:\mathcal{H}\to\mathcal{H}$ be a bounded linear operator. Then
+\[
+\overline{\mathrm{Range}(T)}=(\ker(T^*))^{\perp}.
+\]
+\end{tcolorbox}
+\pause
+\begin{tcolorbox}[colback=blue!5, colframe=blue!20!orange, title=Theorem 0.2]
+Let $T:\mathcal{H}\to\mathcal{H}$ be a bounded linear operator on a Hilbert space \mathcal{H}. If
+\[
+\langle x,Tx\rangle=0 \qquad \forall x\in\mathcal{H},
+\]
+then $T=0$.
+
+Consequently, if
+\[
+\langle x,Tx\rangle=\langle x,Sx\rangle \qquad \forall x\in\mathcal{H},
+\]
+then $T=S$.
+\end{tcolorbox}
+\end{frame}
+%------------------section1-------------------
+\begin{frame}{Normal Operators: Definition}
+  \begin{definition}[Normal Operators]
+      Let $\mathcal{H}$ be a Hilbert space and $T: \mathcal{H} \rightarrow \mathcal{H}$ be a linear operator. Then we said $T$ is \textbf{normal} if $TT^*=T^*T$
+  \end{definition} 
+  
+  \pause
+
+ \begin{example}[1]
+\begin{itemize}
+    \item \textbf{1)} $T:\mathbb{R}^{2}\to\mathbb{R}^{2}$, defined by
+    $
+    x\mapsto
+    \begin{pmatrix}
+    1 & -1\\
+    1 & 1
+    \end{pmatrix}x,
+    $
+    is a \textbf{normal} operator.
+\pause
+    \item \textbf{2)} $T_k:L^2[0,1]\to L^2[0,1]$, defined by
+    \[
+    (T_kf)(t)=k(t)f(t), \qquad k\in C[0,1],
+    \]
+    is a \textbf{normal} operator.
+\pause
+    \item \textbf{3)} The right shift $S:\ell^2\to\ell^2$, defined by
+    \[
+    S(x_1,x_2,x_3,\dots)=(0,x_1,x_2,x_3,\dots),
+    \]
+    is \textbf{not} a normal operator.
+\end{itemize}
+\end{example}
+
+
+\end{frame}
+
+\begin{frame}{Normal Operators: Proving the examples}
+    \begin{enumerate}
+    \item One can show that
+    \[
+    \begin{pmatrix}
+    1 & -1\\
+    1 & 1
+    \end{pmatrix}
+    \begin{pmatrix}
+    1 & -1\\
+    1 & 1
+    \end{pmatrix}^{T}
+    =
+    \begin{pmatrix}
+    1 & -1\\
+    1 & 1
+    \end{pmatrix}^{T}
+    \begin{pmatrix}
+    1 & -1\\
+    1 & 1
+    \end{pmatrix}.
+    \]
+\pause
+    \item Since $T_k^*=T_{\bar{k}}$, we have
+    \[
+    T_kT_k^*f=T_k(T_{\bar{k}}f)=k\bar{k}f
+    \]
+    and
+    \[
+    T_k^*T_kf=T_{\bar{k}}(T_kf)=\bar{k}kf
+    \]
+    for all $f\in L^2[0,1]$. Hence $T_kT_k^*=T_k^*T_k$.
+\pause
+    \item We have
+    \[
+    S^*(x_1,x_2,x_3,\dots)=(x_2,x_3,\dots).
+    \]
+    Therefore,
+    \[
+    SS^*(x_1,x_2,x_3,\dots)=(0,x_2,x_3,\dots),
+    \]
+    while
+    \[
+    S^*S(x_1,x_2,x_3,\dots)=(x_1,x_2,x_3,\dots).
+    \]
+    Hence $SS^*\neq S^*S$, so $S$ is not normal.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Normal Operators: Lemma 1}
+% \begin{tcolorbox}[colback=blue!5, colframe=blue!20!orange, title= Lemma 1]
+%    Let $T$ be a bounded operator on a Hilbert space $\mathcal{H}$. Then $T$ is \textbf{normal} if and only if $\| T(x) \|=\| T^*(x) \|$ for all $x$ in $\mathcal{H}$.
+% \end{tcolorbox}
+% proof: ($\Rightarrow$) assume $T$ is normal, then $\|T(x)\|^2=\langle Tx,Tx \rangle=\langle x,T^*Tx \rangle$ since $T$ is normal, $\langle x,T^*Tx \rangle=\langle x,TT^*x \rangle=\langle T^*x,T^*x \rangle=\|T^*x\|^2$ which implies $\|Tx\|=\|T^*x\|$.
+
+% ($\Leftarrow$) If $\|Tx\|=\|T^*x\|$ for all $x \in \mathcal{H}$, then $\langle x,T^*Tx \rangle=\langle x,TT^*x \rangle$ thus $T^*T=TT^*$.
+\begin{tcolorbox}[colback=blue!5, colframe=blue!20!orange, title=Lemma 1]
+Let $T$ be a bounded operator on a Hilbert space $\mathcal{H}$. Then $T$ is \textbf{normal} if and only if $\|Tx\|=\|T^*x\|$ for all $x\in\mathcal{H}$.
+\end{tcolorbox}
+\pause
+\textbf{Proof:} $(\Rightarrow)$ Assume $T$ is normal. Then
+$
+\|Tx\|^2=\langle Tx,Tx\rangle=\langle x,T^*Tx\rangle.
+$
+Since $T$ is normal, we have $T^*T=TT^*$, so
+\[
+\langle x,T^*Tx\rangle=\langle x,TT^*x\rangle=\langle T^*x,T^*x\rangle=\|T^*x\|^2.
+\]
+Hence $\|Tx\|=\|T^*x\|$ for all $x\in\mathcal{H}$.
+
+\pause
+
+$(\Leftarrow)$ Assume that $\|Tx\|=\|T^*x\|$ for all $x\in\mathcal{H}$. Then
+\[
+\|Tx\|^2=\|T^*x\|^2,
+\]
+so
+\[
+\langle x,T^*Tx\rangle=\langle x,TT^*x\rangle
+\]
+for all $x\in\mathcal{H}$. Therefore, by \textcolor{red}{Theorem 0.2}
+ $T^*T=TT^*$, so $T$ is normal. $\square$ 
+
+
+
+\end{frame}
+
+\begin{frame}{Normal Operators: Lemma 2}
+    \begin{tcolorbox}[colback=blue!5, colframe=blue!20!orange, title=Lemma 2]
+Let $T$ be a bounded \textbf{normal} operator on a Hilbert space $\mathcal{H}$ and let $\alpha>0$. Then
+
+\textbf{a)} $\ker(T)=\ker(T^*)$.
+
+\textbf{b)} If $\|Tx\|\ge \alpha \|x\|$ for all $x \in \mathcal{H}$, then $\ker(T)= \{0\}$.
+\end{tcolorbox}
+\pause
+\textbf{Proof for a):} Let $x\in \ker(T)$. Then $Tx=0$, so $\|Tx\|=0$. \textcolor{red}{ By Lemma 1}, since $T$ is normal, we have
+$
+\|Tx\|=\|T^*x\|.
+$
+Hence $\|T^*x\|=0$, which implies $T^*x=0$. Thus $x\in \ker(T^*)$, and so
+\[
+\ker(T)\subseteq \ker(T^*).
+\]
+In a similar way, one shows that
+\[
+\ker(T^*)\subseteq \ker(T).
+\]
+Therefore,
+$
+\ker(T)=\ker(T^*).
+$ \square
+
+\pause
+\textbf{Proof for b):} Let $x\in \ker(T)$. Then $Tx=0$, so
+$
+0=\|Tx\|\ge \alpha \|x\|.
+$
+Since $\alpha>0$ and $\|x\|\ge 0$, it follows that $\|x\|=0$. Hence $x=0$, and therefore
+\[
+\ker(T)=\{0\}.
+\qquad\square\]   
+\end{frame}
+\begin{frame}{Normal Operators: Theorem 1}
+In \textbf{finite dimensions}, $\mathrm{ker(T)}=\{0\}$ already implies invertibility. That is not enough in infinite dimensions. However, for a\textbf{ normal operator}, if we add the condition that the range is \textcolor{red}{closed} to the condition $\ker(T)=\{0\}$, then we obtain invertibility.
+\pause
+\begin{tcolorbox}[colback=blue!5, colframe=blue!60!black, title=Theorem 1]
+Let $T$ be a bounded \textbf{normal} operator on a Hilbert space $\mathcal{H}$. Then $T$ is \textbf{invertible} if and only if $\ker(T)=\{0\}$ and the range of $T$ is closed. Moreover, if $T$ is invertible, then $T^{-1}$ is bounded and normal.
+\end{tcolorbox}
+\pause
+
+{\fontsize{8.5pt}{6pt}\selectfont 
+\textbf{Proof:} $(\Rightarrow)$ Assume $T$ is invertible. Then $T$ is one-to-one and onto. Since $T$ is one-to-one, we have
+\textcolor{blue}{$
+\ker(T)=\{0\}.
+$}
+Since $T$ is onto, we have
+\textcolor{blue}{$
+\mathrm{Range}(T)=\mathcal{H},
+$}
+which is closed.
+
+\pause
+$(\Leftarrow)$ Assume $\ker(T)=\{0\}$ and $\mathrm{Range}(T)$ is closed. Now we show that $T$ is onto. By \textcolor{red}{Theorem 0.1}
+$
+\overline{\mathrm{Range}(T)}=(\ker(T^*))^\perp
+$
+and $\mathrm{Range}(T)$ is closed, it follows that
+\[
+\mathrm{Range}(T)=(\ker(T^*))^\perp.
+\]
+By \textcolor{red}{Lemma 2}, since $T$ is normal,
+$
+\ker(T^*)=\ker(T)=\{0\}.
+$
+Hence
+$
+\mathrm{Range}(T)=(\{0\})^\perp=\mathcal{H}.
+$
+Therefore, $T$ is \textcolor{blue}{onto}. Thus $T$ is bijective. Since $\mathcal{H}$ is a Banach space, \textcolor{red}{the bounded inverse theorem }implies that $T^{-1}$ is \textcolor{blue}{bounded}.
+
+Now suppose $T$ is invertible. Therefore,$
+T^{-1}(T^{-1})^*=T^{-1}(T^*)^{-1}=(T^*T)^{-1}
+=(TT^*)^{-1}=(T^{-1})^{*}T^{-1}$ so $T^{-1}$ is \textcolor{blue}{normal}.}
+\square
+
+\end{frame}
+
+\begin{frame}{Normal Operators: Theorem 2 }
+\begin{tcolorbox}[colback=blue!5, colframe=blue!60!black, title=Theorem 2]
+Let $T$ be a bounded \textbf{normal} operator on a Hilbert space $\mathcal{H}$. Then $T$ is invertible if and only if there exists $c>0$ such that
+\[
+\|Tx\|\ge c\|x\| \qquad \text{for all } x\in\mathcal{H}.
+\]
+\end{tcolorbox}
+\pause
+\textbf{Proof:} \textbf{$(\Rightarrow)$} If $T$ is invertible, then for any $x\in\mathcal{H}$ we have
+$$
+x=T^{-1}(Tx).
+$$
+Hence
+$
+\|x\|=\|T^{-1}(Tx)\|\le \|T^{-1}\|\,\|Tx\|.
+$
+Since $T^{-1}$ is \textcolor{red}{bounded}, it follows that
+$$
+\|Tx\|\ge \frac{1}{\|T^{-1}\|}\|x\|.
+$$
+So we may take
+\[
+c=\frac{1}{\|T^{-1}\|}>0.
+\]
+
+
+
+\end{frame}
+
+\begin{frame}{Normal Operators}
+$(\Leftarrow)$ Assume that there exists $c>0$ such that
+\[
+\|Tx\|\ge c\|x\| \qquad \text{for all } x\in\mathcal{H}.
+\]
+By \textcolor{red}{Lemma 2}, we have \textcolor{blue}{$\ker(T)=\{0\}$}. Now we show that $\mathrm{Range}(T)$ is closed.
+
+Take a convergent sequence $(y_n)$ in $\mathrm{Range}(T)$, say $y_n=Tx_n$, and suppose $y_n\to y$. Since every convergent sequence is Cauchy, $(y_n)$ is Cauchy. Thus
+$
+\|y_n-y_m\|=\|Tx_n-Tx_m\|=\|T(x_n-x_m)\|.
+$
+
+Using the given inequality,
+\[
+\|T(x_n-x_m)\|\ge c\|x_n-x_m\|,
+\]
+so
+\[
+\|x_n-x_m\|\le \frac{1}{c}\|Tx_n-Tx_m\|.
+\]
+Since $(Tx_n)=(y_n)$ is Cauchy, it follows that $(x_n)$ is also Cauchy. Because $\mathcal{H}$ is complete, there exists $x\in\mathcal{H}$ such that $x_n\to x$. Since $T$ is bounded, it is continuous, so
+$
+Tx_n\to Tx.
+$
+But also $Tx_n=y_n\to y$. By uniqueness of limits, we get
+$
+Tx=y.
+$
+Hence $y\in \mathrm{Range}(T)$, so \textcolor{blue}{$\mathrm{Range}(T)$ is closed.}
+Therefore $\ker(T)=\{0\}$ and $\mathrm{Range}(T)$ is closed, so by \textcolor{red}{Theorem 1}, $T$ is invertible.  \square 
+ 
+
+\end{frame}
+\begin{frame}{Normal Operators: Corollary 1}
+    \begin{tcolorbox}[colback=blue!5, colframe=blue!50!red, title= Corollary 1]
+ Let $T$ be a bounded \textbf{normal} operator on a Hilbert space $\mathcal{H}$ . Then the following statements are equivalent:
+ \begin{enumerate}
+     \item $T$ is invertible 
+     \pause
+     \item there exists $c>0$ such that $\|T(x)\|\ge c \|x\|$ for all $x \in \mathcal{H}$
+     \pause
+     \item $\mathrm{ker}(T)=\{0 \}$ \textcolor{red}{and} the range of $T$ is closed.\end{enumerate}
+\end{tcolorbox} 
+\end{frame}
+\begin{frame}{Normal Operators: Diagonal Operator}
+\begin{example}
+Consider the diagonal operator $D:\ell^2\to\ell^2$ defined by
+\[
+D(x_1,x_2,x_3,\dots)=\left(x_1,\frac{x_2}{2},\frac{x_3}{3},\dots\right)=\left\{\frac{x_n}{n}\right\}_{n\ge1}.
+\]
+Then $D$ is \textbf{not} invertible and its range is \textbf{not} closed.
+\end{example}
+
+{\fontsize{8.5pt}{4pt}\selectfont 
+\textbf{Method 1 \(\neg(2)\implies \neg(1)\):} \pause  \textbf{Assume for contradiction} that there exists $c>0$ such that
+\[
+\|D(x)\|\ge c\|x\| \qquad \text{for all } x\in \ell^2.
+\]
+In particular, take
+$
+e_n=(0,0,\dots,\underbrace{1}_{n},0,\dots).
+$
+Then
+$
+D(e_n)=\left(0,0,\dots,\underbrace{\frac{1}{n}}_{n},0,\dots\right),
+$
+so
+$
+\|D(e_n)\|=\frac{1}{n}, \quad \|e_n\|=1.
+$
+Hence
+\[
+\frac{1}{n}\ge c \qquad \text{for all } n\in\mathbb N,
+\]
+which is a \textcolor{blue}{contradiction.} Thus there is no such constant $c>0$.
+ Therefore,$D$ is not invertible.
+Moreover,
+\[
+\ker(D)=\left\{x\in\ell^2:\left(x_1,\frac{x_2}{2},\frac{x_3}{3},\dots\right)=0\right\}=\{0\}.
+\]
+    since $D$ is normal, $\ker(D)=\{0\}$, and $D$ is \textbf{not} invertible, it follows that the range of $D$ is \textbf{not} closed.}
+\end{frame}
+\begin{frame}{Normal Operators: Diagonal Operator}
+
+{\fontsize{8.5pt}{4pt}\selectfont
+\textbf{Method 2 \(\neg(3)\implies \neg(1)\):}\pause  We have already shown that \textcolor{blue}{$\ker(D)=\{0\}$}, so it remains to show that \textbf{$\mathrm{Range}(D)$ is not closed.} To do this, we choose a sequence $(y_n)$ in the range and show that it converges to an element not in the range.
+
+Consider
+\[
+y_n=\left(1,\frac{1}{2},\frac{1}{3},\dots,\frac{1}{n},0,0,\dots\right)=D(x_n),
+\]
+where
+\[
+x_n=(\underbrace{1,1,1,\dots,1}_{\text{first } n},0,0,\dots).
+\]
+Since $x_n\in \ell^2$, we have $y_n\in \mathrm{Range}(D)$ for all $n$.
+
+Now consider
+$
+y=\left(1,\frac{1}{2},\frac{1}{3},\dots\right).
+$
+Since
+$
+\sum_{n=1}^{\infty}\frac{1}{n^2}<\infty,
+$
+we have $y\in \ell^2$. Also, $y_n\to y$ in $\ell^2$, since
+\[
+\|y_n-y\|^2=\sum_{k=n+1}^{\infty}\frac{1}{k^2}\to 0.
+\]
+However, $y\notin \mathrm{Range}(D)$, because if $y=D(x)$, then necessarily
+\[
+x=(1,1,1,\dots),
+\]
+but $(1,1,1,\dots)\notin \ell^2$.
+
+\textcolor{red}{Thus $\mathrm{Range}(D)$ is not closed. Hence $D$ is not invertible.}
+}  
+\end{frame}
+%------------------section2-------------------
+\begin{frame}{Self-Adjoint Operators}
+In many applications, we encounter a very special type of operator: those equal to their adjoint. 
+\begin{definition}[self-adjoint operator]
+Let $T$ be a linear operator on a Hilbert space. If $T=T^*$, then we say that $T$ is a\textbf{ self-adjoint} operator (Hermitian).
+\end{definition}
+\pause
+\begin{itemize}
+    \item \textbf{\textit{Remark}}: Every self-adjoint operator is normal, but the converse is \textbf{not} true in general.
+\end{itemize}
+\begin{example}
+We have shown that $T_k$ is normal. However, it is \textbf{not} self-adjoint unless \textcolor{red}{$k(t)$ is a real-valued function.}
+\end{example}
+\pause
+Indeed, if $k$ is a real-valued function, then
+\[
+T_k^*=T_{\bar{k}}=T_k.
+\]
+But, for example, if $k(t)=e^{it}$, then
+\[
+T_kf(t)=e^{it}f(t)\neq e^{-it}f(t)=T_k^*f(t).
+\]
+Hence $T_k$ is \textbf{not self-adjoint}.
+\end{frame}
+\begin{frame}{Self-Adjoint Operators}
+    \begin{tcolorbox}[colback=blue!5, colframe=blue!60!black, title=Theorem 3]
+Let $(T_n)$ be a sequence of bounded \textbf{self-adjoint} operators on a Hilbert space $\mathcal{H}$ that converges to $T$ in operator norm. Then $T$ is self-adjoint. That is, the set of self-adjoint operators is \textbf{closed}.
+\end{tcolorbox}
+\pause
+{\fontsize{9pt}{6pt}\selectfont
+\textbf{Proof:} Let $T_n\to T$ in operator norm. Then for every $\varepsilon>0$, we have
+$
+\|T_n-T\|<\varepsilon
+$ for all sufficiently large $n$. Since each $T_n$ is self-adjoint,we have $T_n^*=T_n$ ,and, $\|T_n-T\|=\|(T_n-T)^*\|=\|T_n^*-T^*\|=\|T_n-T^*\|.$
+Hence
+$\|T_n-T^*\|<\varepsilon$
+so $T_n\to T^*$. By uniqueness of the limit, we conclude that
+$
+T=T^*.
+$
+Therefore, $T$ is self-adjoint.
+}  \square
+
+\pause
+
+\begin{tcolorbox}[colback=blue!5, colframe=blue!60!black, title=Theorem 4]
+Let $T$ be a bounded linear operator on a Hilbert space $\mathcal{H}$. Then the following statements are equivalent:
+\begin{enumerate}
+    \item $T$ is self-adjoint.
+    \item $\langle Tx,y \rangle = \langle x,Ty \rangle$ for all $x,y \in \mathcal{H}$.
+    \item $\langle Tx,x \rangle = \langle x,Tx \rangle$ for all $x \in \mathcal{H}$.
+\end{enumerate}
+\end{tcolorbox}
+\end{frame}
+\begin{frame}{Self-Adjoint Operators}
+
+{\fontsize{7.5pt}{4pt}\selectfont
+\textbf{Proof:} $(1\iff 2)$ By definition of the adjoint,
+$
+\langle Tx,y\rangle=\langle x,T^*y\rangle 
+$
+Hence $T=T^*$ if and only if
+$
+\langle Tx,y\rangle=\langle x,Ty\rangle
+$
+
+Also, $(2\implies 3)$ is clear by taking $y=x$.
+
+
+
+Now we show $(3\implies 2)$.\pause Assume that
+
+First take $z=x+y$. Then
+\[
+\langle Tz,z\rangle
+=
+\langle Tx,x\rangle+\langle Tx,y\rangle+\langle Ty,x\rangle+\langle Ty,y\rangle.
+\]
+Also,
+\[
+\langle z,Tz\rangle
+=
+\langle x,Tx\rangle+\langle x,Ty\rangle+\langle y,Tx\rangle+\langle y,Ty\rangle.
+\]
+Since $\langle Tz,z\rangle=\langle z,Tz\rangle$, and also
+\[
+\langle Tx,x\rangle=\langle x,Tx\rangle,\qquad
+\langle Ty,y\rangle=\langle y,Ty\rangle,
+\]
+we get
+\textcolor{red}{\[
+\langle Tx,y\rangle+\langle Ty,x\rangle
+=
+\langle x,Ty\rangle+\langle y,Tx\rangle. \tag{1}
+\]}
+\pause
+Now take $z=x+iy$. Then
+\[
+\langle Tz,z\rangle
+=
+\langle Tx,x\rangle-i\langle Tx,y\rangle+i\langle Ty,x\rangle+\langle Ty,y\rangle.
+\]
+Also,
+\[
+\langle z,Tz\rangle
+=
+\langle x,Tx\rangle-i\langle x,Ty\rangle+i\langle y,Tx\rangle+\langle y,Ty\rangle.
+\]
+Again using $\langle Tz,z\rangle=\langle z,Tz\rangle$ and canceling the diagonal terms, we get
+\textcolor{red}{\[
+-\langle Tx,y\rangle+\langle Ty,x\rangle
+=
+-\langle x,Ty\rangle+\langle y,Tx\rangle. \tag{2}
+\]}
+\pause
+Adding (1) and (2), we obtain
+\[
+2\langle Ty,x\rangle=2\langle y,Tx\rangle.
+\]
+
+Hence
+\textcolor{blue}{
+\[
+\langle Tx,y\rangle=\langle x,Ty\rangle
+\qquad \text{for all }x,y\in\mathcal H.
+\]}
+Therefore, $(3\implies 2)$, and the three statements are equivalent.}  \square
+
+\end{frame}
+\begin{frame}{Self-Adjoint Operators: Corollary 2}
+\begin{tcolorbox}[colback=blue!5, colframe=blue!50!red, title=Corollary 2]
+Let $T$ be a bounded linear operator on a  Hilbert space $\mathcal{H}$. Then $T$ is \textbf{self-adjoint} if and only if $\langle x,Tx\rangle$ is \textbf{real} for all $x\in\mathcal{H}$.
+\end{tcolorbox}
+\pause
+   \begin{example}
+   { \fontsize{9.5pt}{7pt}\selectfont \begin{enumerate}
+        \item Let $(T_{ik}f)(t)=i\,k(t)f(t)$, where $k(t)$ is a real-valued function. If $k\neq 0$ \textbf{almost everywhere}, then $T_{ik}$ is \textbf{not} self-adjoint.
+        \pause
+        \item Let $D:\ell^2\to\ell^2$ be the diagonal operator
+        $
+        D(x_1,x_2,\dots)=(\lambda_1x_1,\lambda_2x_2,\lambda_3x_3,\dots).
+        $
+        Find the condition on $(\lambda_n)$ that makes $D$ \textbf{self-adjoint.}}
+    \end{enumerate}
+\end{example}
+\pause
+\begin{enumerate}
+    \item We have
+    $
+    \langle T_{ik}f,f\rangle=\int i\,k(t)\,|f(t)|^2\,dt.
+    $
+    Since $k(t)$ is real-valued, this quantity is purely imaginary. If $k\neq 0$ almost everywhere, then one can choose $f$ such that
+    $
+    \int k(t)|f(t)|^2\,dt\neq 0,
+    $
+    so $\langle T_{ik}f,f\rangle$ is \textbf{not real}. Hence, $T_{ik}$ is not self-adjoint.
+\pause
+    \item We have
+    $
+    \langle D(x),x\rangle=\sum_{n=1}^\infty \lambda_n |x_n|^2.
+    $
+    Therefore, $\langle D(x),x\rangle$ is real for all $x\in\ell^2$ if and only if \textbf{each $\lambda_n$ is real.} Hence $D$ is self-adjoint if and only if $\lambda_n\in\mathbb R$ for all $n$.
+\end{enumerate}
+\end{frame}
+\begin{frame}{Self-Adjoint Operators: Quantum Physics}
+    
+     \begin{tcolorbox}[colback=!5, colframe=red!60!black, title= Quantum Physics]
+In quantum physics, we describe the \textbf{state} of a system (say, one particle) by an element $\psi$ that lives in a Hilbert space $\mathcal{H}$.\pause For every measurable quantity (\textbf{observable}) $t$, we associate a linear operator, say $T$, with it.\pause The average value of the quantity $t$ is defined as
+$$t_{\mathrm{avg}}=\langle\psi,T\psi \rangle$$
+ \pause However, this represents a quantity that we measure, so it should be \textbf{real}.
+$$\text{states} \, \psi \longmapsto \text{elements in } \, \mathcal{H}$$
+$$\text{observables} \, t \longmapsto \text{self-adjoint operator $T$ on} \, \mathcal{H}$$
+\end{tcolorbox} 
+
+\end{frame}
+
+\begin{frame}{Self-Adjoint Operators: Quantum Physics}
+\begin{example}
+Consider the following operators on $L^2[a,b]$ and $H^n[a,b]=\{f,f',..,f^{(n)} \in L^2[a,b]\}$ which are called \textbf{Sobolev spaces}:
+\pause
+\begin{enumerate}
+    \item The  operator
+    $
+    p:\mathcal{D}(p)\to L^2[a,b], \qquad pf(x)=-i\,f'(x),
+    $
+    where
+    $
+    \mathcal{D}(p)=\{f\in H^1[a,b]: f(a)=f(b)\}.
+    $
+\pause
+    \item The second derivative operator
+    $
+    A:\mathcal{D}(A)\to L^2[a,b], \qquad Af(x)=-f''(x),
+    $
+    where
+    $
+    \mathcal{D}(A)=\{f\in H^2[a,b]: f(a)=f(b),\ f'(a)=f'(b)\}.
+    $
+    \pause
+\end{enumerate}
+\end{example}
+
+
+
+\begin{tcolorbox}[colback=red!5, colframe=red!60!black, title=Quantum Physics]
+$p$ is called the \textbf{momentum operator}, which is associated with the momentum observable.
+\pause
+We also define the operator
+\[
+H=-\frac{\hbar^2}{2m}\frac{d^2}{dx^2}+V(x),
+\]
+where $V$ is a real-valued function. This is the famous \textbf{Hamiltonian operator}, which is related to the energy observable.
+\end{tcolorbox} 
+% {\fontsize{7.5pt}{9.5pt}\selectfont
+% \textbf{Proof:}
+
+% For $f,g\in\mathcal{D}(p)$,
+% $
+% \langle Pf,g\rangle
+% =
+% \int_a^b (-if')\overline{g}\,dx
+% =
+% -i[f\overline{g}]_a^b+\int_a^b f\,\overline{(-ig')}\,dx.
+% $
+% Since $f(a)=f(b)$ and $g(a)=g(b)$, the boundary term vanishes, so
+% \[
+% \langle Pf,g\rangle=\langle f,Pg\rangle.
+% \]
+% so $P$ is self-adjoint.
+
+% \medskip
+
+% For $f,g\in\mathcal{D}(A)$,
+% $
+% \langle Af,g\rangle
+% =
+% \int_a^b f''\overline{g}\,dx
+% =
+% [f'\overline{g}-f\overline{g'}]_a^b+\int_a^b f\,\overline{g''}\,dx.
+% $
+% Since
+% \[
+% f(a)=f(b),\quad f'(a)=f'(b),\quad g(a)=g(b),\quad g'(a)=g'(b),
+% \]
+% the boundary term vanishes, hence
+% \[
+% \langle Af,g\rangle=\langle f,Ag\rangle.
+% \]
+%  Therefore $A$ is self-adjoint.
+% }
+\end{frame}
+
+%------------------section3-------------------
+\begin{frame}{ Unitary operators}
+Another important class of normal operators are the unitary operators.
+\begin{definition}
+    Let $T$ be a bounded linear operator on a Hilbert space. If
+    \[
+    TT^* = T^*T = I,
+    \]
+    where $I$ is the identity operator, or equivalently
+    \[
+    T^* = T^{-1},
+    \]
+    then $T$ is called a \textbf{unitary operator}.
+\end{definition}
+\pause
+\begin{examples}
+    \begin{enumerate}
+        \item $T_k:L^2[0,1]\to L^2[0,1]$, defined by
+        $
+        (T_kf)(t)=k(t)f(t),
+        $
+        where $|k(t)|=1$ for all $t\in[0,1]$.
+\pause
+        \item The Fourier transform $\mathcal{F}:L^2(\mathbb{R})\to L^2(\mathbb{R})$ is unitary. 
+With the convention
+\[
+(\mathcal{F}f)(\xi)=\frac{1}{\sqrt{2\pi}}\int_{\mathbb{R}} f(x)e^{-ix\xi}\,dx,
+\]
+we have
+$
+\mathcal{F}^*=\mathcal{F}^{-1}.
+$
+    \end{enumerate}
+\end{examples}
+\end{frame}
+ \begin{frame}{Unitary operators}
+ \begin{tcolorbox}[colback=blue!5, colframe=blue!60!black, title=Theorem 5]
+Let $T$ be a bounded linear operator on a Hilbert space $\mathcal{H}$. Then $T$ is \textbf{unitary} if and only if $T$ is a \textbf{surjective isometry}.
+\end{tcolorbox}
+\pause
+{\fontsize{9pt}{4pt}\selectfont \textbf{Proof:}  $(\Rightarrow)$ Assume $T$ is unitary. Then
+\[
+\|Tx\|^2=\langle Tx,Tx\rangle=\langle T^*Tx,x\rangle=\langle Ix,x\rangle=\|x\|^2
+\]
+for all $x\in\mathcal{H}$. Therefore, $T$ is an \textcolor{blue}{isometry.}
+
+Now let $y\in\mathcal{H}$. Take $x=T^*y$. Then
+$
+T(x)=T(T^*y)=TT^*y=Iy=y.
+$
+Hence $\mathrm{Range}(T)=\mathcal{H}$, so $T$ is \textcolor{blue}{onto.}
+
+\pause
+
+$(\Leftarrow)$ Assume $T$ is a surjective isometry. Since $T$ is an isometry,
+\[
+\|Tx\|=\|x\| \qquad \text{for all } x\in\mathcal{H}.
+\]
+Thus
+\[
+\langle T^*Tx,x\rangle=\langle Tx,Tx\rangle=\|Tx\|^2=\|x\|^2=\langle Ix,x\rangle
+\]
+for all $x\in\mathcal{H}$. 
+By \textcolor{red}{Theorem 0.2}, it follows that
+$
+\textcolor{blue}{T^*T=I}.
+$
+
+Now let $y\in\mathcal{H}$. Since $T$ is onto, there exists $x\in\mathcal{H}$ such that $Tx=y$. Therefore,
+\[
+TT^*y=TT^*(Tx)=T(T^*T)x=Tx=y.
+\]
+Hence
+$
+\textcolor{blue}
+{TT^*=I.}
+$
+Therefore,$T$ is \textbf{unitary}.}  \square
+   
+ \end{frame}
+ \begin{frame}{Unitary Operators}
+     \begin{tcolorbox}[colback=blue!5, colframe=blue!60!black, title=Theorem 6]
+Let $T$ be a unitary operator on a Hilbert space $\mathcal{H}$. Then
+\[
+\|T\|=\|T^*\|=1.
+\]
+\end{tcolorbox}
+\pause
+\textbf{Proof:} Since $T$ is unitary, it is an isometry. Hence
+\[
+\|Tx\|=\|x\| \qquad \text{for all } x\in\mathcal{H}.
+\]
+Therefore, for every $x\neq 0$,
+\[
+\frac{\|Tx\|}{\|x\|}=1.
+\]
+By the definition of the operator norm,
+\[
+\|T\|=\sup_{x\neq 0}\frac{\|Tx\|}{\|x\|}=1.
+\]
+ \end{frame}
+
+\begin{frame}{Summary}
+\centering
+
+
+\begin{tikzpicture}[
+    every node/.style={align=center},
+    box/.style={
+        draw,
+        rounded corners,
+        thick,
+        minimum width=0.5cm,
+        minimum height=0.5cm,
+        align=center
+    }
+]
+
+%======================
+% Top part
+%======================
+\node[box] (normal) at (0,0) {\textbf{Normal}};
+\node at (0,-0.6) {$\boxed{\textcolor{red}{TT^*=T^*T}}$};
+
+\node at (0,-1.2)
+{\textcolor{blue}{$T$ normal $\iff \|Tx\|=\|T^*x\|$}};
+
+\node at (0,-1.8)
+{$T$ is \textbf{invertible}
+$\iff \ker(T)=\{0\}$ \textbf{and} $\operatorname{Range}(T)$ is closed
+$\iff \|Tx\|\ge c\|x\|$};
+
+% Branching point (important!)
+\coordinate (branch) at (0,-2.0);
+
+%======================
+% Left branch
+%======================
+\node[box] (unitary) at (-4.8,-4) {\textbf{Unitary}};
+\node at (-4.8,-4.6) {$\boxed{\textcolor{red}{TT^*=T^*T=I}}$};
+\node[text width=4.8cm] at (-4.8,-5.1)
+{\textcolor{blue}{Unitary $\iff$ onto isometry}};
+\node[text width=4.8cm] at (-4.8,-5.6)
+{\textcolor{blue}{$\|T\|=\|T^*\|=1$}};
+\node at (-4.8,-6.0){\textbf{Examples}:}
+
+\node at (-4.8,-6.5)
+{\textcolor{black!50!green}{\textbf{1)} The Fourier transform $\mathcal{F}$ }};
+\node at (-4.8,-6.9)
+{\textcolor{black!50!green}{ \textbf{2)} $ (T_kf)$ where $|k(t)|=1$}};
+
+
+%======================
+% Right branch
+%======================
+\node[box] (selfadjoint) at (4.8,-4) {\textbf{Self-adjoint}};
+\node at (4.8,-4.6) {$\boxed{\textcolor{red}{T=T^*}}$};
+\node at (3.5,-5.1)
+{\textcolor{blue}{$T$ self-adjoint $\iff \langle Tx,x\rangle=\langle x,Tx\rangle$}};
+ \node at (3.5,-5.6){\textcolor{blue}{$T$ self-adjoint $\iff \langle Tx,x\rangle$ is real}}
+\node at (3.5,-6){\textbf{Examples:}}
+\node at (3.5,-6.5){\textcolor{black!50!green}{\textbf{1)} The diagonal $D$ operator with real $\lambda_i$ }}
+\node at (3.5,-6.9){\textcolor{black!50!green}{\textbf{2)} $(T_{k}f)$ with real-valued $k$ }}
+%======================
+% Branch lines
+%======================
+\draw[thick] (branch) to[out=-150,in=90] (unitary.north);
+\draw[thick] (branch) to[out=-30,in=90] (selfadjoint.north);
+
+\end{tikzpicture}
+\end{frame}
+\begin{frame}{Introduction to the Spectral Theorem}
+We wish to generalize the notion of eigenvalues and eigenvectors and study them in infinite-dimensional spaces.
+
+\begin{definition}
+Let $T$ be a linear operator on a Hilbert space $\mathcal{H}$, let $\lambda \in \mathbb{F}$, and let $x \in \mathcal{H}$ be \textbf{nonzero} such that
+$$
+Tx=\lambda x.
+$$
+Then we say that $\lambda$ is an \textbf{eigenvalue} (\emph{eigen} means proper in German) with corresponding eigenvector $x$.
+\end{definition}
+
+\pause
+
+\begin{example}
+The right shift $S$ has \textbf{no} eigenvalues.
+\end{example}
+
+\pause
+ Assume that $\lambda$ is an eigenvalue. Then there exists a \textbf{nonzero} $x\in \ell^2$ such that
+\[
+Sx=(0,x_1,x_2,\dots)=\lambda x=(\lambda x_1,\lambda x_2,\lambda x_3,\dots).
+\]
+If $\lambda=0$, then
+$
+(0,x_1,x_2,\dots)=(0,0,0,\dots),
+$
+so $x_1=x_2=\cdots=0$, hence $x=0$, which is impossible.
+
+Therefore, $\lambda\neq 0$. Comparing the first coordinates, we get
+$
+0=\lambda x_1,
+$
+so $x_1=0$. Comparing the second coordinates, we get
+$
+x_1=\lambda x_2,
+$hence $x_2=0$. Similarly, we obtain $x_n=0$ for all $n$,\textbf{ so again $x=0$}, a contradiction.
+
+Hence $S$ has no eigenvalues.
+\end{frame}
+
+\begin{frame}{ Eigenvalues of the Self-Adjoint}
+    \begin{tcolorbox}[colback=blue!5, colframe=blue!60!black, title=Theorem 7]
+Let $T$ be a\textbf{ self-adjoint} operator on a Hilbert space $\mathcal{H}$. If $\lambda$ is an eigenvalue of $T$, then $\lambda\in\mathbb{R}$.
+\end{tcolorbox}
+
+\pause
+
+ \textbf{Proof:} Let $Tx=\lambda x$ for some nonzero $x\in\mathcal{H}$. Then
+$
+\langle Tx,x\rangle=\langle \lambda x,x\rangle=\lambda \|x\|^2.
+$
+Since $T$ is self-adjoint, $\langle Tx,x\rangle$ is real. Hence $\lambda$ is \textbf{real} . \square
+
+\pause
+
+\begin{tcolorbox}[colback=red!5, colframe=red!60!black, title=Quantum Physics]
+We have seen that for an observable $t$, we associate a self-adjoint operator $T$.\textbf{ The eigenvalues of the operator $T$ represent the possible values of that observable $t$.}
+\pause
+For example, if we want to find the possible values of the energy, we need to find the eigenvalues of $H$. In other words, we solve
+\[
+H\psi=E\psi=\left(-\frac{\hbar^2}{2m}\frac{\partial^2}{\partial x^2}+V(x)\right)\psi.
+\]
+\pause
+This is the famous \textbf{Schrödinger} equation.
+\end{tcolorbox}
+\end{frame}
+\begin{frame}{Eigenvalues of the Unitary}
+    \begin{tcolorbox}[colback=blue!5, colframe=blue!60!black, title=Theorem 8]
+Let $T$ be a \textbf{unitary} operator on a  Hilbert space $\mathcal{H}$. If $\lambda$ is an eigenvalue of $T$, then $|\lambda|=1$.
+\end{tcolorbox}
+\pause
+\textbf{Proof:} Let $Tx=\lambda x$ for some nonzero $x\in\mathcal{H}$. Since $T$ is unitary, it preserves norms, so
+\[
+\|Tx\|=\|x\|.
+\]
+But
+\[
+\|Tx\|=\|\lambda x\|=|\lambda|\,\|x\|.
+\]
+Hence
+\[
+|\lambda|\,\|x\|=\|x\|.
+\]
+Since $x\neq 0$, we get $|\lambda|=1$. \square
+\end{frame}
+
+\begin{frame}{Reference}
+\begin{figure}
+    \centering
+
+    \begin{subfigure}{0.35\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{0ztHkB-2.png}
+        \caption{References}
+        \label{fig:first-image}
+    \end{subfigure}
+    \hspace{0.05\linewidth}
+    \begin{subfigure}{0.35\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{Untitled.png}
+        \caption{My Youtube Channel}
+        \label{fig:second-image}
+    \end{subfigure}
+
+    \label{fig:two-images}
+\end{figure}
+\end{frame}
+\end{document}
