@@ -1150,7 +1150,7 @@ is invertible, since $-\lambda U$ is invertible and, by Theorem \ref{SpectIsBd},
               &=(0,\cdots,0,a_{k},0,\cdots)=a_{k}(0,\cdots,0,1,0,\cdots)=a_{k}e_{k}
   \end{aligned}
   $$
-  So, the set of eigenvalues of $D_{a}$ is $\{a_{n}|n\in\mathbb{N}\}$. Hence, $\{a_{n}|n\in\mathbb{N}\}$. Since $\sigma(D_{a})$ is a closed set, we have $\overline{\{a_{n}|n\in\mathbb{N}\}}\subseteq\sigma(D_{a})$.
+  So, the set of eigenvalues of $D_{a}$ is $\{a_{n}|n\in\mathbb{N}\}$. Hence, $\{a_{n}|n\in\mathbb{N}\}\subseteq\sigma(D_{a})$. Since $\sigma(D_{a})$ is a closed set, we have $\overline{\{a_{n}|n\in\mathbb{N}\}}\subseteq\sigma(D_{a})$.
   \newline
   We will now show that $\sigma(D_{a})\subseteq\overline{\{a_{n}|n\in\mathbb{N}\}}$. Observe that
   $$
@@ -1166,7 +1166,7 @@ is invertible, since $-\lambda U$ is invertible and, by Theorem \ref{SpectIsBd},
   $$
   \|(D_{a}-\lambda I)^{*}x\|\geq\inf|a_{n}-\lambda|\|x\|
   $$
-  We see that if $D_{a}-\lambda I$ is not invertible, then $\inf|a_{n}-\lambda|=0$. If $\inf|a_{n}-\lambda|$, for all $\epsilon>0$, there is $k\in\mathbb{N}$ such that $|a_{k}-\lambda|<\inf|a_{k}-\lambda|+\epsilon=\epsilon$. So, there is $a_{k}\in\{a_{n}|n\in\mathbb{N}\}\cap B(\lambda,\epsilon)$, i.e. $\{a_{n}|n\in\mathbb{N}\}\cap B(\lambda,\epsilon)\not=\empty$, for all $\epsilon>0$. So, $\lambda\in\overline{\{a_{n}|n\in\mathbb{N}\}}$. Therefore, $\sigma(T)=\overline{\{a_{n}|n\in\mathbb{N}\}}$.
+  We see that if $D_{a}-\lambda I$ is not invertible, then $\inf|a_{n}-\lambda|=0$. If $\inf|a_{n}-\lambda|=0$, then for all $\epsilon>0$, there is $k\in\mathbb{N}$ such that $|a_{k}-\lambda|<\inf|a_{k}-\lambda|+\epsilon=\epsilon$. So, there is $a_{k}\in\{a_{n}|n\in\mathbb{N}\}\cap B(\lambda,\epsilon)$, i.e. $\{a_{n}|n\in\mathbb{N}\}\cap B(\lambda,\epsilon)\not=\emptyset$, for all $\epsilon>0$. So, $\lambda\in\overline{\{a_{n}|n\in\mathbb{N}\}}$. Hence, $\overline{\{a_{n}|n\in\mathbb{N}\}}\subseteq\sigma(D_{a})$. Therefore, $\sigma(T)=\overline{\{a_{n}|n\in\mathbb{N}\}}$.
 \end{exm}
 
 \end{document}
